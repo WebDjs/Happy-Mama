@@ -1,7 +1,13 @@
+div.log-in-form.log-form {
+	display: block;
+	margin: 0 auto;
+}
+
 .log-form {
 	margin: 2%;
 	padding: 1%;
 	max-width: 70%;
-	border: 2px solid black;
+	border: 2px solid steelblue;
+	color: steelblue;
 	border-radius: 5px;
 }

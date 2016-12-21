@@ -5,21 +5,27 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
-import { AboutComponent } from './about/about.component';
-import { CollectionsComponent } from './collections/collections.component';
+import { ChildmindersComponent } from './childminders/childminders.component';
+import { ForumComponent } from './forum/forum.component';
 import { SigninComponent } from './sign-in/sign-in.component';
 import { SignupComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
+import { FunComponent } from './fun/fun.component';
+import { InfoComponent } from './info/info.component';
+import { ListingsComponent } from './listings/listings.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
-    CollectionsComponent,
+    ChildmindersComponent,
+    ForumComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    FunComponent,
+    InfoComponent,
+    ListingsComponent
   ],
   imports: [
     BrowserModule,
