@@ -1,0 +1,71 @@
+#wrapper {
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+.invisible {
+	display: none
+}
+
+span {
+	color: steelblue;
+	font-size: 26px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul.right-object li a {
+	color: steelblue;
+}
+
+nav#home-nav ul li a:hover {
+	color: steelblue;
+}
+
+main {
+	min-height: 420px
+}
+
+main, nav {
+	background-color: whitesmoke;
+	padding: 5px;
+}
+
+#home-nav, footer {
+	background-color: lightskyblue;
+	color: white;
+	padding: 5px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 18px;
+	color: white
+}
+
+h1, ul {
+	display: inline-block
+}
+
+h6 {
+	font-weight: bold;
+	position: relative;
+	top: -24px;
+	left: 55px
+}
+
+ul {
+	margin-right: 0px;
+}
+
+.right-object {
+	float: right
+}
+
+.login {
+	color: lightskyblue;
+}
+
+footer {
+	text-align: center;
+	background-color: lightskyblue;
+}

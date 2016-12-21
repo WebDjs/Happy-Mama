@@ -1,0 +1,62 @@
+<div id="wrapper">
+  <header>
+    <nav>
+      <span>
+        <a [routerLink]="['/']">
+          <img src="../images/logo.png" width="80px" height="60px">
+          <span>HappyMama</span>
+        </a>
+      </span>
+      <ul class="nav nav-tabs right-object">
+        <li role="presentation">
+          <a class="btn-link login invisible" [routerLink]="['/profile']">
+            User
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="btn-link login" [routerLink]="['/sign-in']">
+            Sign In
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="btn-link login" [routerLink]="['/sign-up']">
+            Sign Up
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="btn-link login invisible" [routerLink]="['/sign-out']">
+            Sign Out
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav id="home-nav">
+      <ul class="nav nav-tabs">
+        <li>
+          <a class="btn" [routerLink]="['/']">
+            Home
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/about']">
+            About
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/collections']">
+            Collections
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+
+  <footer>
+    Webdjs&copy;2016
+  </footer>
+</div>
