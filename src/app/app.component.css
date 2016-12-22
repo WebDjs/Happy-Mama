@@ -82,7 +82,7 @@ footer {
 /* Bootstrap styles */
 .search-form .form-group {
   float: left !important;
-  transition: all 0.35s, border-radius 0s;
+  transition: all 0.65s, border-radius 0s;
   width: 32px;
   height: 32px;
   background-color: #fff;

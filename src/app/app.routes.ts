@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { ChildmindersComponent } from './childminders/childminders.component';
-import { ForumComponent } from './forum/forum.component';
-import { SigninComponent } from './sign-in/sign-in.component';
-import { SignupComponent } from './sign-up/sign-up.component';
-import { HomeComponent } from './home/home.component';
-import { FunComponent } from './fun/fun.component';
-import { InfoComponent } from './info/info.component';
-import { ListingsComponent } from './listings/listings.component';
+import { ChildmindersComponent } from './components/childminders/childminders.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { SigninComponent } from './components/sign-in/sign-in.component';
+import { SignupComponent } from './components/sign-up/sign-up.component';
+import { HomeComponent } from './components/home/home.component';
+import { FunComponent } from './components/fun/fun.component';
+import { InfoComponent } from './components/info/info.component';
+import { ListingsComponent } from './components/listings/listings.component';
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
