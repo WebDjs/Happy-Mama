@@ -1,7 +1,7 @@
 {
-  "name": "collections",
+  "name": "mothers-and-babysitters",
   "version": "1.0.0",
-  "description": "collections",
+  "description": "",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",

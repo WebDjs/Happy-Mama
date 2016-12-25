@@ -4,10 +4,11 @@
 <head>
   <meta charset=UTF-8>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HappyFreeMamas</title>
+  <title>Майки и детегледачки</title>
   <link href="./images/favicon.ico" rel="icon" type="image/ico" sizes="20x20">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./main.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
   <base href="/">
 
   <!-- Polyfill(s) for older browsers -->
@@ -26,15 +27,17 @@
 <body style="background-color: lightgrey">
 
 <app>
-  Loading...
+  <div id="loading-container">
+    <div id="loading">
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+    </div>
+    <h2>Loading...</h2>
+  </div>
 </app>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script src="/polyfills.browser.js"></script>
-<script src="/vendor.browser.js"></script>
-<script src="/main.browser.js"></script>
 
 </body>
 

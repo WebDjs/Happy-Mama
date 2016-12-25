@@ -1,19 +1,19 @@
-import { Superhero } from '../models/Superhero';
+import { Babysitter } from '../models/Babysitter';
 
 import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Pipe({
-    name: 'filterByPower'
+    name: 'filterByAge'
 })
 export class FilterByPowerPipe implements PipeTransform {
-    transform(superheroes: Superhero[], power: string): any[] {
-        if (power === '') {
-            return superheroes;
+    transform(babysitters: Babysitter[], age: number): any[] {
+        if (age === NaN) {
+            return babysitters;
         }
 
-        return superheroes.filter(superhero => {
-            return !!superhero.powers.find(shPower => shPower.toLowerCase() === power.toLowerCase());
-        });
+        // return babysitters.filter(babysitter => {
+        //     return !!babysitter.age.find();
+        // });
     }
 };
