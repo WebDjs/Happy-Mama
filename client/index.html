@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=UTF-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HappyFreeMamas</title>
+  <link href="./images/favicon.ico" rel="icon" type="image/ico" sizes="20x20">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./main.css" rel="stylesheet">
+  <base href="/">
+
+  <!-- Polyfill(s) for older browsers -->
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+  <script src="systemjs.config.js"></script>
+  <script>
+      System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+
+<body style="background-color: lightgrey">
+
+<app>
+  Loading...
+</app>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="/polyfills.browser.js"></script>
+<script src="/vendor.browser.js"></script>
+<script src="/main.browser.js"></script>
+
+</body>
+
+</html>
