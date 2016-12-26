@@ -1,4 +1,5 @@
-import { Babysitter } from '../models/Babysitter';
+import { Babysitter } from '../models/Babysitter.model';
+import { Parent } from '../models/Parent.model';
 
 import { Pipe, PipeTransform } from '@angular/core';
 
