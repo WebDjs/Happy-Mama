@@ -1,0 +1,195 @@
+#main-container{
+  font-family: Roboto;
+  min-height: 900px;
+  width:95%;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+
+#question{
+  font-size: 16px;
+  margin-top: 30px;
+  display: inline-block;
+  float: right;
+}
+
+.nav-link{
+  font-size: 13px;
+  color: grey;
+}
+
+.navigation-link{
+  width: 75%;
+}
+
+.navigation-link:after{
+  clear: both;
+}
+
+.category{
+  display: inline-block;
+  float: right;
+  font-size: 15px;
+  margin-left: 2%;
+  color: grey;
+}
+
+.category:hover{
+  color: #0D496B;
+}
+
+#aside{
+  display:inline-block;
+  position: relative;
+  width: 20%;
+  float: right;
+}
+
+#forum-main{
+  border-top: 1px solid lightgrey;
+  display: inline-block;
+  position: relative;
+  width: 75.2%;
+  float: left;
+  margin-top: 5px;
+}
+
+#forum-menu{
+  display: inline-block;
+  margin-top:3%;
+  vertical-align: bottom;
+  width: 100%;
+  height: 10%;
+}
+
+.forum-post{
+  padding: 15px;
+  margin-bottom:1%;
+  margin-top:1%;
+}
+
+.forum-post-mini{
+  margin-top: 40px;
+  padding: 15px;
+  height: 45px;
+}
+
+.forum-question{
+  display: inline-block;
+  position: relative;
+  left: 3%;
+  width: 95%;
+  height: 40px;
+  font-size: 13px;
+}
+
+.under-question{
+  display: inline-block;
+  position: relative;
+  width: 85%;
+  margin: 0;
+}
+
+.user, .date{
+  font-size: 12px;
+}
+
+.user{
+  color: #000000;
+  font-weight: bold;
+}
+
+.user:hover{
+  color: #5ce600;
+}
+
+.user, .category{
+  text-decoration: none;
+}
+
+.user::before{
+  background: url(../../../images/person.png);
+}
+
+.userreg{
+  color: #5ce600;
+}
+
+.user::before{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  content: "";
+  background-size: 100%;
+  margin-bottom: -3px;
+  margin-right: 4px;
+}
+
+.date{
+  margin-left: 25px;
+}
+
+h4{
+  margin: 0 0 5px 0;
+}
+
+h3, h5{
+  display: inline-block;
+  margin: 0;
+  font-size: 16px;
+}
+
+h3{
+  color: #0D496B;
+  margin-top: 0;
+  float: left;
+}
+
+h2{
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  width: 80%;
+  margin: 0 0 15px 0;
+}
+
+.h2blue{
+  color: steelblue;
+  cursor: pointer;
+}
+
+.h2blue:hover{
+  color: #5ce600;
+}
+
+h5{
+  position: relative;
+  font-size: 15px;
+  color: #474155;
+  cursor: pointer;
+  float: right;
+}
+
+h5:hover{
+  color: #5ce600;
+}
+
+.hidden{
+  display:none;
+}
+
+.show{
+  display:inline-block;
+}
+
+.small{
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.white{
+  background-color: #f0f0f0;
+  color: #000000;
+}
