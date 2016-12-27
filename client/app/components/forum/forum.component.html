@@ -10,30 +10,8 @@
       <h3 id="info-tab" >Най-нови</h3>
       <h5>+нова тема</h5>
     </div>
-    <div class="forum-post white">
-      <a href="content/forum-thema.html"><h2 class="h2blue">Въпрос относно изпита по C# Advanced</h2></a>
-      <p class="forum-question">Имам въпрос. Предполагам, че ако са минали всички групи няма да има проблем да се обсъждат.
-        Аз пък лично искам да си видя грешките в HTML теста, ама това вече ми казаха, че не е възможно :) </p>
-      <p class="under-question"><a href="#" class="user">Бай Гошо</a><span class="date">Mon Dec 14 16:25</span></p>
-    </div>
-    <div class="forum-post white">
-      <a href="content/forum-thema.html"><h2 class="h2blue">Въпрос относно курса по Уеб дизайн</h2></a>
-      <p class="forum-question">Имам въпрос. Мога ли да помоля колегите, които карат курса "UX Design"
-        присъствено, да споделят малко информация по организационните въпроси. </p>
-      <p class="under-question"><a href="#" class="user">Бай Пешо</a><span class="date">Mon Dec 14 16:25</span></p>
-    </div>
-    <div class="forum-post white">
-      <a href="content/forum-thema.html"><h2 class="h2blue">Въпрос относно курса по Ангулар2</h2></a>
-      <p class="forum-question">Имам въпрос. Мога ли да помоля колегите, които карат курса "UX Design"
-        присъствено, да споделят малко информация по организационните въпроси.  </p>
-      <p class="under-question"><a href="#" class="user">Бай Иван</a><span class="date">Mon Dec 14 16:25</span></p>
-    </div>
-    <div class="forum-post white">
-      <a href="content/forum-thema.html"><h2 class="h2blue">Въпрос относно курса по Photoshop</h2></a>
-      <p class="forum-question">Имам въпрос. Всички съотборници ли трябва да пуснем едни и същи хора
-        в анкетата или един от съотборниците, като пусне анкета с хората които ще участват в отбора е достатъчно.</p>
-      <p class="under-question"><a href="#" class="user">Бат Сали</a><span class="date">Mon Dec 14 16:25</span></p>
-    </div>
+    <forum-post [postData]="post"
+    *ngFor="let post of posts"></forum-post>
   </div>
   <div id="aside">
     <h2>Рекламите са тук!</h2>

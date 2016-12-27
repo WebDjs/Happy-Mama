@@ -101,7 +101,7 @@
 }
 
 .user:hover{
-  color: #5ce600;
+  color: #496BFF;
 }
 
 .user, .category{
@@ -113,7 +113,7 @@
 }
 
 .userreg{
-  color: #5ce600;
+  color: #496BFF;
 }
 
 .user::before{
@@ -160,7 +160,7 @@ h2{
 }
 
 .h2blue:hover{
-  color: #5ce600;
+  color: #496BFF;
 }
 
 h5{
@@ -172,7 +172,7 @@ h5{
 }
 
 h5:hover{
-  color: #5ce600;
+  color: #496BFF;
 }
 
 .hidden{

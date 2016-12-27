@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FunComponent } from './components/fun/fun.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';
+import { ForumPost } from './components/forum/forum-elements/forum.post';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListingsComponent } from './components/listings/listings.component';
     SignupComponent,
     FunComponent,
     InfoComponent,
-    ListingsComponent
+    ListingsComponent,
+    ForumPost
   ],
   imports: [
     BrowserModule,
