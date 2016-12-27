@@ -12,20 +12,19 @@ export class DataService {
 
   constructor(private http: Http) { }
 
-  // getCats(): Observable<any> {
-  //   return this.http.get('/cats').map(res => res.json());
-  // }
+  getBabysitters(): Observable<any> {
+    return this.http.get('/babysitters').map(res => res.json());
+  }
 
-  // addCat(cat): Observable<any> {
-  //   return this.http.post("/cat", JSON.stringify(cat), this.options);
-  // }
+  addBabysitter(babysitter: any): Observable<any> {
+    return this.http.post('/babysitter', JSON.stringify(babysitter), this.options);
+  }
 
-  // editCat(cat): Observable<any> {
-  //   return this.http.put(`/cat/${cat._id}`, JSON.stringify(cat), this.options);
-  // }
+  editBabysitter(babysitter: any): Observable<any> {
+    return this.http.put(`/cat/${babysitter._id}`, JSON.stringify(babysitter), this.options);
+  }
 
-  // deleteCat(cat): Observable<any> {
-  //   return this.http.delete(`/cat/${cat._id}`, this.options);
-  // }
-  
+  deleteBabysitter(babysitter: any): Observable<any> {
+    return this.http.delete(`/cat/${babysitter._id}`, this.options);
+  }
 }

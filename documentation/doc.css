@@ -1,0 +1,17 @@
+
+header, footer {
+	background-color: lightskyblue;
+}
+
+.center{
+	text-align: center
+}
+
+main{
+	min-height: 360px
+}
+
+footer {
+	min-height: 40px;
+	padding-top: 20px
+}
