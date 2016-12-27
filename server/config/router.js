@@ -2,28 +2,34 @@
 
 module.exports = function (app, db) {
 
-	let dbService = {
-		getAll: (collectionName) => {
+	// // Babysitters routes
+	// app.get('/babysitters', function (req, res, next) {
+	// 	db.babysitters.find(function (err, list) {
+	// 		if (err) {
+	// 			res.send(err);
+	// 		}
+	// 		res.json(list); // res.send(list);
+	// 	});
+	// });
+	// app.get('/babysitter/:id', function (req, res, next) {
+	// 	db.babysitters.findOne({ _id: db.ObjectId(req.params.id) }, function (err, babysitter) {
+	// 		if (err) {
+	// 			res.send(err);
+	// 		}
+	// 		res.json(babysitter);
+	// 	});
+	// });
+	// app.post('/babysitter', function (req, res, next) {
+	// 	let babysitter = req.body;
 
-		},
-		getById: (collectionName, id) => {
+	// 	db.babysitters.save(babysitter, function (err, babysitter) {
+	// 		if (err) {
+	// 			res.send(err);
+	// 		}
+	// 		res.json(babysitter);
+	// 	});
+	// });
 
-		},
-		post: (collectionName, obj) => {
 
-		},
-		update: (collectionName, id) => {
-
-		}
-	}
-
-	app.use('/', function (req, res, next) {
-		db.users.find(function (err, list) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(list);
-		});
-	});
-	//app.use('/api', collections);
+	// Parents routes
 }

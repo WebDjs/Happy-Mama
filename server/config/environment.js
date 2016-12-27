@@ -1,6 +1,6 @@
 'use strict';
 
-let port = process.env.PORT || 3333;
+const port = process.env.PORT || 3333;
 
 module.exports = {
     development: {

@@ -2,24 +2,22 @@
 
 const express = require('express');
 
-const mode = process.env.NODE_ENV || 'development'; // 'production'
+const mode = 'production'; //process.env.NODE_ENV || 'development'; // 
+
+const environment = require('./server/config/environment')[mode];
 
 const app = express();
 
 require('./server/config/express')(app);
-
-const environment = require('./server/config/environment')[mode];
-
-const db = require('./server/config/mongo')(environment.db);
-console.log("Database up and running...");
-
-require('./server/config/router')(app, db);
+require('./server/config/mongoose')(environment);
+require('./server/config/passport')();
+require('./server/config/router')(app);
 
 const port = environment.port;
 
 app.listen(port);
 console.log(`Server running on port:${port}`);
 
-if (mode === "development") {
-	require("openurl").open(`http://localhost:${port}`);
+if (mode) {
+	require('openurl').open(`http://localhost:${port}`);
 }
