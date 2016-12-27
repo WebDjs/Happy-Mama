@@ -2,7 +2,7 @@
 
 const express = require('express');
 
-const mode = process.env.NODE_ENV || 'development'; // 'production'; 
+const mode = process.env.NODE_ENV || 'development'; // 'production';
 
 const environment = require('./server/config/environment')[mode];
 
@@ -19,5 +19,5 @@ app.listen(port);
 console.log(`Server running on port:${port}`);
 
 if (mode) {
-	require('openurl').open(`http://localhost:${port}`);
+    require('openurl').open(`http://localhost:${port}`);
 }
