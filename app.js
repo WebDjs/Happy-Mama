@@ -2,7 +2,7 @@
 
 const express = require('express');
 
-const mode = 'production'; //process.env.NODE_ENV || 'development'; // 
+const mode = process.env.NODE_ENV || 'development'; // 'production'; 
 
 const environment = require('./server/config/environment')[mode];
 
