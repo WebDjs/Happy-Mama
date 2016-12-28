@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ForumPost} from './forum-elements';
+import {ForumPost} from './forum-elements/forum.post';
 
 @Component({
   moduleId: module.id,
