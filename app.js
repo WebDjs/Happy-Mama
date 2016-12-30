@@ -77,7 +77,7 @@ app
 			if (err) {
 				res.send(err);
 			}
-			res.json(babysitters);
+			res.json(babysitter);
 		})
 	})
 	.post('/babysitters', function (req, res, next) {
@@ -102,12 +102,104 @@ app
 		let updatedTask = {};
 
 		// validations
-		db['babysitters'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedTask, {}, function (err, babysitter) {
+
+		db['babysitters'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedTask, {},
+			function (err, babysitter) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(babysitter);
+			})
+	});
+
+// routes Listings
+app
+	.get('/listings', function (req, res, next) {
+		db['listings'].find(function (err, listings) {
 			if (err) {
 				res.send(err);
 			}
-			res.json(babysitter);
+			res.json(listings);
 		})
+	})
+	.get('/listings/:id', function (req, res, next) {
+		db['listings'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, listing) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(listing);
+		})
+	})
+	.post('/listings', function (req, res, next) {
+		let listing = req.body;
+
+		//validations
+
+		db['listings'].save(listing, function (err, listing) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(listing);
+		})
+	})
+	.put('/listings/:id', function (req, res, next) {
+		let listing = req.body;
+		let updatedListing = {};
+
+		// validations
+
+		db['listings'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedListing, {},
+			function (err, listing) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(listing);
+			})
+	});
+
+// routes forum-posts
+app
+	.get('/forum-posts', function (req, res, next) {
+		db['forum-posts'].find(function (err, forumPosts) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(forumPosts);
+		})
+	})
+	.get('/forum-posts/:id', function (req, res, next) {
+		db['forum-posts'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, forumPost) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(forumPost);
+		})
+	})
+	.post('/forum-posts', function (req, res, next) {
+		let forumPost = req.body;
+
+		//validations
+
+		db['forum-posts'].save(forumPost, function (err, forumPost) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(forumPost);
+		})
+	})
+	.put('/forum-posts/:id', function (req, res, next) {
+		let forumPost = req.body;
+		let updatedPost = {};
+
+		// validations
+
+		db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedpost, {},
+			function (err, forumPost) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(forumPost);
+			})
 	});
 
 // connection on port
