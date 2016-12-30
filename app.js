@@ -207,4 +207,5 @@ const port = 3000;
 app.listen(port);
 console.log(`Server running on port:${port}`);
 
+// open in the browser
 require('openurl').open(`http://localhost:${port}`);
