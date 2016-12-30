@@ -1,5 +1,5 @@
 {
-  "name": "mothers-and-babysitters",
+  "name": "thebabysitters",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -14,7 +14,7 @@
     "tsc:w": "tsc -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "WebDjs",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.4.0",

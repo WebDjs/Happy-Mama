@@ -1,4 +1,4 @@
-# Parents and babysitters
+# The Babysitters
 ## MEAN Stack Single-page application with Angular 2
 
 ### To run this application:
