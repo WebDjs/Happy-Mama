@@ -1,0 +1,26 @@
+<div>
+  <h3>Dетегледачки</h3>
+  <hr>
+  <div id="babysitters">
+    <div *ngFor="let babysitter of babysitters">
+      <div class="babysitters-container">
+        <label for="namе">name: </label>
+        <span id="name">{{babysitter.name}}</span><br>
+        <label for="age">age: </label>
+        <span id="age">{{babysitter.age}}</span>
+        <img src="{{babysitter.image}}" alt="Babysitter image" width="100px" height="130px">
+      </div>
+    </div><br>
+    <div>
+      <form (ngSubmit)="addBabysitter()">
+        <label for="name-input">name: </label>
+        <input [(ngModel)]="name" id="name-input" type="text" name="name" value=""><br>
+        <label for="age-input">age: </label>
+        <input [(ngModel)]="age" id="age-input" type="number" name="age" value=""><br>
+        <label for="image-input">image url: </label>
+        <input [(ngModel)]="image" id="image-input" type="url" name="image" value=""><br>
+        <button type="submit">Add Babysitter</button>
+      </form>
+    </div>
+  </div>
+</div>
