@@ -1,0 +1,9 @@
+div.babysitters-container {
+	border: 2px solid steelblue;
+	border-radius: 2px;
+	background-color: whitesmoke;
+	font-size: 18px;
+	padding: 10px;
+	margin: 10px;
+	max-width: 200px;
+}
