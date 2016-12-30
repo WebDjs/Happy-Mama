@@ -1,6 +1,13 @@
+import { User } from './user.model';
+import { BabysitterDetails } from './babysitter.details.model';
+
 export interface Babysitter {
-    firstName: string;
-    lastName: string;
+    user: User;
+    town: string;
+    city: string;
     age: number;
-    recomendations: string[];
-};
+    isFemale: boolean;
+    isSmoker: boolean;
+    isDriver: boolean;
+    babysitterDetails: BabysitterDetails;
+}

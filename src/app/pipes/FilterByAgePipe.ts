@@ -1,5 +1,4 @@
-import { Babysitter } from '../models/Babysitter.model';
-import { Parent } from '../models/Parent.model';
+import { Babysitter } from '../models/babysitter.model';
 
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -14,7 +13,7 @@ export class FilterByPowerPipe implements PipeTransform {
         }
 
         // return babysitters.filter(babysitter => {
-        //     return !!babysitter.age.find();
+        //     return !!babysitter.age.find());
         // });
     }
 };
