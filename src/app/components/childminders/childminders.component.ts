@@ -33,6 +33,7 @@ export class ChildmindersComponent implements OnInit {
       this.name = '';
       this.age = '';
       this.image = '';
+      this.dataService.getBabysitters().subscribe(babysitters => { this.babysitters = babysitters; });
     });
   }
 }
