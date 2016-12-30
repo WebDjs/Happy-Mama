@@ -32,6 +32,14 @@ export class DataService {
     return this.http.put(`/babysitters/${babysitter._id}`, JSON.stringify(babysitter), this.options);
   }
 
+  getForumPosts(): Observable<any> {
+    return this.http.get('/forumposts').map(res => (res.json()));
+  }
+
+  addForumPost(forumpost: any): Observable<any> {
+    return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
+  }
+
   // deleteTask(babysitter: any): Observable<any> {
   //   return this.http.delete(`/babysitters/${babysitter._id}`, this.options);
   // }

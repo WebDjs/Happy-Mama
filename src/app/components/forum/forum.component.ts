@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ForumPost} from './forum-elements/forum.post';
 
 @Component({
   moduleId: module.id,
@@ -24,4 +23,9 @@ export class ForumComponent {
       user: 'Бай Колю Убавеца',
       date: '32.12.2027г.'
     }]
+  isvisible: boolean = true;
+  clicked(){
+    this.isvisible = !this.isvisible;
+    console.log(this.isvisible);
+  }
 }
