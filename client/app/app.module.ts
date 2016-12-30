@@ -15,6 +15,11 @@ import { FunComponent } from './components/fun/fun.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
+//import { Ad, Parent, Babysitter, Category, ItemListing } from './models';
+//import {ListingsComponent, Item, AddFormComponent } from './components';
+import { Item } from './components/utils/item.component';
+import { AddFormComponent } from './components/add-form/add-form.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,10 @@ import { ForumPost } from './components/forum/forum-elements/forum.post';
     FunComponent,
     InfoComponent,
     ListingsComponent,
-    ForumPost
+    ForumPost,
+    Item,
+    AddFormComponent
+
   ],
   imports: [
     BrowserModule,

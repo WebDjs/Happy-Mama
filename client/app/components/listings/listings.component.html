@@ -1,2 +1,46 @@
-<h3>About Component</h3>
-<p>This is the about component!</p>
+<div id="main-container">
+    <h4 class="navigation-link">
+        <div>
+            <ul class="ads">
+                <li>
+                    <a href=" # " class="category ">Търси</a>
+                    <ul>
+                        <li role="presentation">
+                            <a href="# " class="category ">Целодневно</a>
+                        </li>
+                        <li>
+                            <a href="# " class="category ">Почасово</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="# " class="category ">Предлага</a>
+                    <ul>
+                        <li>
+                            <a href="# " class="category ">Целодневно</a>
+                        </li>
+                        <li>
+                            <a href="# " class="category ">Почасово</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </h4>
+    <div id="forum-main ">
+        <div id="forum-menu ">
+            <h3 id="info-tab ">Най-нови обяви</h3>
+            <p>Here id databinding+{{title}}</p>
+            <!--<item [itemData]="ad" *ngFor="let ad of ads"></item>-->
+            <!--<forum-post [postData]="ad" *ngFor="let ad of ads"></forum-post>-->
+
+
+            <a href="# " class="category ">Добави обява</a>
+            <add-form></add-form>
+
+        </div>
+        <forum-post [postData]="post " *ngFor="let post of posts "></forum-post>
+    </div>
+    <div id="aside ">
+    </div>
+</div>
