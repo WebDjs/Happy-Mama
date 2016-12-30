@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../../services/data.service';
 import { ForumPost } from '../forum/forum-elements/forum.post';
 
 // import { Category } from '../../models/category.model';
@@ -12,13 +13,11 @@ import { ForumPost } from '../forum/forum-elements/forum.post';
 })
 
 export class ListingsComponent {
-
   // categories: Category[]
   // let sampleCategories:Category [] =[{}]
-
   posts: any[];
   title: string;
-  constructor() {
+  constructor(private dataService: DataService) {
     this.title = 'Pepi';
     this.posts = [
       {
@@ -50,4 +49,3 @@ export class ListingsComponent {
       }];
   }
 }
-

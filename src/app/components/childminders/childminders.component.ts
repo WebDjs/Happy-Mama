@@ -5,8 +5,7 @@ import { DataService } from '../../services/data.service';
   moduleId: module.id,
   selector: 'childminders',
   styleUrls: ['./childminders.component.css'],
-  templateUrl: './childminders.component.html',
-  providers: [DataService]
+  templateUrl: './childminders.component.html'
 })
 export class ChildmindersComponent implements OnInit {
   babysitters: any;

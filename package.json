@@ -1,13 +1,13 @@
 {
-  "name": "mothers-and-babysitters",
+  "name": "thebabysitters",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "postinstall": "cd client && npm install",
+    "postinstall": "cd src && npm install",
     "start": "node app.js"
   },
-  "author": "",
+  "author": "WebDjs",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
