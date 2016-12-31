@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
 import { HashingService } from '../../services/hashing.service';
-
 
 @Component({
   moduleId: module.id,
@@ -18,12 +18,12 @@ export class SignupComponent {
   password: string;
   passwordConfirm: string;
   email: string;
-  constructor(private dataService: DataService, private hashService: HashingService) {
+
+  constructor(private dataService: DataService, private hashService: HashingService, private appRouter: Router) {
     this.dataService.getUsers().subscribe(users => { this.users = users; });
   }
 
   registerUser(): void {
-
     if (this.password === this.passwordConfirm) {
       this.newUser = new User();
       this.newUser.username = this.username;
@@ -39,6 +39,7 @@ export class SignupComponent {
         this.passwordConfirm = '';
         this.email = '';
         this.dataService.getUsers().subscribe(users => { this.users = users; });
+        this.appRouter.navigateByUrl('home');
       });
     } else {
       console.log('PASSWORD ERROR!');
