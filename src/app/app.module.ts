@@ -21,8 +21,9 @@ import { ForumComponent } from './components/forum/forum.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
 import { ForumForm } from './components/forum/forum-elements/forum-post.form';
-import{ListingItemComponent} from'./components/listing-item/listing-item.component';
+import{ListingItemComponent} from'./components/listing-item/listing-item.component'
 import { AddFormComponent } from './components/add-form/add-form.component';
+
 
 // App Services
 import { CreatorService } from './services/creator.service';

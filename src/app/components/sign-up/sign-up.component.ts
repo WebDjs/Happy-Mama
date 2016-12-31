@@ -36,6 +36,7 @@ export class SignupComponent {
         this.users.push(newUser);
         this.username = '';
         this.password = '';
+        this.passwordConfirm = '';
         this.email = '';
         this.dataService.getUsers().subscribe(users => { this.users = users; });
       });
