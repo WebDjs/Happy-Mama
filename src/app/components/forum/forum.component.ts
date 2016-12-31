@@ -8,6 +8,8 @@ import {DataService} from '../../services/data.service';
   templateUrl: './forum.component.html'
 })
 export class ForumComponent implements OnInit {
+
+  forumPost: any;
   posts: any[];
   title: string;
   postContent: string;
@@ -16,32 +18,43 @@ export class ForumComponent implements OnInit {
 
   constructor(private dataService: DataService) {
     this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
+    this.forumPost = {
+      title: '',
+      postContent: '',
+      user: 'Ivan',
+      date: ''
+    };
   }
 
   ngOnInit() {
 
   }
 
+  get spy(){
+    return JSON.stringify(this.forumPost);
+  }
+
   isvisible: boolean = true;
   clicked() {
     this.isvisible = !this.isvisible;
-    console.log(this.isvisible);
   }
 
-  addBabysitter(): void {
+  addForumPost(): void {
     let newPost = {
-      title: this.title,
-      postContent: this.postContent,
-      user: this.user,
-      date: this.date
+      title: this.forumPost.title,
+      postContent: this.forumPost.postContent,
+      user: this.forumPost.user,
+      date: new Date().toLocaleTimeString(),
     };
+    console.log('addingPost');
+    console.log(JSON.stringify(newPost));
 
     this.dataService.addForumPost(newPost).subscribe(post => {
       this.posts.push(post);
       this.title = '';
       this.postContent = '';
       this.user = 'Hasan';
-      this.date = new Date().toLocaleTimeString()
+      this.date = new Date().toLocaleTimeString();
       this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
     });
   }
