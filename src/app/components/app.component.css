@@ -5,9 +5,11 @@
   margin-left: 10%;
 }
 
+
+/*
 .invisible {
   display: none
-}
+}*/
 
 form {
   margin-right: 10px
@@ -87,6 +89,11 @@ ul {
 .login {
   color: #5c4a9c;
   font-weight: bold;
+}
+
+ul li a.usr-name {
+  font-weight: bold;
+  color: #6559ea;
 }
 
 span span {
@@ -170,6 +177,5 @@ footer {
   left: initial;
   font-size: 14px;
 }
-
 
 /* Bootstrap styles end*/

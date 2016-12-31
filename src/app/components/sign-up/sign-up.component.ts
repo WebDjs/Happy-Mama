@@ -34,6 +34,11 @@ export class SignupComponent {
 
       this.dataService.addUser(this.newUser).subscribe(newUser => {
         this.users.push(newUser);
+
+        localStorage.clear();
+        localStorage.setItem('username', this.newUser.username);
+        localStorage.setItem('password', this.newUser.password);
+        
         this.username = '';
         this.password = '';
         this.passwordConfirm = '';
