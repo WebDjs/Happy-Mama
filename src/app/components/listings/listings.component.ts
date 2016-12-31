@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ForumPost } from '../forum/forum-elements/forum.post';
 import { AddFormComponent } from '../add-form/add-form.component';
+import{ListingItemComponent}from'../listing-item/listing-item.component';
 
 // import { Category } from '../../models/category.model';
 // import { ItemListing } from '../../models/item-listing.model';
 
 @Component({
   moduleId: module.id,
-  selector: 'add',
+  selector: 'ad',
   styleUrls: ['./listings.component.css'],
   templateUrl: './listings.component.html'
 })
@@ -56,7 +57,10 @@ export class ListingsComponent {
     this.isSubmenuVisible = !this.isSubmenuVisible;
   }
 
-  showInputForm() {
-    console.log('Done');
-  }
+@Output() adRemoved = new EventEmitter ();
+  // showInputForm() {
+  //   console.log('Done');
+  // }
+
+
 }

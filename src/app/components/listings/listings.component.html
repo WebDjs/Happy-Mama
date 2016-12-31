@@ -33,9 +33,9 @@
     <div id="forum-main ">
         <div id="forum-menu ">
             <h3 id="info-tab ">Най-нови обяви</h3>
-            <!--<p>Here id databinding+{{}}</p>-->
-            <!--<item [itemData]="ad" *ngFor="let ad of ads"></item>-->
-            <forum-post [postData]="ad" *ngFor="let ad of ads"></forum-post>
+
+
+            <listing-item [itemData]="ad" *ngFor="let ad of ads"></listing-item>
 
 
             <a class="btn btn-primary" [routerLink]="[ '/listings/form'] ">Добави обява</a>
