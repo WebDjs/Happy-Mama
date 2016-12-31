@@ -1,27 +1,34 @@
 <br>
-<div class="register-form log-form">
+<form (ngSubmit)="registerUser()" class="register-form log-form">
     <h1>Регистрация</h1>
     <br>
     <div class="form-group">
         <label for="tb-username glyphicon glyphicon-user">Потребителско име: </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-        <input id="tb-username" type="text" class="form-control">
+        <input [(ngModel)]="username" name="username" id="tb-username" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tb-password">E-mail: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+            <input [(ngModel)]="email" name="email" type="email" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for="tb-passworn">Парола: </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-        <input id="tb-password" type="password" class="form-control">
+        <input [(ngModel)]="password" name="password" id="tb-password" type="password" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for="tb-passworn-confirm">Повтори паролата: </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-        <input id="tb-password-confirm" type="password" class="form-control">
+        <input [(ngModel)]="passwordConfirm" name="passwordConfirm" id="tb-password-confirm" type="password" class="form-control">
         </div>
     </div>
     <button class="btn btn-primary" id="btn-register">РЕГИСТРАЦИЯ</button>
-</div>
+</form>

@@ -1,4 +1,5 @@
 #wrapper {
+	background-color: #c8b1df;
   font-weight: bold;
   margin-right: 10%;
   margin-left: 10%;
@@ -24,7 +25,8 @@ nav#home-nav ul li a:hover {
 }
 
 main {
-  min-height: 420px;
+  min-height: 720px;
+  max-height: 15000px;
 }
 
 main, nav {
@@ -86,6 +88,7 @@ span span {
 header nav ul a#language-btn {
   background-color: #5c4a9c;
   border-radius: 20px;
+  margin-right: 9px;
 }
 
 footer {
@@ -141,7 +144,7 @@ footer {
 }
 
 .search-form .form-group, .search-form .form-group.hover {
-  width: 100%;
+  width: 103%;
   border-radius: 4px 25px 25px 4px;
 }
 

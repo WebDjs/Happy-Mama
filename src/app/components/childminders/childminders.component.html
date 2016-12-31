@@ -1,16 +1,26 @@
-<div>
-  <h3>Dетегледачки</h3>
-  <hr>
-  <div id="babysitters">
-    <div *ngFor="let babysitter of babysitters">
-      <div class="babysitters-container">
-        <label for="name">name: </label>
-        <span id="name">{{babysitter.name}}</span><br>
-        <label for="age">age: </label>
-        <span id="age">{{babysitter.age}}</span>
-        <img src="{{babysitter.image}}" alt="Babysitter image" width="100px" height="130px">
+<div *ngFor="let babysitter of babysitters">
+  <div class="babysitter-container col-md-6">
+    <div class="row">
+      <img class="col-md-6" src="{{babysitter.image}}" alt="Babysitter image" width="30px" height="50px">
+      <div class="col-md-6 overflowed">
+        <a href="/">
+          <h3>{{babysitter.name}}</h3>
+        </a>
+        <h4><a>гр. Перник</a></h4>
+        <h4 class="age">{{babysitter.age}} години</h4>
+        <h4>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+        </h4>
       </div>
-    </div><br>
+    </div>
+  </div>
+</div>
+
+<!--<div>
     <div>
       <form (ngSubmit)="addBabysitter()">
         <label for="name-input">name: </label>
@@ -22,5 +32,4 @@
         <button type="submit">Add Babysitter</button>
       </form>
     </div>
-  </div>
-</div>
+</div>-->
