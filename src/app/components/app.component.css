@@ -1,5 +1,5 @@
 #wrapper {
-	background-color: #c8b1df;
+  background-color: #c8b1df;
   font-weight: bold;
   margin-right: 10%;
   margin-left: 10%;
@@ -9,11 +9,19 @@
   display: none
 }
 
+form {
+  margin-right: 10px
+}
+
 span {
   color: #5c4a9c;
   font-size: 28px;
   font-weight: bold;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+}
+
+li {
+  max-height: 50px
 }
 
 ul.right-object li a {
