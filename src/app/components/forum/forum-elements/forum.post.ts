@@ -9,8 +9,12 @@ import {Component, Input} from '@angular/core';
 export class ForumPost {
   @Input() postData = {
     title: '',
-    postContent: '',
-    user: '',
+    content: '',
+    username: '',
     date: ''
+  }
+
+  delete(){
+    console.log("Done")
   }
 }

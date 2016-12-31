@@ -1,10 +1,12 @@
 <div id="main-container">
     <h4 class="navigation-link">
         <div>
-            <ul class="ads">
+            <ul class="ads" (mouseenter)=" toggleSubmenu()" (mouseleave)=" toggleSubmenu()">
                 <li>
+                    <!--<li (mouseenter)=" toggleSubmenu()" (mouseleave)=" toggleSubmenu()">-->
                     <a href=" # " class="category ">Търси</a>
-                    <ul>
+                    <!--<ul>-->
+                    <ul *ngIf="isSubmenuVisible">
                         <li role="presentation">
                             <a href="# " class="category ">Целодневно</a>
                         </li>
@@ -14,8 +16,9 @@
                     </ul>
                 </li>
                 <li>
+                    <!--<li (mouseenter)=" toggleSubmenu()" (mouseleave)=" toggleSubmenu()">-->
                     <a href="# " class="category ">Предлага</a>
-                    <ul>
+                    <ul *ngIf="isSubmenuVisible">
                         <li>
                             <a href="# " class="category ">Целодневно</a>
                         </li>
@@ -30,15 +33,16 @@
     <div id="forum-main ">
         <div id="forum-menu ">
             <h3 id="info-tab ">Най-нови обяви</h3>
-            <p>Here id databinding+{{title}}</p>
+            <!--<p>Here id databinding+{{}}</p>-->
             <!--<item [itemData]="ad" *ngFor="let ad of ads"></item>-->
-            <!--<forum-post [postData]="ad" *ngFor="let ad of ads"></forum-post>-->
+            <forum-post [postData]="ad" *ngFor="let ad of ads"></forum-post>
 
 
-            <a href="# " class="category ">Добави обява</a>
+            <a class="btn btn-primary" [routerLink]="[ '/listings/form'] ">Добави обява</a>
+            <!--<add-form></add-form>-->
 
         </div>
-        <forum-post *ngFor="let post of posts "></forum-post>
+        <forum-post *ngFor=" let post of posts "></forum-post>
     </div>
     <div id="aside ">
     </div>

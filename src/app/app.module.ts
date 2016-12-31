@@ -20,7 +20,8 @@ import { ForumPost } from './components/forum/forum-elements/forum.post';
 // import { Ad, Parent, Babysitter, Category, ItemListing } from './models';
 // import {ListingsComponent, Item, AddFormComponent } from './components';
 // import { Item } from './components/utils/item.component';
-// import { AddFormComponent } from './components/add-form/add-form.component';
+ import { AddFormComponent } from './components/add-form/add-form.component';
+ // import {} from './components/u'
 
 
 import { DataService } from './services/data.service';
@@ -36,9 +37,9 @@ import { DataService } from './services/data.service';
     FunComponent,
     InfoComponent,
     ListingsComponent,
-    ForumPost
+    ForumPost,
     // Item,
-    // AddFormComponent
+     AddFormComponent
 
   ],
   imports: [

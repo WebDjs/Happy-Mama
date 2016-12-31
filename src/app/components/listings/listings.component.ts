@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ForumPost } from '../forum/forum-elements/forum.post';
+import { AddFormComponent } from '../add-form/add-form.component';
 
 // import { Category } from '../../models/category.model';
 // import { ItemListing } from '../../models/item-listing.model';
@@ -15,37 +16,47 @@ import { ForumPost } from '../forum/forum-elements/forum.post';
 export class ListingsComponent {
   // categories: Category[]
   // let sampleCategories:Category [] =[{}]
-  posts: any[];
-  title: string;
+  ads: any[];
+
   constructor(private dataService: DataService) {
-    this.title = 'Pepi';
-    this.posts = [
+
+    this.ads = [
       {
         title: 'Спешно za 5 god.  dete',
-        postContent:  `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
+        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
         живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
         за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        user: 'Anonim1',
+        username: 'Anonim1',
         date: '123',
       },
 
       {
         title: 'Спешно za 2 god.  dete',
-        postContent:  `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
+        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
         живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
         за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        user: 'Anonim2',
+        username: 'Anonim2',
         date: '1234',
       },
 
       {
         title: 'Спешно za 12 god.  dete',
-        postContent: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
+        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
         живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
         за дете на 1 г. и 4 месеца и помощ в домакинството.`,
 
-        user: 'Anonim3',
+        username: 'Anonim3',
         date: '27/0302'
       }];
+
+  }
+  isSubmenuVisible: boolean = false;
+
+  toggleSubmenu() {
+    this.isSubmenuVisible = !this.isSubmenuVisible;
+  }
+
+  showInputForm() {
+    console.log('Done');
   }
 }
