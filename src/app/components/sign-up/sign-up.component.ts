@@ -34,5 +34,8 @@ export class SignupComponent {
         this.dataService.getUsers().subscribe(users => { this.users = users; });
       });
     }
+    else {
+      console.log('PASSWORD ERROR!');
+    }
   }
 }
