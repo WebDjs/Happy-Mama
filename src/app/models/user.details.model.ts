@@ -1,4 +1,4 @@
-export interface UserDetails {
-	image: string;
-	habbits: string[];
+export class UserDetails {
+  likes: number;
+  dislikes: number;
 }

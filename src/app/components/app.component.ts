@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { DataService } from './../services/data.service';
+import { CreatorService } from './../services/creator.service';
 
 @Component({
   moduleId: module.id,
   selector: 'app',
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  providers: [DataService]
+  providers: [DataService, CreatorService]
 })
 export class AppComponent {
   private isLanguageEnglish: boolean;
