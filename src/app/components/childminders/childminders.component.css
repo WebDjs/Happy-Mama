@@ -1,9 +1,38 @@
-div.babysitters-container {
-	border: 2px solid steelblue;
-	border-radius: 2px;
-	background-color: whitesmoke;
-	font-size: 18px;
-	padding: 10px;
-	margin: 10px;
-	max-width: 200px;
+div div.overflowed h3 {
+	white-space: normal;
+}
+
+.babysitter-container {
+	max-width: 45%;
+	margin-left: 4%;
+	margin-bottom: 5px;
+	margin-top: 5px
+}
+
+div.babysitter-container {
+	border: 2px solid #5c4a9c;
+	border-radius: 5px;
+}
+
+a{
+	color: #530ea1;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.age {
+	color: #620e73;
+}
+
+img {
+	width: 220px;
+	height: 200px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #DBCEE5;
+	border-radius: 50%;
+}
+
+h4 span {
+	background-color: #5c4a9c;
+	color: #ffe000;
 }

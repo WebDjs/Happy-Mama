@@ -10,7 +10,7 @@ export class DataService {
   private options = new RequestOptions({ headers: this.headers });
   constructor(private http: Http) { }
 
-//==========================
+// users
   getUsers(): Observable<any> {
     return this.http.get('/users').map(res => (res.json()));
   }
@@ -19,7 +19,7 @@ export class DataService {
     return this.http.post('/users', JSON.stringify(user), this.options);
   }
 
-//==========================
+// babysitters
   getBabysitters(): Observable<any> {
     return this.http.get('/babysitters').map(res => (res.json()));
   }
@@ -32,6 +32,11 @@ export class DataService {
     return this.http.put(`/babysitters/${babysitter._id}`, JSON.stringify(babysitter), this.options);
   }
 
+  // deleteTask(babysitter: any): Observable<any> {
+  //   return this.http.delete(`/babysitters/${babysitter._id}`, this.options);
+  // }
+
+// forumposts
   getForumPosts(): Observable<any> {
     return this.http.get('/forumposts').map(res => (res.json()));
   }
@@ -39,8 +44,6 @@ export class DataService {
   addForumPost(forumpost: any): Observable<any> {
     return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
   }
-
-  // deleteTask(babysitter: any): Observable<any> {
-  //   return this.http.delete(`/babysitters/${babysitter._id}`, this.options);
-  // }
 }
+
+// listings
