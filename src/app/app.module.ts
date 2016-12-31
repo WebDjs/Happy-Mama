@@ -17,6 +17,7 @@ import { FunComponent } from './components/fun/fun.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
+import { ForumForm } from './components/forum/forum-elements/forum-post.form';
 // import { Ad, Parent, Babysitter, Category, ItemListing } from './models';
 // import {ListingsComponent, Item, AddFormComponent } from './components';
 // import { Item } from './components/utils/item.component';
@@ -38,6 +39,10 @@ import { DataService } from './services/data.service';
     InfoComponent,
     ListingsComponent,
     ForumPost,
+<<<<<<< HEAD
+=======
+    ForumForm
+>>>>>>> 4901a2093cece08c7ab1f6818bf0936b4864fd5a
     // Item,
      AddFormComponent
 

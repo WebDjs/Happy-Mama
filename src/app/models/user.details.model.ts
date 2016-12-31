@@ -1,4 +1,4 @@
 export interface UserDetails {
-	avatar: string;
+	image: string;
 	habbits: string[];
 }

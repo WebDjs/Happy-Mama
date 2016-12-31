@@ -10,4 +10,6 @@ export interface BabysitterDetails {
     facebook: string;
     skype: string;
     twitter: string;
+    visitors: number;
+    likes: number;
 };

@@ -28,17 +28,14 @@ main {
 }
 
 main, nav {
-  background-color: whitesmoke;
+  background-color: #dbcee5;
   padding: 5px;
 }
 
 #home-nav {
-  margin-top: -5px
-}
-
-#home-nav {
+  margin-top: -4px;
   background-color: #5c4a9c;
-  color: white;
+  color: #dbcee5;
   padding: 5px;
 }
 
@@ -55,7 +52,7 @@ main, nav {
 a {
   text-decoration: none;
   font-size: 18px;
-  color: white
+  color: #dbcee5;
 }
 
 h1, ul {
@@ -79,12 +76,22 @@ ul {
 
 .login {
   color: #5c4a9c;
+  font-weight: bold;
+}
+
+span span {
+  text-shadow: -1px -1px #283A51;
+}
+
+header nav ul a#language-btn {
+  background-color: #5c4a9c;
+  border-radius: 20px;
 }
 
 footer {
   min-height: 70px;
   text-align: center;
-  color: white;
+  color: #dbcee5;
   padding: 5px;
   background-color: #5c4a9c;
 }
@@ -101,7 +108,7 @@ footer {
   transition: all 0.65s, border-radius 0s;
   width: 32px;
   height: 32px;
-  background-color: #fff;
+  background-color: #dbcee5;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   border-radius: 25px;
   border: 1px solid #ccc;
