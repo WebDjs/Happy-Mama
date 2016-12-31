@@ -20,11 +20,9 @@ import { ListingsComponent } from './components/listings/listings.component';
 
 import { ForumPost } from './components/forum/forum-elements/forum.post';
 import { ForumForm } from './components/forum/forum-elements/forum-post.form';
-// import { Ad, Parent, Babysitter, Category, ItemListing } from './models';
-// import {ListingsComponent, Item, AddFormComponent } from './components';
-// import { Item } from './components/utils/item.component';
+import{ListingItemComponent} from'./components/listing-item/listing-item.component'
 import { AddFormComponent } from './components/add-form/add-form.component';
-// import {} from './components/u'
+
 
 // App Services
 import { CreatorService } from './services/creator.service';
@@ -43,7 +41,8 @@ import { DataService } from './services/data.service';
     ListingsComponent,
     ForumPost,
     ForumForm,
-    AddFormComponent
+    AddFormComponent,
+    ListingItemComponent
 
   ],
   imports: [
