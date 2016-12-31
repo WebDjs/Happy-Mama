@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   moduleId: module.id,
@@ -6,26 +7,42 @@ import {Component} from '@angular/core';
   styleUrls: ['./forum.component.css'],
   templateUrl: './forum.component.html'
 })
-export class ForumComponent {
-  posts = [{
-    title: 'Гледачка! Спешноооо!',
-    postContent: 'Търся млада хубава жена да поема малкия от време на време,' +
-    ' той малкия е малко палав нали и сутрин се буди рано, и вечер късно също нещо е непослушен,' +
-    ' ама те са такива тия малките такова... нали',
-    user: 'Али Реза',
-    date: '32.12.2027г.'
-  },
-    {
-      title: 'Гледачкатъъъъ! Неуспешноооо!',
-      postContent: 'Търся дърта грозна кучка да плаши децата от време на време,' +
-      ' да може да лети на метла, прахосмукачка, парочистачка и други лични превозни средства,' +
-      ' за  да избягва трафика като ги води и прибира от училище.',
-      user: 'Бай Колю Убавеца',
-      date: '32.12.2027г.'
-    }]
+export class ForumComponent implements OnInit {
+  posts: any[];
+  title: string;
+  postContent: string;
+  user: string;
+  date: string;
+
+  constructor(private dataService: DataService) {
+    this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
+  }
+
+  ngOnInit() {
+
+  }
+
   isvisible: boolean = true;
-  clicked(){
+  clicked() {
     this.isvisible = !this.isvisible;
     console.log(this.isvisible);
+  }
+
+  addBabysitter(): void {
+    let newPost = {
+      title: this.title,
+      postContent: this.postContent,
+      user: this.user,
+      date: this.date
+    };
+
+    this.dataService.addForumPost(newPost).subscribe(post => {
+      this.posts.push(post);
+      this.title = '';
+      this.postContent = '';
+      this.user = 'Hasan';
+      this.date = new Date().toLocaleTimeString()
+      this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
+    });
   }
 }

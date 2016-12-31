@@ -44,6 +44,15 @@ export class DataService {
   addForumPost(forumpost: any): Observable<any> {
     return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
   }
-}
 
-// listings
+  // listings
+
+getAds(ads: any): Observable<any> {
+    return this.http.get('/listings').map(res => (res.json()));
+  }
+
+  addAd(ad: any): Observable<any> {
+    return this.http.post('/listings', JSON.stringify(ad), this.options);
+
+  }
+}

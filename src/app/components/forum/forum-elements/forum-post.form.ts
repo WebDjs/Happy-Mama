@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./forum-post.form.css'],
 })
 
-export class ForumForm{
+export class ForumForm {
 
   forumForm: any;
 
-  constructor(){
+  constructor() {
     this.forumForm = {
       title: '',
       postedOn: new Date().toLocaleTimeString(),
@@ -24,7 +24,7 @@ export class ForumForm{
     return JSON.stringify(this.forumForm);
   }
 
-  creatPost(){
-    
+  creatPost() {
+
   }
 }

@@ -159,7 +159,7 @@ app
 
 // routes forum-posts
 app
-	.get('/forum-posts', function (req, res, next) {
+	.get('/forumposts', function (req, res, next) {
 		db['forum-posts'].find(function (err, forumPosts) {
 			if (err) {
 				res.send(err);
@@ -167,7 +167,7 @@ app
 			res.json(forumPosts);
 		})
 	})
-	.get('/forum-posts/:id', function (req, res, next) {
+	.get('/forumposts/:id', function (req, res, next) {
 		db['forum-posts'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, forumPost) {
 			if (err) {
 				res.send(err);
@@ -175,7 +175,7 @@ app
 			res.json(forumPost);
 		})
 	})
-	.post('/forum-posts', function (req, res, next) {
+	.post('/forumposts', function (req, res, next) {
 		let forumPost = req.body;
 
 		//validations
@@ -187,7 +187,7 @@ app
 			res.json(forumPost);
 		})
 	})
-	.put('/forum-posts/:id', function (req, res, next) {
+	.put('/forumposts/:id', function (req, res, next) {
 		let forumPost = req.body;
 		let updatedPost = {};
 
