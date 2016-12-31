@@ -39,11 +39,7 @@ import { DataService } from './services/data.service';
     InfoComponent,
     ListingsComponent,
     ForumPost,
-<<<<<<< HEAD
-=======
-    ForumForm
->>>>>>> 4901a2093cece08c7ab1f6818bf0936b4864fd5a
-    // Item,
+    ForumForm,
      AddFormComponent
 
   ],
