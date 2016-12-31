@@ -234,26 +234,13 @@ button{
 }
 
 input.ng-invalid, textarea.ng-invalid{
-  border: 1px solid orangered;
+  border: 3px solid orangered;
+}
+
+input.ng-pristine, textarea.ng-pristine{
+  border: 1px solid plum;
 }
 
 input.ng-valid, textarea.ng-valid{
   border: 1px solid greenyellow;
-}
-
-#input-warn, #area-warn{
-  position: absolute;
-  z-index: 50;
-  font-size: 30px;
-  color: red;
-}
-
-#input-warn{
-  top: 7%;
-  right: 2.8%;
-}
-
-#area-warn{
-  top: 18%;
-  right: 2.8%;
 }
