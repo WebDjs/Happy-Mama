@@ -5,12 +5,24 @@
         <a href="#" class="category">Най-нови</a>
     </h4>
     <div id="forum-main">
-        <div id="forum-menu">
-          <div [hidden]="!isvisible"><h3 >Най-нови</h3>
-          </div>
-            <h5 (click)="clicked()">+нова тема</h5>
+      <div id="forum-menu">
+            <div [hidden]="!isvisible"><h3 >Най-нови</h3></div>
+              <h5 (click)="clicked() ; forumPostForm.reset()">+нова тема</h5>
+         </div>
+       <div [hidden]="isvisible" id="main-container" class="white">
+       <div id="forum-menu">
+          <form (ngSubmit)="addForumPost()" #forumPostForm="ngForm">
+           <label for="theme">Заглавие на темата:</label>
+            <input id="theme" name="theme" class="theme input" type="text" [(ngModel)]="forumPost.title" required
+            pattern="[' 'a-zA-Z]*" #title="ngModel"/>
+           <label for="theme-content">Съдържание на темата:</label>
+            <textarea id="theme-content" name="content" class="theme-content input" [(ngModel)]="forumPost.postContent" required
+                pattern="[' 'a-zA-Z]*" #content="ngModel">
+           </textarea>
+           <button type="submit" (click)="clicked()" [disabled]="!forumPostForm.form.valid">изпращане</button>
+          </form>
         </div>
-      <forum-form [hidden]="isvisible"></forum-form>
+      </div>
         <forum-post [postData]="post" *ngFor="let post of posts"></forum-post>
     </div>
     <div id="aside">

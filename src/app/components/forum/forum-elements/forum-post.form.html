@@ -1,16 +1,16 @@
-<div id="main-container" class="white">
+<div [hidden]="isvisible" id="main-container" class="white">
   <div id="forum-menu">
-    <form (ngSubmit)="createPost()" #forumPostForm="ngForm">
+    <form (ngSubmit)="addForumPost()" #forumPostForm="ngForm">
       <label for="theme">Заглавие на темата:</label>
       <input id="theme" name="theme" class="theme input" type="text" [(ngModel)]="forumForm.title" required
       pattern="[a-zA-Z]*" #title="ngModel"/>
       <div id="input-warn" [hidden]="title.valid || title.pristine">!</div>
       <label for="theme-content">Съдържание на темата:</label>
-        <textarea id="theme-content" name="content" class="theme-content input" [(ngModel)]="forumForm.content" required
-                  pattern="[a-zA-Z]*" #content="ngModel">
+        <textarea id="theme-content" name="content" class="theme-content input" [(ngModel)]="forumForm.postContent" required
+                  pattern="[' 'a-zA-Z]*" #content="ngModel">
           </textarea>
       <div id="area-warn" [hidden]="content.valid || content.pristine">!</div>
-      <button [disabled]="!forumPostForm.form.valid">изпращане</button>
+      <button type="submit" [disabled]="!forumPostForm.form.valid">изпращане</button>
     </form>
     {{spy}}
   </div>

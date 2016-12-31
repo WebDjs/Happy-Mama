@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import { FunComponent } from './components/fun/fun.component';
-import{AddFormComponent} from'./components/add-form/add-form.component';
+import { AddFormComponent } from'./components/add-form/add-form.component';
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

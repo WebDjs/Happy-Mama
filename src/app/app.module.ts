@@ -21,8 +21,12 @@ import { ForumComponent } from './components/forum/forum.component';
 
 import { ListingsComponent } from './components/listings/listings.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
+<<<<<<< HEAD
 import { ForumForm } from './components/forum/forum-elements/forum-post.form';
 import { ListingItemComponent } from './components/listing-item/listing-item.component'
+=======
+import { ListingItemComponent } from'./components/listing-item/listing-item.component'
+>>>>>>> 8cf98fe362776b2bf4b305d99a4e13fd4c427be3
 import { AddFormComponent } from './components/add-form/add-form.component';
 
 
@@ -43,7 +47,6 @@ import { LogInService } from './services/login.service';
     InfoComponent,
     ListingsComponent,
     ForumPost,
-    ForumForm,
     AddFormComponent,
     ListingItemComponent
 
