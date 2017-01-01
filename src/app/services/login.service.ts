@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './../local-storage/local-storage.service';
 
 @Injectable()
 export class LogInService {
 	isLoggedUser: boolean;
 	currentUserName: string;
-	constructor() {
+	constructor(private localStorage: LocalStorageService) {
 		this.isLoggedUser = false;
 		this.currentUserName = 'Иванка';
 	}

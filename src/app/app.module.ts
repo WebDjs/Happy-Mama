@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 
-import { LocalStorageModule } from './local-storage/local-storage.module';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
 import { LocationStrategy, Location, HashLocationStrategy } from '@angular/common';
-// import { LocalStorageModule } from 'angular-2-local-storage/src/local-storage.module.js';
+import { LocalStorageModule } from './local-storage/index.js';
 
 // App components
 import { AppComponent } from './components/app.component';
