@@ -1,74 +1,87 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ForumPost } from '../forum/forum-elements/forum.post';
 import { AddFormComponent } from '../add-form/add-form.component';
-import{ListingItemComponent}from'../listing-item/listing-item.component';
-
-// import { Category } from '../../models/category.model';
-// import { ItemListing } from '../../models/item-listing.model';
+import { ListingItemComponent } from '../listing-item/listing-item.component';
+import { ItemListing } from '../../models/item.listing.model'
 
 @Component({
   moduleId: module.id,
-  selector: 'ad',
+  selector: 'listings',
   styleUrls: ['./listings.component.css'],
   templateUrl: './listings.component.html'
 })
 
-export class ListingsComponent {
-  // categories: Category[]
-  // let sampleCategories:Category [] =[{}]
-  listings: any[];
+export class ListingsComponent implements OnInit {
+  listingItem: ItemListing;
+  listings: ItemListing[] = [{
+    title: '',
+    category: 'Търси',
+    content: 'Alalalal',
+    username: 'Анонимен',
+    date: '',
+    isDeleted: false
+  }];
+  title: string;
+  category: string;
+  content: string;
+  username: string;
+  date: string;
+  isDeleted: boolean;
+  id: string;
+
 
   constructor(private dataService: DataService) {
+    this.dataService.getListings().subscribe(listings => { this.listings = listings });
+    // todo same with user
+    this.listingItem = {
+      title: '',
+      category: 'Търси',
+      content: '',
+      username: 'Анонимен',
+      date: '',
+      isDeleted: false
+    }
+  }
 
-    this.listings = [
-      {
-        title: 'Спешно za 5 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        username: 'Anonim1',
-        date: '123',
-      },
-
-      {
-        title: 'Спешно za 2 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        username: 'Anonim2',
-        date: '1234',
-      },
-
-      {
-        title: 'Спешно za 12 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-
-        username: 'Anonim3',
-        date: '27/0302'
-      }];
+  ngOnInit() {
 
   }
+
   isSubmenuVisible: boolean = false;
 
   toggleSubmenu() {
     this.isSubmenuVisible = !this.isSubmenuVisible;
   }
 
-   isFormVisible: boolean = false;
+  isFormVisible: boolean = false;
 
   toggleForm() {
     this.isFormVisible = !this.isFormVisible;
   }
 
+  addItemListing(): void {
+    let newItemListing = {
+      title: this.listingItem.title,
+      category: this.listingItem.category,
+      content: this.listingItem.content,
+      username: this.listingItem.username,
+      date: new Date().toLocaleTimeString(),
+      isDeleted: false
+    }
+    console.log('addingItem');
+    console.log(JSON.stringify(newItemListing));
 
+    this.dataService.addListingItem(newItemListing).subscribe(listingItem => {
+      this.listings.push(listingItem);
+      this.title = '',
+        this.category = 'Търси',
+        this.content = '',
+        this.username = 'Анонимен',
+        this.date = '',
+        this.isDeleted = false
 
-@Output() adRemoved = new EventEmitter ();
-  // showInputForm() {
-  //   console.log('Done');
-  // }
+    })
 
-
+  }
 }

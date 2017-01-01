@@ -31,15 +31,14 @@
         </div>
     </h4>
     <div>
-    <a class="btn btn-primary" (click)="toggleForm()">Добави обява</a>
-    <add-form *ngIf="isFormVisible"></add-form>
+        <a class="btn btn-primary" (click)="toggleForm()">Добави обява</a>
+        <add-form *ngIf="isFormVisible"></add-form>
     </div>
     <div id="forum-main ">
         <div id="forum-menu ">
             <h3 id="info-tab ">Най-нови обяви</h3>
             <listing-item [itemData]="listingItem" *ngFor="let listingItem of listings"></listing-item>
         </div>
-        <forum-post *ngFor=" let post of posts "></forum-post>
     </div>
     <div id="aside ">
     </div>

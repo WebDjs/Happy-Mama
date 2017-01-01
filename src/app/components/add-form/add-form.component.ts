@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -9,21 +9,26 @@ import {Component, Input} from '@angular/core';
 
 export class AddFormComponent {
 
-  listingItemForm:any;
+  listingItemForm: any;
 
-   isFormVisible: boolean = false;
+  constructor() {
+    this.listingItemForm = {
+      title: '',
+      category: 'Tърси',
+      postedOn: new Date().toLocaleTimeString(),
+      author: 'Pesjo',
+      content: '',
+      isDeleted: false
+    };
+  }
+  isFormVisible: boolean = false;
 
   toggleForm() {
     this.isFormVisible = !this.isFormVisible;
   }
 
-  constructor() {
-    this.listingItemForm = {
-      title: '',
-      category:'Tърси',
-      postedOn: new Date().toLocaleTimeString(),
-      author: 'Pesjo',
-      content: ''
-    };
+ get spy(){
+    return JSON.stringify(this.listingItemForm);
   }
+
 }
