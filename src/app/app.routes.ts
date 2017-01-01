@@ -11,6 +11,7 @@ import { ListingsComponent } from './components/listings/listings.component';
 import { FunComponent } from './components/fun/fun.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormComponent } from'./components/add-form/add-form.component';
+import { BabysitterRegistrationComponent } from'./components/babysitter-registration/babysitter-registration.component';
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ export const rootRouterConfig: Routes = [
   { path: 'sign-in', component: SigninComponent },
   { path: 'sign-up', component: SignupComponent },
   { path: 'childminders', component: ChildmindersComponent },
+  { path: 'new-babysitter', component: BabysitterRegistrationComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'fun', component: FunComponent },
   { path: 'info', component: InfoComponent },

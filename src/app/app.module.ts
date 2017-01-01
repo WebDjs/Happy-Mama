@@ -17,6 +17,7 @@ import { SignupComponent } from './components/sign-up/sign-up.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { ChildmindersComponent } from './components/childminders/childminders.component';
+import { BabysitterRegistrationComponent } from'./components/babysitter-registration/babysitter-registration.component';
 import { FunComponent } from './components/fun/fun.component';
 import { InfoComponent } from './components/info/info.component';
 import { ForumComponent } from './components/forum/forum.component';
@@ -37,12 +38,13 @@ import { ToasterComponent, ToastComponent } from 'angular2-toastr/';
 @NgModule({
   declarations: [
     AppComponent,
-    ChildmindersComponent,
-    ProfileComponent,
-    ForumComponent,
     HomeComponent,
     SigninComponent,
     SignupComponent,
+    ChildmindersComponent,
+    BabysitterRegistrationComponent,
+    ProfileComponent,
+    ForumComponent,
     FunComponent,
     InfoComponent,
     ListingsComponent,
