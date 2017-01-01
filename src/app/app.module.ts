@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 
+import { LocalStorageModule } from './local-storage/local-storage.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -53,7 +55,11 @@ import { LogInService } from './services/login.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(rootRouterConfig)
+    RouterModule.forRoot(rootRouterConfig),
+    LocalStorageModule.withConfig({
+      prefix: 'app',
+      storageType: 'localStorage'
+    })
   ],
   providers: [
     Location,

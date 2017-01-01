@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { DataService } from './../services/data.service';
 import { LogInService } from './../services/login.service';
 import { CreatorService } from './../services/creator.service';
+import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Component({
   moduleId: module.id,
   selector: 'app',
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  providers: [DataService, LogInService, CreatorService]
+  providers: [DataService, LogInService, CreatorService, LocalStorageService]
 })
 export class AppComponent {
   private userName: string;

@@ -4,13 +4,14 @@ import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
 import { CreatorService } from '../../services/creator.service';
 import { HashingService } from '../../services/hashing.service';
+import { LocalStorageService } from '../../local-storage/local-storage.service';
 
 @Component({
   moduleId: module.id,
   selector: 'sign-up',
   styleUrls: ['./sign-up.component.css'],
   templateUrl: './sign-up.component.html',
-  providers: [HashingService, CreatorService]
+  providers: [HashingService, CreatorService, LocalStorageService]
 })
 export class SignupComponent {
   users: User[];
@@ -26,7 +27,8 @@ export class SignupComponent {
     private dataService: DataService,
     private creatorService: CreatorService,
     private hashService: HashingService,
-    private appRouter: Router) {
+    private appRouter: Router,
+    private localStorage: LocalStorageService) {
     this.dataService.getUsers().subscribe(users => { this.users = users; });
   }
 
@@ -44,9 +46,9 @@ export class SignupComponent {
       this.dataService.addUser(this.newUser).subscribe(newUser => {
         this.users.push(newUser);
 
-        // localStorage.clear();
-        // localStorage.setItem('username', this.newUser.username);
-        // localStorage.setItem('password', this.newUser.password);
+        localStorage.clear();
+        localStorage.setItem('username', this.newUser.username);
+        localStorage.setItem('password', this.newUser.password);
 
         this.firstname = '';
         this.lastname = '';
