@@ -23,7 +23,7 @@
           </form>
         </div>
       </div>
-        <forum-post [postData]="post" *ngFor="let post of posts"></forum-post>
+        <forum-post [postData]="post" *ngFor="let post of posts" (deletePost)="removePost(post)"></forum-post>
     </div>
     <div id="aside">
         <h2>Рекламите са тук!</h2>

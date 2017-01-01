@@ -4,14 +4,14 @@ import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
 import { CreatorService } from '../../services/creator.service';
 import { HashingService } from '../../services/hashing.service';
-import { LocalStorageService } from '../../local-storage/local-storage.service';
+import { LocalStorageService } from '../../local-storage/index.js';
 
 @Component({
   moduleId: module.id,
   selector: 'sign-up',
   styleUrls: ['./sign-up.component.css'],
   templateUrl: './sign-up.component.html',
-  providers: [HashingService, CreatorService, LocalStorageService]
+  providers: [LocalStorageService, HashingService, CreatorService]
 })
 export class SignupComponent {
   users: User[];
@@ -49,6 +49,7 @@ export class SignupComponent {
         localStorage.clear();
         localStorage.setItem('username', this.newUser.username);
         localStorage.setItem('password', this.newUser.password);
+        localStorage.setItem('isLogged', 'true');
 
         this.firstname = '';
         this.lastname = '';

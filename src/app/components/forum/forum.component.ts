@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-// import { ForumPost } from '../../models/forum.post.model';
-// import { ForumComment } from '../../models/forum.comment.model';
+import { ForumPost } from '../../models/forum.post.model';
+import { ForumComment } from '../../models/forum.comment.model';
 
 @Component({
   moduleId: module.id,
@@ -11,13 +11,19 @@ import { DataService } from '../../services/data.service';
 })
 export class ForumComponent implements OnInit {
 
-  forumPost: any;
-  posts: any;
+  forumPost: ForumPost;
+  posts: ForumPost[] = [{
+    title: 'fswergfrgrg',
+      postContent: 'gggggggggggggggggggggggggggggggg',
+      user: 'Ivan',
+      date: '',
+      comments: []
+  }];
   title: string;
   postContent: string;
   user: string;
   date: string;
-  comments: any;
+  comments: ForumComment[];
 
   constructor(private dataService: DataService) {
     this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
@@ -41,6 +47,12 @@ export class ForumComponent implements OnInit {
   isvisible: boolean = true;
   clicked() {
     this.isvisible = !this.isvisible;
+  }
+
+  removePost(post: any): void {
+    //let index = this.posts.findIndex(localPost => localPost.date === post.date);
+    this.dataService.deleteForumPost(post).subscribe((ok) => {console.log(ok); });
+    //this.posts.splice(index, 1);
   }
 
   addForumPost(): void {

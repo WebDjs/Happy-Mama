@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './../local-storage/index.js';
 
 @Injectable()
 export class LogInService {
-	isLoggedUser: boolean;
-	currentUserName: string;
-	constructor() {
-		this.isLoggedUser = false;
-		this.currentUserName = 'Иванка';
-	}
-
-	saveUserName(username: string): void {
-		this.currentUserName = username;
-		this.isLoggedUser = true;
+	currentUserName: string = 'Иванка';
+	isLoggedUser: boolean = false;
+	constructor(private localStorage: LocalStorageService) {
 	}
 
 	getUserData(): any {
@@ -21,4 +15,8 @@ export class LogInService {
 		}
 	}
 
+	setUserData(username: string): void {
+		this.currentUserName = username;
+		this.isLoggedUser = true;
+	}
 }
