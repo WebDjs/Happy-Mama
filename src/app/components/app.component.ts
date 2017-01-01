@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './../services/data.service';
 import { CreatorService } from './../services/creator.service';
-import { LocalStorageService } from './../local-storage/index.js';
+import { LocalStorageService } from './../local-storage/index';
+import { ToasterService } from 'angular2-toastr/index';
 
 @Component({
   moduleId: module.id,
   selector: 'app',
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  providers: [DataService, CreatorService, LocalStorageService]
+  providers: [DataService, CreatorService, LocalStorageService, ToasterService]
 })
 export class AppComponent {
   private userName: string;
@@ -19,6 +20,7 @@ export class AppComponent {
   constructor(
     private dataService: DataService,
     private localStorage: LocalStorageService,
+    private notifier: ToasterService,
     private appRouter: Router) { }
 
   getUserName(): string {
@@ -43,8 +45,10 @@ export class AppComponent {
     this.isLanguageEnglish = !this.isLanguageEnglish;
     if (this.isLanguageEnglish) {
       this.language = 'BG';
+      this.notifier.warning('TEST', 'Notifier works', true, 3000);
     } else {
       this.language = 'EN';
+      this.notifier.warning('TEST', 'Notifier works', false, 3000);
     }
   }
 

@@ -32,6 +32,7 @@ import { AddFormComponent } from './components/add-form/add-form.component';
 import { DataService } from './services/data.service';
 import { HashingService } from './services/hashing.service';
 import { LogInService } from './services/login.service';
+import { ToasterComponent, ToastComponent } from 'angular2-toastr/';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { LogInService } from './services/login.service';
     ForumPost,
     ForumForm,
     AddFormComponent,
-    ListingItemComponent
+    ListingItemComponent,
+    ToasterComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,7 @@ export class SigninComponent {
     localStorage.setItem('username', this.newUser.username);
     localStorage.setItem('password', this.newUser.password);
     localStorage.setItem('isLogged', 'true');
-    
+
     this.appRouter.navigateByUrl('/');
   }
 }

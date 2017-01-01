@@ -41,10 +41,10 @@ export class SignupComponent {
       this.newUser.password = this.hashService.generateHash(this.password);
       this.newUser.email = this.email;
 
-      console.log(this.newUser);
-
       this.dataService.addUser(this.newUser).subscribe(newUser => {
         this.users.push(newUser);
+
+        console.log(this.newUser + 'registered!');
 
         localStorage.clear();
         localStorage.setItem('username', this.newUser.username);

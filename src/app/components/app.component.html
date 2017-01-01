@@ -1,5 +1,6 @@
 <div id="wrapper">
   <header>
+    <ng2-toaster [position]="'top-center'" [theme]="'bootstrap'" ></ng2-toaster>
     <nav id="nav-up">
       <span>
         <a [routerLink]="['/']">
@@ -37,7 +38,7 @@
         <ul class="nav nav-tabs">
           <li>
             <a class="btn" [routerLink]="['/']">
-              <i class="glyphicon glyphicon-home"></i>
+              НАЧАЛО
             </a>
           </li>
           <li role="presentation">
@@ -76,11 +77,11 @@
               </form>
             </div>
           </li>
-          <li>
+          <!--<li>
             <a class="btn" [routerLink]="['/']">
               <i class="glyphicon glyphicon-home"></i>
             </a>
-          </li>
+          </li>-->
         </ul>
     </nav>
   </header>
