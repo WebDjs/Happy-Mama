@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.nav.signIn = 'Вход';
     this.nav.signOut = 'Изход';
     this.nav.signUp = 'Регистрация';
-    this.nav.home = 'НАЧАЛО';
+    this.nav.home = false;
     this.nav.babisitters = 'Dетегледачки';
     this.nav.listungs = 'Обяви';
     this.nav.forum = 'Форум';
@@ -64,6 +64,10 @@ export class AppComponent implements OnInit {
     return this.isUserLogged;
   }
 
+  getHome() {
+    return this.nav.home;
+  }
+
   changeLanguage(): void {
     this.isLanguageEnglish = !this.isLanguageEnglish;
     if (this.isLanguageEnglish) {
@@ -72,27 +76,27 @@ export class AppComponent implements OnInit {
       this.nav.signIn = 'SignIn';
       this.nav.signOut = 'SignOut';
       this.nav.signUp = 'SignUp';
-      this.nav.home = 'HOME';
+      this.nav.home = true;
       this.nav.babisitters = 'Babysitters';
       this.nav.listungs = 'Listings';
       this.nav.forum = 'Forum';
       this.nav.info = 'Info';
       this.nav.fun = 'Fun';
-    this.nav.search = 'Search...';
+      this.nav.search = 'Search...';
     } else {
       this.language = 'EN';
-    this.nav = new Nav();
-    this.nav.logo = 'Dетегледачките';
-    this.nav.signIn = 'Вход';
-    this.nav.signOut = 'Изход';
-    this.nav.signUp = 'Регистрация';
-    this.nav.home = 'НАЧАЛО';
-    this.nav.babisitters = 'Dетегледачки';
-    this.nav.listungs = 'Обяви';
-    this.nav.forum = 'Форум';
-    this.nav.info = 'Полезна информация';
-    this.nav.fun = 'Забавно';
-    this.nav.search = 'Търсене...';
+      this.nav = new Nav();
+      this.nav.logo = 'Dетегледачките';
+      this.nav.signIn = 'Вход';
+      this.nav.signOut = 'Изход';
+      this.nav.signUp = 'Регистрация';
+      this.nav.home = false;
+      this.nav.babisitters = 'Dетегледачки';
+      this.nav.listungs = 'Обяви';
+      this.nav.forum = 'Форум';
+      this.nav.info = 'Полезна информация';
+      this.nav.fun = 'Забавно';
+      this.nav.search = 'Търсене...';
     }
   }
 

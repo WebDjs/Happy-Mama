@@ -3,7 +3,7 @@ export class Nav {
   signIn: string;
   signOut: string;
   signUp: string;
-  home: string;
+  home: boolean;
   babisitters: string;
   listungs: string;
   forum: string;

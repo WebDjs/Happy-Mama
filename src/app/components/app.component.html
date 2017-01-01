@@ -37,8 +37,13 @@
     <nav id="home-nav">
         <ul class="nav nav-tabs">
           <li>
-            <a class="btn" [routerLink]="['/']">
-              {{ nav.home }}
+            <a *ngIf="!getHome()" class="btn" [routerLink]="['/']">
+              НАЧАЛО
+            </a>
+          </li>
+          <li>
+            <a *ngIf="getHome()" class="btn" [routerLink]="['/']">
+              <i class="glyphicon glyphicon-home"></i>
             </a>
           </li>
           <li role="presentation">
@@ -77,11 +82,6 @@
               </form>
             </div>
           </li>
-          <!--<li>
-            <a class="btn" [routerLink]="['/']">
-              <i class="glyphicon glyphicon-home"></i>
-            </a>
-          </li>-->
         </ul>
     </nav>
   </header>
