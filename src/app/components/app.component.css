@@ -7,10 +7,16 @@ nav#home-nav ul li {
   margin-left: 33px;;
 }
 
-/*
-.invisible {
-  display: none
-}*/
+.aside {
+    position: absolute;
+    top: 20%;
+    left: 79%;
+    width: 21%;
+    min-height: 520px;
+    background-color: indigo;
+    padding: 2px;
+    color: #c4bfc9;
+}
 
 form {
   margin-right: 10px

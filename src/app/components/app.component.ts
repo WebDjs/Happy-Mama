@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
 
   logOut() {
     localStorage.clear();
-    this.notifier.warning('TEST', 'Bye, bye!', false, 3000);
+    this.notifier.warning('Довиждане!', 'Заповядайте пак!', false, 1500);
     this.appRouter.navigateByUrl('/');
   }
 }

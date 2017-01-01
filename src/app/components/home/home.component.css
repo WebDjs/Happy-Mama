@@ -18,8 +18,12 @@ div.three {
 
 fieldset {
     border: 2px solid #c4bfc9;
+    background-color: #dbcee7;
     border-radius: 5px;
     min-height: 220px;
+    box-shadow: -2px 2px #2f0053;
+    padding: 5px;
+    font-size: 18px;
 }
 
 #fieldset-front-end {
@@ -33,8 +37,9 @@ fieldset {
 ol {
     color: #2f0053;
     font-size: 22px;
+    max-width: 60%;
     display: block;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 legend {
@@ -42,7 +47,8 @@ legend {
     text-decoration: none;
     border: 0;
     padding-top: 1%;
-    color: #283A51;
+    color: #2f0053;
+    text-shadow: -1px 1px;
 }
 
 #registration-free {
@@ -66,15 +72,4 @@ h4#sto {
 
 .a-leg:hover {
     color: #2f0053;
-}
-
-#aside {
-    position: absolute;
-    top: 20%;
-    left: 79%;
-    width: 21%;
-    min-height: 520px;
-    background-color: indigo;
-    padding: 2px;
-    color: #c4bfc9;
 }

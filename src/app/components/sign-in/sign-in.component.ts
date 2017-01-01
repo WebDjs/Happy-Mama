@@ -4,7 +4,7 @@ import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
 import { HashingService } from '../../services/hashing.service';
 import { LocalStorageService } from '../../local-storage/index.js';
-
+import { ToasterService } from 'angular2-toastr/index';
 
 @Component({
   moduleId: module.id,
@@ -22,6 +22,7 @@ export class SigninComponent {
     private dataService: DataService,
     private hashService: HashingService,
     private localStorage: LocalStorageService,
+    private notifier: ToasterService,
     private appRouter: Router) {
     this.dataService.getUsers().subscribe(users => { this.users = users; });
   }
@@ -37,5 +38,6 @@ export class SigninComponent {
     localStorage.setItem('isLogged', 'true');
 
     this.appRouter.navigateByUrl('/');
+    this.notifier.info('Добре дошли!', ' ', false, 1500);
   }
 }

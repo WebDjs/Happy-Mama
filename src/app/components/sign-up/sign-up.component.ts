@@ -5,6 +5,7 @@ import { DataService } from '../../services/data.service';
 import { CreatorService } from '../../services/creator.service';
 import { HashingService } from '../../services/hashing.service';
 import { LocalStorageService } from '../../local-storage/index.js';
+import { ToasterService } from 'angular2-toastr/index';
 
 @Component({
   moduleId: module.id,
@@ -28,6 +29,7 @@ export class SignupComponent {
     private creatorService: CreatorService,
     private hashService: HashingService,
     private appRouter: Router,
+    private notifier: ToasterService,
     private localStorage: LocalStorageService) {
     this.dataService.getUsers().subscribe(users => { this.users = users; });
   }
@@ -40,6 +42,10 @@ export class SignupComponent {
       this.newUser.username = this.username;
       this.newUser.password = this.hashService.generateHash(this.password);
       this.newUser.email = this.email;
+
+      if (this.newUser.username.length < 3 || this.newUser.username.length > 13) {
+          this.notifier.error('Грешка!', 'Потребителското име трябва да е между 3 и 13 символа!', false, 3000);
+      }
 
       this.dataService.addUser(this.newUser).subscribe(newUser => {
         this.users.push(newUser);
@@ -59,9 +65,10 @@ export class SignupComponent {
         this.email = '';
         this.dataService.getUsers().subscribe(users => { this.users = users; });
         this.appRouter.navigateByUrl('home');
+        this.notifier.info('Добре дошли!', ' ', false, 1500);
       });
     } else {
-      console.log('PASSWORD ERROR!');
+      this.notifier.error('Грешка', 'Паролите не съвпадат!', true, 2000);
     }
   }
 }
