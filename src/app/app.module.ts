@@ -31,7 +31,7 @@ import { AddFormComponent } from './components/add-form/add-form.component';
 // App Services
 import { DataService } from './services/data.service';
 import { HashingService } from './services/hashing.service';
-import { LogInService } from './services/login.service';
+import { CreatorService } from './services/creator.service';
 import { ToasterComponent, ToastComponent } from 'angular2-toastr/';
 
 @NgModule({
@@ -66,9 +66,9 @@ import { ToasterComponent, ToastComponent } from 'angular2-toastr/';
   providers: [
     Location,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    LogInService,
     DataService,
-    HashingService
+    HashingService,
+    CreatorService
   ],
   bootstrap: [AppComponent]
 })

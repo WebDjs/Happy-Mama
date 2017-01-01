@@ -5,7 +5,7 @@
       <span>
         <a [routerLink]="['/']">
           <img src="../../assets/images/logo.png" width="60px" height="45px">
-          <span>Dетегледачките</span>
+          <span>{{ nav.logo }}</span>
         </a>
       </span>
       <ul class="nav nav-tabs right-object">
@@ -16,17 +16,17 @@
         </li>
         <li role="presentation">
           <a *ngIf="isLogged()" (click)="logOut()" class="btn-link login"  [routerLink]="['/']">
-            Изход
+            {{ nav.signOut }}
           </a>
         </li>
         <li role="presentation">
           <a *ngIf="!isLogged()" class="btn-link login" [routerLink]="['/sign-in']">
-            Вход
+            {{ nav.signIn }}
           </a>
         </li>
         <li role="presentation">
           <a *ngIf="!isLogged()" class="btn-link login" [routerLink]="['/sign-up']">
-            Регистрация
+            {{ nav.signUp }}
           </a>
         </li>
         <a id="language-btn" class="btn btn-primary" (click)='changeLanguage()'>
@@ -38,32 +38,32 @@
         <ul class="nav nav-tabs">
           <li>
             <a class="btn" [routerLink]="['/']">
-              НАЧАЛО
+              {{ nav.home }}
             </a>
           </li>
           <li role="presentation">
             <a class="btn" [routerLink]="['/childminders']">
-              Dетегледачки
+              {{ nav.babisitters }}
             </a>
           </li>
           <li role="presentation">
             <a class="btn" [routerLink]="['/listings']">
-              Обяви
+              {{ nav.listungs }}
             </a>
           </li>
           <li role="presentation">
             <a class="btn" [routerLink]="['/forum']">
-              Форум
+              {{ nav.forum }}
             </a>
           </li>
           <li role="presentation">
             <a class="btn" [routerLink]="['/info']">
-              Полезна информация
+              {{ nav.info }}
             </a>
           </li>
           <li role="presentation">
             <a class="btn" [routerLink]="['/fun']">
-              Забавно
+              {{ nav.fun }}
             </a>
           </li>
           <li id="search-li">
@@ -71,7 +71,7 @@
               <form action="" class="search-form">
                 <div class="form-group has-feedback">
                   <label for="search" class="sr-only"></label>
-                  <input type="text" class="form-control" name="search" id="search" placeholder="Търсене...">
+                  <input type="text" class="form-control" name="search" id="search" [placeholder]="nav.search">
                   <span class="form-control-feedback"><i class="glyphicon glyphicon-search"></i></span>
                 </div>
               </form>
