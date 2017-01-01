@@ -4,6 +4,11 @@ button {
 	margin: 0 auto
 }
 
+button:hover {
+	background-color: #dbcee5;
+	color: #5c4a9c;
+}
+
 h1 {
 	text-align: center
 }

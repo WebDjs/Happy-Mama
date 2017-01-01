@@ -9,23 +9,23 @@
       </span>
       <ul class="nav nav-tabs right-object">
         <li role="presentation">
-          <a class="btn-link login invisible" [routerLink]="['/profile']">
-            User
+          <a *ngIf="isLanguageEnglish" class="btn-link login usr-name" [routerLink]="['/profile']">
+            {{ userName }}
           </a>
         </li>
         <li role="presentation">
-          <a class="btn-link login" [routerLink]="['/sign-in']">
+          <a *ngIf="isLanguageEnglish" class="btn-link login"  [routerLink]="['/']">
+            Изход
+          </a>
+        </li>
+        <li role="presentation">
+          <a *ngIf="!isLanguageEnglish" class="btn-link login" [routerLink]="['/sign-in']">
             Вход
           </a>
         </li>
         <li role="presentation">
-          <a class="btn-link login" [routerLink]="['/sign-up']">
+          <a *ngIf="!isLanguageEnglish" class="btn-link login" [routerLink]="['/sign-up']">
             Регистрация
-          </a>
-        </li>
-        <li role="presentation">
-          <a class="btn-link login invisible" [routerLink]="['/sign-out']">
-            Изход
           </a>
         </li>
         <a id="language-btn" class="btn btn-primary" (click)='changeLanguage()'>

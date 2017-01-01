@@ -1,0 +1,18 @@
+.video-wrapper {
+	border: 2px solid #5c4a9c;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	min-width: 70%;
+	color: darkmagenta;
+	font-size: 22px
+}
+
+h3 {
+	text-align: center
+}
+
+video {
+	display: block;
+	margin: 0 auto;
+}
