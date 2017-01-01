@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
 import { HashingService } from '../../services/hashing.service';
-import { LogInService } from '../../services/login.service';
 import { LocalStorageService } from '../../local-storage/index.js';
 
 
@@ -23,8 +22,7 @@ export class SigninComponent {
     private dataService: DataService,
     private hashService: HashingService,
     private localStorage: LocalStorageService,
-    private appRouter: Router,
-    private logInService: LogInService) {
+    private appRouter: Router) {
     this.dataService.getUsers().subscribe(users => { this.users = users; });
   }
 
@@ -36,10 +34,8 @@ export class SigninComponent {
     localStorage.clear();
     localStorage.setItem('username', this.newUser.username);
     localStorage.setItem('password', this.newUser.password);
-
-    this.logInService.saveUserName(this.newUser.username);
-    console.log(this.newUser);
-
+    localStorage.setItem('isLogged', 'true');
+    
     this.appRouter.navigateByUrl('/');
   }
 }

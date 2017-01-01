@@ -49,6 +49,7 @@ export class SignupComponent {
         localStorage.clear();
         localStorage.setItem('username', this.newUser.username);
         localStorage.setItem('password', this.newUser.password);
+        localStorage.setItem('isLogged', 'true');
 
         this.firstname = '';
         this.lastname = '';
