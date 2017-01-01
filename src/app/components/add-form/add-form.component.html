@@ -1,10 +1,8 @@
-<br>
-<div class="log-in-form log-form">
-    <br>
+<form>
     <div class="form-group">
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-            <input id="tb-username" type="text" class="form-control" name="title" placeholder="Заглавие">
+            <input type="text" class="form-control" name="title" placeholder="Заглавие">
         </div>
     </div>
     <div class="form-group">
@@ -13,6 +11,6 @@
             <textarea type="text" class="form-control" placeholder="Текст" name="content"></textarea>
         </div>
     </div>
-    <button class="btn btn-primary" id="btn-submit">Публикувй</button>
+    <button class="btn btn-primary" id="btn-submit" (click)="toggleForm()">Публикувй</button>
     <a class="btn btn-success" id="btn-back" [routerLink]="['/listings']">Обратно</a>
-</div>
+</form>

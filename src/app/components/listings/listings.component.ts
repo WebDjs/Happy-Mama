@@ -17,11 +17,11 @@ import{ListingItemComponent}from'../listing-item/listing-item.component';
 export class ListingsComponent {
   // categories: Category[]
   // let sampleCategories:Category [] =[{}]
-  ads: any[];
+  listings: any[];
 
   constructor(private dataService: DataService) {
 
-    this.ads = [
+    this.listings = [
       {
         title: 'Спешно za 5 god.  dete',
         content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
@@ -56,6 +56,14 @@ export class ListingsComponent {
   toggleSubmenu() {
     this.isSubmenuVisible = !this.isSubmenuVisible;
   }
+
+   isFormVisible: boolean = false;
+
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+  }
+
+
 
 @Output() adRemoved = new EventEmitter ();
   // showInputForm() {
