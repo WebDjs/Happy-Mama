@@ -45,6 +45,9 @@ export class DataService {
     return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
   }
 
+  deleteForumPost(forumpost: any): Observable<any> {
+    return this.http.delete(`/forumposts/${forumpost._id}`, this.options);
+  }
   // listings
 
 getAds(ads: any): Observable<any> {

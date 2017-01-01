@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -13,4 +13,10 @@ export class ForumPost {
     user: '',
     date: ''
   };
+
+  @Output() deletePost = new EventEmitter();
+
+  deleteForumPost() {
+    this.deletePost.next();
+  }
 }
