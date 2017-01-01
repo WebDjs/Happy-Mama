@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import { FunComponent } from './components/fun/fun.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AddFormComponent } from'./components/add-form/add-form.component';
 
 export const rootRouterConfig: Routes = [
@@ -21,6 +22,7 @@ export const rootRouterConfig: Routes = [
   { path: 'fun', component: FunComponent },
   { path: 'info', component: InfoComponent },
   { path: 'listings', component: ListingsComponent },
-  { path: 'listings/form', component: AddFormComponent }
+  { path: 'listings/form', component: AddFormComponent },
+  { path: 'profile', component: ProfileComponent }
 
 ];

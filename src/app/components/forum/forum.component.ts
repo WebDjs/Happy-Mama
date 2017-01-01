@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { ForumPost } from '../../models/forum.post.model';
-import { ForumComment } from '../../models/forum.comment.model';
+// import { ForumPost } from '../../models/forum.post.model';
+// import { ForumComment } from '../../models/forum.comment.model';
 
 @Component({
   moduleId: module.id,
@@ -11,13 +11,13 @@ import { ForumComment } from '../../models/forum.comment.model';
 })
 export class ForumComponent implements OnInit {
 
-  forumPost: ForumPost;
-  posts: ForumPost[];
+  forumPost: any;
+  posts: any;
   title: string;
   postContent: string;
   user: string;
   date: string;
-  comments: ForumComment[];
+  comments: any;
 
   constructor(private dataService: DataService) {
     this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });

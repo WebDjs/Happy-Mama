@@ -13,6 +13,7 @@ import { AppComponent } from './components/app.component';
 
 import { SigninComponent } from './components/sign-in/sign-in.component';
 import { SignupComponent } from './components/sign-up/sign-up.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { ChildmindersComponent } from './components/childminders/childminders.component';
 import { FunComponent } from './components/fun/fun.component';
@@ -21,12 +22,8 @@ import { ForumComponent } from './components/forum/forum.component';
 
 import { ListingsComponent } from './components/listings/listings.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
-<<<<<<< HEAD
 import { ForumForm } from './components/forum/forum-elements/forum-post.form';
-import { ListingItemComponent } from './components/listing-item/listing-item.component'
-=======
-import { ListingItemComponent } from'./components/listing-item/listing-item.component'
->>>>>>> 8cf98fe362776b2bf4b305d99a4e13fd4c427be3
+import { ListingItemComponent } from './components/listing-item/listing-item.component';
 import { AddFormComponent } from './components/add-form/add-form.component';
 
 
@@ -39,6 +36,7 @@ import { LogInService } from './services/login.service';
   declarations: [
     AppComponent,
     ChildmindersComponent,
+    ProfileComponent,
     ForumComponent,
     HomeComponent,
     SigninComponent,
@@ -47,9 +45,9 @@ import { LogInService } from './services/login.service';
     InfoComponent,
     ListingsComponent,
     ForumPost,
+    ForumForm,
     AddFormComponent,
     ListingItemComponent
-
   ],
   imports: [
     BrowserModule,
@@ -67,5 +65,4 @@ import { LogInService } from './services/login.service';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
 }
