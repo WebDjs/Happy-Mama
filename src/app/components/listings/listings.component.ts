@@ -15,40 +15,7 @@ import { ItemListing } from '../../models/item.listing.model'
 
 export class ListingsComponent implements OnInit {
   listingItem: ItemListing;
-  listings: ItemListing[] =  [
-
-      {
-        title: 'Спешно za 5 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-		    category: 'Търси',
-        username: 'Anonim1',
-        date: '123',
-		   isDeleted: false
-      },
-
-      {
-        title: 'Спешно za 2 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        category: 'Търси',
-	   username: 'Anonim2',
-        date: '1234',
-		 isDeleted: false
-      },
-
-      {
-        title: 'Спешно za 12 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
- category: 'Търси',
-        username: 'Anonim3',
-        date: '27/0302',
-		 isDeleted: true
-      }];
+  listings: ItemListing[] = [];
   title: string;
   category: string;
   content: string;
@@ -60,7 +27,8 @@ export class ListingsComponent implements OnInit {
 
   constructor(private dataService: DataService) {
     this.dataService.getListings().subscribe(listings => { this.listings = listings });
-
+    console.log('From constructor')
+console.log(this.listings)
     this.listingItem = {
       title: '',
       category: '',
@@ -72,7 +40,7 @@ export class ListingsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log(this.listings)
   }
 
   isSubmenuVisible: boolean = false;
@@ -88,6 +56,8 @@ export class ListingsComponent implements OnInit {
   }
 
   addListingItem(item: any): void {
+
+    console.log(item)
     let newItemListing = {
       title: item.title,
       category: item.category,
@@ -101,6 +71,7 @@ export class ListingsComponent implements OnInit {
 
     this.dataService.addListingItem(newItemListing).subscribe(listingItem => {
       this.listings.push(listingItem);
+      console.log(listingItem);
       this.title = '',
         this.category = '',
         this.content = '',
@@ -111,12 +82,14 @@ export class ListingsComponent implements OnInit {
     });
   }
 
-    removeListingItem(listingItem: any): void {
+  removeListingItem(listingItem: any): void {
     console.log(listingItem);
     listingItem.isDeleted = true;
     let index = this.listings.findIndex(currentListingItem => currentListingItem.isDeleted === true);
     console.log(index);
-    this.dataService.deleteForumPost(listingItem).subscribe((ok) => { console.log(ok); });
+    this.dataService.deleteListingItem(listingItem).subscribe((ok) => { console.log(ok); });
     this.listings.splice(index, 1);
   }
+
+
 }

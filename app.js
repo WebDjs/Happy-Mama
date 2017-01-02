@@ -120,27 +120,15 @@ app
             res.json(listings);
         })
     })
-
-// .getFromCategory('/listings', category, function(req, res, next) {
-//     db['listings'].find({ category: category }, function(err, listings) {
-//         if (err) {
-//             res.send(err);
-//         }
-//         res.json(listings);
-//     })
-// })
-
-
-.get('/listings/:id', function(req, res, next) {
-    db['listings'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, listing) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(listing);
+    .get('/listings/:id', function(req, res, next) {
+        db['listings'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, listing) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(listing);
+        })
     })
-})
-
-.post('/listings', function(req, res, next) {
+    .post('/listings', function(req, res, next) {
         let listing = req.body;
 
         //validations
@@ -166,7 +154,6 @@ app
                 res.json(listing);
             })
     });
-
 // routes forum-posts
 app
     .get('/forumposts', function(req, res, next) {

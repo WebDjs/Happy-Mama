@@ -59,7 +59,7 @@ export class DataService {
     return this.http.post('/listings', JSON.stringify(listingItem), this.options);
   }
 
-   deleteListingItem(listinItem: any): Observable<any> {
-    return this.http.delete(`/listings/${listinItem._id}`, this.options);
+   deleteListingItem(listingItem: any): Observable<any> {
+    return this.http.put(`/listings/${listingItem._id}`,JSON.stringify(listingItem), this.options);
   }
 }
