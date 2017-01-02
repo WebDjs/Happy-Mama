@@ -13,28 +13,7 @@ import { LocalStorageService } from '../../local-storage/index.js';
 export class ForumComponent implements OnInit {
 
   forumPost: ForumPost;
-  posts: ForumPost[] = [{
-    title: 'Търся си кукла за малката',
-    postContent: 'Тука една фукла - жмукла си търся ама не мога да я намеря, някой ако може да помогне!',
-    user: 'Бай Иван',
-    date: new Date().toLocaleTimeString(),
-    _isDeleted: false,
-    comments: []
-  }, {
-    title: 'Търся си кукла за малката',
-    postContent: 'Тука една кукувица си търся ама не мога да я намеря, някой ако може да помогне!',
-    user: 'Бай Иван',
-    date: new Date().toLocaleTimeString(),
-    _isDeleted: false,
-    comments: []
-  }, {
-    title: 'Търся си кукла за малката',
-    postContent: 'Тука една кукундрела - мукундрела си търся ама не мога да я намеря, някой ако може да помогне!',
-    user: 'Бай Иван',
-    date: new Date().toLocaleTimeString(),
-    _isDeleted: false,
-    comments: []
-  }];
+  posts: ForumPost[];
   title: string;
   postContent: string;
   user: string;
