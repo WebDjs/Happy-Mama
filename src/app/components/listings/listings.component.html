@@ -30,7 +30,7 @@
     </h4>
     <div>
         <a class="btn btn-primary" (click)="toggleForm()">Добави обява</a>
-        <add-form *ngIf="isFormVisible" (listingItemCreated)="createListingItem($event)"></add-form>
+        <add-form *ngIf="isFormVisible" (listingItemCreated)=" addListingItem($event)"></add-form>
     </div>
     <br>
     <h3 id="info-tab ">Най-нови обяви</h3>

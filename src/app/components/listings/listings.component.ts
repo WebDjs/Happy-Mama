@@ -15,57 +15,24 @@ import { ItemListing } from '../../models/item.listing.model'
 
 export class ListingsComponent implements OnInit {
   listingItem: ItemListing;
-  listings: ItemListing[] = [{
-      
-        title: 'Спешно za 5 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-		 category: 'Търси',
-        username: 'Anonim1',
-        date: '123',
-		 isDeleted: false
-      },
-
-      {
-        title: 'Спешно za 2 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        category: 'Търси',
-	   username: 'Anonim2',
-        date: '1234',
-		 isDeleted: false
-      },
-
-      {
-        title: 'Спешно za 12 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
- category: 'Търси',
-        username: 'Anonim3',
-        date: '27/0302',
-		 isDeleted: false
-      }];
-  
+  listings: ItemListing[] = []
   title: string;
   category: string;
   content: string;
-  username: string;
+  username: string ;
   date: string;
   isDeleted: boolean;
   id: string;
 
 
   constructor(private dataService: DataService) {
-  //  this.dataService.getListings().subscribe(listings => { this.listings = listings });
-    // todo same with user
+   this.dataService.getListings().subscribe(listings => { this.listings = listings });
+    
     this.listingItem = {
       title: '',
-      category: 'Търси',
+      category: '',
       content: '',
-      username: 'Анонимен',
+      username: '',
       date: '',
       isDeleted: false
     }
@@ -88,31 +55,34 @@ export class ListingsComponent implements OnInit {
   }
 
 
-  createListingItem(listingItem:ItemListing) {
-    console.log(listingItem);
-    this.listings.push(listingItem)
-  }
-
-  addItemListing(): void {
+  addListingItem(item:any): void {
     let newItemListing = {
-      title: this.listingItem.title,
-      category: this.listingItem.category,
-      content: this.listingItem.content,
-      username: this.listingItem.username,
+      title: item.title,
+      category: item.category,
+      content: item.content,
+      username: localStorage.getItem('username'),
       date: new Date().toLocaleTimeString(),
       isDeleted: false
     }
-    console.log('addingItem');
+   
+    console.log('I am here')
     console.log(JSON.stringify(newItemListing));
 
-    // this.dataService.addListingItem(newItemListing).subscribe(listingItem => {
-    //   this.listings.push(listingItem);
-    //   this.title = '',
-    //     this.category = 'Търси',
-    //     this.content = '',
-    //     this.username = 'Анонимен',
-    //     this.date = '',
-    //     this.isDeleted = false
-    // })
+    this.dataService.addListingItem(newItemListing).subscribe(listingItem=> {
+      this.listings.push(listingItem);
+      console.log(newItemListing);
+      console.log('After pushing');
+      console.log(this.listings);
+
+        this.title = '',
+        this.category = '',
+        this.content = '',
+        this.username = localStorage.getItem('username'),
+        this.date = new Date().toLocaleTimeString(),
+        this.isDeleted = false
+        this.dataService.getListings().subscribe(listings => { this.listings = listings; })
+    });
+
+     console.log('I finished!')
   }
 }

@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ItemListing } from '../../models/item.listing.model';
 import { FormsModule } from '@angular/forms';
 
+import{}from '../../models/item.listing.model'
+
 @Component({
   moduleId: module.id,
   selector: 'add-form',
@@ -12,27 +14,23 @@ import { FormsModule } from '@angular/forms';
 export class AddFormComponent {
 
   listingItemForm: ItemListing = {
-      title: '',
-      category: 'Tърси',
-      content: '',
-      username: 'Pesjo',
-      date: new Date().toLocaleTimeString(),
-      isDeleted: false
-    };
+    title: '',
+    category: '',
+    content: '',
+    username: localStorage.getItem('username'),
+    date: new Date().toLocaleTimeString(),
+    isDeleted: false
+  };
   @Output() listingItemCreated = new EventEmitter();
-createListingItem() {
+  addListingItem() {
     const {title, category, content, username, date, isDeleted} = this.listingItemForm;
-     if (title && category && content && username && date){
-      this.listingItemCreated.next({title, category, content, username, date, isDeleted});
-      this.listingItemForm.title= '',
-      this.listingItemForm.category= 'Tърси',
-      this.listingItemForm.content= '',
-      this.listingItemForm.username= 'Pesjo',
-      this.listingItemForm.date= new Date().toLocaleTimeString(),
-      this.listingItemForm.isDeleted=false;
-     }
-  }
+    if (title && category && content && username && date && !isDeleted) {
+      this.listingItemCreated.next({ title, category, content, username, date, isDeleted });
+      console.log("Ami sega?")
 
+    }
+  }
+// TODO
   // constructor() {
   //   this.listingItemForm = {
   //     title: '',
@@ -51,10 +49,6 @@ createListingItem() {
     this.isFormVisible = !this.isFormVisible;
   }
 
-  get spy() {
-    return JSON.stringify(this.listingItemForm);
-  }
-
   // newListingItemForm = {
   //   title: '',
   //   category: 'Tърси',
@@ -63,9 +57,4 @@ createListingItem() {
   //   content: '',
   //   isDeleted: false
   // }
-
-
-
-  
-
 }

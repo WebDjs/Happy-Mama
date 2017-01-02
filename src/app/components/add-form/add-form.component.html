@@ -1,9 +1,23 @@
 <br>
 <!--#listingItemForm="ngForm"-->
 <!--<form (ngSubmit)="addItemListing()" class="add-form">-->
-<form (submit)="createListingItem()" class="add-form">
+<form (submit)=" addListingItem()" class="add-form">
     <h1>Нова Обява</h1>
     <br>
+    <div class="form-group">
+        <label for="listing-item-title">Категория:</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-pencil"></span>
+            </span>
+            <!--#title="ngModel"-->
+            <select [(ngModel)]="listingItemForm.category" name="category" id="select-ategory" type="select" class="form-control" selected="Търси" required>
+                <option value="Търси">Търси</option>
+                <option value="Предлага">Предлага</option>
+                <option value="Други">Други</option>
+            </select>
+        </div>
+    </div>
     <div class="form-group">
         <label for="listing-item-title">Заглавие на обявата:</label>
         <div class="input-group">
@@ -23,7 +37,6 @@
             </textarea>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary"  id="btn-submit">Публикувй</button>
+    <button type="submit" class="btn btn-primary" id="btn-submit">Публикувй</button>
     <pre>{{listingItemForm | json}}</pre>
 </form>
-<!--{{spy}}-->
