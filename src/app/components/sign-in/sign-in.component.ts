@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
@@ -13,7 +13,7 @@ import { ToasterService } from 'angular2-toastr/index';
   templateUrl: './sign-in.component.html',
   providers: [LocalStorageService]
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent {
   users: User[];
   newUser: User;
   username: string;
@@ -29,10 +29,6 @@ export class SigninComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-  }
-
   loginUser(): void {
     this.newUser = new User();
     this.newUser.username = this.username;
@@ -42,7 +38,7 @@ export class SigninComponent implements OnInit {
       (usr.username === this.newUser.username) &&
       (usr.password === this.newUser.password)
     ))) {
-      this.notifier.error('Грешка', 'Потребителското име или паролата не съвпадат!', false, 3000);
+      this.notifier.error('Грешка', 'Потребителското име или паролата не са правилни!', false, 3000);
       this.password = '';
       return;
     };
