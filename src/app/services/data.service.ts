@@ -57,6 +57,9 @@ getListings(): Observable<any> {
 
   addListingItem(listingItem: any): Observable<any> {
     return this.http.post('/listings', JSON.stringify(listingItem), this.options);
+  }
 
+   deleteListingItem(listinItem: any): Observable<any> {
+    return this.http.delete(`/forumposts/${listinItem._id}`, this.options);
   }
 }

@@ -19,15 +19,15 @@ export class ListingsComponent implements OnInit {
   title: string;
   category: string;
   content: string;
-  username: string ;
+  username: string;
   date: string;
   isDeleted: boolean;
   id: string;
 
 
   constructor(private dataService: DataService) {
-   this.dataService.getListings().subscribe(listings => { this.listings = listings });
-    
+    this.dataService.getListings().subscribe(listings => { this.listings = listings });
+
     this.listingItem = {
       title: '',
       category: '',
@@ -54,8 +54,7 @@ export class ListingsComponent implements OnInit {
     this.isFormVisible = !this.isFormVisible;
   }
 
-
-  addListingItem(item:any): void {
+  addListingItem(item: any): void {
     let newItemListing = {
       title: item.title,
       category: item.category,
@@ -64,25 +63,24 @@ export class ListingsComponent implements OnInit {
       date: new Date().toLocaleTimeString(),
       isDeleted: false
     }
-   
-    console.log('I am here')
+
     console.log(JSON.stringify(newItemListing));
 
-    this.dataService.addListingItem(newItemListing).subscribe(listingItem=> {
+    this.dataService.addListingItem(newItemListing).subscribe(listingItem => {
       this.listings.push(listingItem);
-      console.log(newItemListing);
-      console.log('After pushing');
-      console.log(this.listings);
-
-        this.title = '',
-        this.category = '',
-        this.content = '',
-        this.username = localStorage.getItem('username'),
-        this.date = new Date().toLocaleTimeString(),
-        this.isDeleted = false
-        this.dataService.getListings().subscribe(listings => { this.listings = listings; })
+      this.title = '',
+      this.category = '',
+      this.content = '',
+      this.username = localStorage.getItem('username'),
+      this.date = new Date().toLocaleTimeString(),
+      this.isDeleted = false
+      this.dataService.getListings().subscribe(listings => { this.listings = listings; })
     });
+  }
 
-     console.log('I finished!')
+  removeListingItem(listingItem: any): void {
+    //let index = this.posts.findIndex(localPost => localPost.date === post.date);
+    this.dataService.deleteForumPost(listingItem).subscribe((ok) => {console.log(ok); });
+    //this.posts.splice(index, 1);
   }
 }
