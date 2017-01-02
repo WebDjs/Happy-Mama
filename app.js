@@ -9,8 +9,8 @@ const db = mongojs(connectionString, collections);
 
 // EXPRESS config
 const express = require('express'),
-	path = require('path'),
-	bodyParser = require('body-parser');
+    path = require('path'),
+    bodyParser = require('body-parser');
 
 const app = express();
 
@@ -28,179 +28,189 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes User
 app
-	.get('/users', function (req, res, next) {
-		db['users'].find(function (err, users) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(users);
-		})
-	})
-	.get('/users/:id', function (req, res, next) {
-		db['users'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, user) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(user);
-		})
-	})
-	.post('/users', function (req, res, next) {
-		let user = req.body;
+    .get('/users', function(req, res, next) {
+        db['users'].find(function(err, users) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(users);
+        })
+    })
+    .get('/users/:id', function(req, res, next) {
+        db['users'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, user) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(user);
+        })
+    })
+    .post('/users', function(req, res, next) {
+        let user = req.body;
 
-		//validations
-		if (!user.username || !user.password) {
-			res.status(400);
-			res.json({ "error": "Bad data!" });
-		}
-		else {
-			db['users'].save(user, function (err, user) {
-				if (err) {
-					res.send(err);
-				}
-				res.json(user);
-			})
-		}
-	});
+        //validations
+        if (!user.username || !user.password) {
+            res.status(400);
+            res.json({ "error": "Bad data!" });
+        } else {
+            db['users'].save(user, function(err, user) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(user);
+            })
+        }
+    });
 
 // routes Babysitter
 app
-	.get('/babysitters', function (req, res, next) {
-		db['babysitters'].find(function (err, babysitters) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(babysitters);
-		})
-	})
-	.get('/babysitters/:id', function (req, res, next) {
-		db['babysitters'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, babysitter) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(babysitter);
-		})
-	})
-	.post('/babysitters', function (req, res, next) {
-		let babysitter = req.body;
+    .get('/babysitters', function(req, res, next) {
+        db['babysitters'].find(function(err, babysitters) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(babysitters);
+        })
+    })
+    .get('/babysitters/:id', function(req, res, next) {
+        db['babysitters'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, babysitter) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(babysitter);
+        })
+    })
+    .post('/babysitters', function(req, res, next) {
+        let babysitter = req.body;
 
-		//validations
-		if (!babysitter.name || !babysitter.age) {
-			res.status(400);
-			res.json({ "error": "Bad babysitter!" });
-		}
-		else {
-			db['babysitters'].save(babysitter, function (err, babysitter) {
-				if (err) {
-					res.send(err);
-				}
-				res.json(babysitter);
-			})
-		}
-	})
-	.put('/babysitters/:id', function (req, res, next) {
-		let babysitter = req.body;
-		let updatedTask = {};
+        //validations
+        if (!babysitter.name || !babysitter.age) {
+            res.status(400);
+            res.json({ "error": "Bad babysitter!" });
+        } else {
+            db['babysitters'].save(babysitter, function(err, babysitter) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(babysitter);
+            })
+        }
+    })
+    .put('/babysitters/:id', function(req, res, next) {
+        let babysitter = req.body;
+        let updatedTask = {};
 
-		// validations
+        // validations
 
-		db['babysitters'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedTask, {},
-			function (err, babysitter) {
-				if (err) {
-					res.send(err);
-				}
-				res.json(babysitter);
-			})
-	});
+        db['babysitters'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedTask, {},
+            function(err, babysitter) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(babysitter);
+            })
+    });
 
 // routes Listings
 app
-	.get('/listings', function (req, res, next) {
-		db['listings'].find(function (err, listings) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(listings);
-		})
-	})
-	.get('/listings/:id', function (req, res, next) {
-		db['listings'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, listing) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(listing);
-		})
-	})
-	.post('/listings', function (req, res, next) {
-		let listing = req.body;
+    .get('/listings', function(req, res, next) {
+        db['listings'].find({ _isDeleted: false }, function(err, listings) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(listings);
+        })
+    })
 
-		//validations
+.getFromCategory('/listings', category, function(req, res, next) {
+    db['listings'].find({ category: category }, function(err, listings) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(listings);
+    })
+})
 
-		db['listings'].save(listing, function (err, listing) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(listing);
-		})
-	})
-	.put('/listings/:id', function (req, res, next) {
-		let listing = req.body;
-		let updatedListing = {};
 
-		// validations
+.get('/listings/:id', function(req, res, next) {
+    db['listings'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, listing) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(listing);
+    })
+})
 
-		db['listings'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedListing, {},
-			function (err, listing) {
-				if (err) {
-					res.send(err);
-				}
-				res.json(listing);
-			})
-	});
+.post('/listings', function(req, res, next) {
+        let listing = req.body;
+
+        //validations
+
+        db['listings'].save(listing, function(err, listing) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(listing);
+        })
+    })
+    .put('/listings/:id', function(req, res, next) {
+        let listing = req.body;
+        let updatedListing = {};
+
+        // validations
+
+        db['listings'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedListing, {},
+            function(err, listing) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(listing);
+            })
+    });
 
 // routes forum-posts
 app
-	.get('/forumposts', function (req, res, next) {
-		db['forum-posts'].find( {_isDeleted: false}, function (err, forumPosts) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(forumPosts);
-		});
-	})
-	.get('/forumposts/:id', function (req, res, next) {
-		db['forum-posts'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, forumPost) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(forumPost);
-		})
-	})
-	.post('/forumposts', function (req, res, next) {
-		let forumPost = req.body;
+    .get('/forumposts', function(req, res, next) {
+        db['forum-posts'].find({ _isDeleted: false }, function(err, forumPosts) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(forumPosts);
+        });
+    })
+    .get('/forumposts/:id', function(req, res, next) {
+        db['forum-posts'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, forumPost) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(forumPost);
+        })
+    })
+    .post('/forumposts', function(req, res, next) {
+        let forumPost = req.body;
 
-		//validations
+        //validations
 
-		db['forum-posts'].save(forumPost, function (err, forumPost) {
-			if (err) {
-				res.send(err);
-			}
-			res.json(forumPost);
-		})
-	})
-	.put('/forumposts/:id', function (req, res, next) {
-		let forumPost = req.body;
-		let updatedPost = { $set: { _isDeleted: true } };
+        db['forum-posts'].save(forumPost, function(err, forumPost) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(forumPost);
+        })
+    })
+    .put('/forumposts/:id', function(req, res, next) {
+        let forumPost = req.body;
+        let updatedPost = { $set: { _isDeleted: true } };
 
-		// validations
+        // validations
 
-		db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedPost, {},
-			function (err, forumPost) {
-				if (err) {
-					res.send(err);
-				}
-				res.json(forumPost);
-			})
-	});
+        db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedPost, {},
+            function(err, forumPost) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(forumPost);
+            })
+    });
 
 // connection on port
 const port = 3003;

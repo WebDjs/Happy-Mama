@@ -13,8 +13,11 @@ export class ListingItemComponent {
     username: '',
     date: ''
   }
+ 
+   @Output() deleteItemListing = new EventEmitter();
 
-  delete(){
-    console.log("Done")
+  removeListingItem(){
+    console.log('Deleted');
+    this.deleteItemListing.next();
   }
 }
