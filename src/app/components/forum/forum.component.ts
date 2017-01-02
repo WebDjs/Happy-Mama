@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ForumPost } from '../../models/forum.post.model';
 import { ForumComment } from '../../models/forum.comment.model';
+import { LocalStorageService } from '../../local-storage/index.js';
 
 @Component({
   moduleId: module.id,
@@ -12,26 +13,22 @@ import { ForumComment } from '../../models/forum.comment.model';
 export class ForumComponent implements OnInit {
 
   forumPost: ForumPost;
-  posts: ForumPost[] = [{
-    title: 'fswergfrgrg',
-      postContent: 'gggggggggggggggggggggggggggggggg',
-      user: 'Ivan',
-      date: '',
-      comments: []
-  }];
+  posts: ForumPost[];
   title: string;
   postContent: string;
   user: string;
   date: string;
+  _isDeleted: boolean;
   comments: ForumComment[];
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, storageService: LocalStorageService) {
     this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
     this.forumPost = {
       title: '',
       postContent: '',
       user: 'Ivan',
       date: '',
+      _isDeleted: false,
       comments: []
     };
   }
@@ -40,19 +37,27 @@ export class ForumComponent implements OnInit {
 
   }
 
-  //get spy(){
-  //  return JSON.stringify(this.forumPost);
-  //}
-
   isvisible: boolean = true;
   clicked() {
     this.isvisible = !this.isvisible;
   }
 
+  isCommentMode: boolean = false;
+
+  commentPost(post: any): void {
+    if (!this.isCommentMode) {
+      this.isCommentMode = !this.isCommentMode;
+    }
+    let currentPost = post;
+    this.posts = [];
+    this.posts.push(post);
+  }
+
   removePost(post: any): void {
-    //let index = this.posts.findIndex(localPost => localPost.date === post.date);
+    post._isDeleted = true;
+    let index = this.posts.findIndex(localPost => localPost._isDeleted === true);
     this.dataService.deleteForumPost(post).subscribe((ok) => {console.log(ok); });
-    //this.posts.splice(index, 1);
+    this.posts.splice(index, 1);
   }
 
   addForumPost(): void {
@@ -61,6 +66,7 @@ export class ForumComponent implements OnInit {
       postContent: this.forumPost.postContent,
       user: this.forumPost.user,
       date: new Date().toLocaleTimeString(),
+      _isDeleted: false,
       comments: this.forumPost.comments
     };
     console.log('addingPost');
@@ -72,6 +78,7 @@ export class ForumComponent implements OnInit {
       this.postContent = '';
       this.user = 'Hasan';
       this.date = new Date().toLocaleTimeString();
+      this._isDeleted = false;
       this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
     });
   }

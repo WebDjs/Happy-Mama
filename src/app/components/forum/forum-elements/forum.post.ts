@@ -11,12 +11,19 @@ export class ForumPost {
     title: '',
     postContent: '',
     user: '',
-    date: ''
+    date: '',
+    width: ''
   };
 
   @Output() deletePost = new EventEmitter();
+  @Output() climbPost = new EventEmitter();
 
   deleteForumPost() {
     this.deletePost.next();
+  }
+
+  transferPost() {
+    console.log('mngsdfdswfgd');
+    this.climbPost.next();
   }
 }

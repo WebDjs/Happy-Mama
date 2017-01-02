@@ -24,7 +24,6 @@ import { AddFormComponent } from './components/add-form/add-form.component';
 
 import { ForumComponent } from './components/forum/forum.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
-import { ForumForm } from './components/forum/forum-elements/forum-post.form';
 
 import { FunComponent } from './components/fun/fun.component';
 import { InfoComponent } from './components/info/info.component';
@@ -50,7 +49,6 @@ import { ToasterComponent, ToastComponent, ToasterService } from 'angular2-toast
     InfoComponent,
     ListingsComponent,
     ForumPost,
-    ForumForm,
     AddFormComponent,
     ListingItemComponent,
     ToasterComponent,

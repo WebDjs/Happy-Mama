@@ -27,6 +27,10 @@
   clear: both;
 }
 
+.nav-tashak{
+  height: 18px;
+}
+
 .category{
   display: inline-block;
   float: right;

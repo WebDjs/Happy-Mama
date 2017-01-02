@@ -160,12 +160,12 @@ app
 // routes forum-posts
 app
 	.get('/forumposts', function (req, res, next) {
-		db['forum-posts'].find(function (err, forumPosts) {
+		db['forum-posts'].find( {_isDeleted: false}, function (err, forumPosts) {
 			if (err) {
 				res.send(err);
 			}
 			res.json(forumPosts);
-		})
+		});
 	})
 	.get('/forumposts/:id', function (req, res, next) {
 		db['forum-posts'].findOne({ _id: mongojs.ObjectId(req.params.id) }, function (err, forumPost) {
@@ -189,11 +189,11 @@ app
 	})
 	.put('/forumposts/:id', function (req, res, next) {
 		let forumPost = req.body;
-		let updatedPost = {};
+		let updatedPost = { $set: { _isDeleted: true } };
 
 		// validations
 
-		db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedpost, {},
+		db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedPost, {},
 			function (err, forumPost) {
 				if (err) {
 					res.send(err);
