@@ -3,7 +3,6 @@
         <div>
             <ul class="ads" (mouseenter)=" toggleSubmenu()" (mouseleave)=" toggleSubmenu()">
                 <li>
-                    <!--<li (mouseenter)=" toggleSubmenu()" (mouseleave)=" toggleSubmenu()">-->
                     <a href=" # " class="category ">Търси</a>
                     <!--<ul>-->
                     <ul *ngIf="isSubmenuVisible">
@@ -16,7 +15,6 @@
                     </ul>
                 </li>
                 <li>
-                    <!--<li (mouseenter)=" toggleSubmenu()" (mouseleave)=" toggleSubmenu()">-->
                     <a href="# " class="category ">Предлага</a>
                     <ul *ngIf="isSubmenuVisible">
                         <li>
@@ -30,19 +28,19 @@
             </ul>
         </div>
     </h4>
+    <div>
+        <a class="btn btn-primary" (click)="toggleForm()">Добави обява</a>
+        <add-form *ngIf="isFormVisible" (listingItemCreated)=" addListingItem($event)"></add-form>
+    </div>
+    <br>
+    <h3 id="info-tab ">Най-нови обяви</h3>
+    <br>
     <div id="forum-main ">
+
         <div id="forum-menu ">
-            <h3 id="info-tab ">Най-нови обяви</h3>
 
-
-            <listing-item [itemData]="ad" *ngFor="let ad of ads"></listing-item>
-
-
-            <a class="btn btn-primary" [routerLink]="[ '/listings/form'] ">Добави обява</a>
-            <!--<add-form></add-form>-->
-
+            <listing-item [itemData]="listingItem" *ngFor="let listingItem of listings"></listing-item>
         </div>
-        <forum-post *ngFor=" let post of posts "></forum-post>
     </div>
     <div id="aside ">
     </div>

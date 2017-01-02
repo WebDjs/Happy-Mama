@@ -1,31 +1,32 @@
 <div id="wrapper">
   <header>
+    <ng2-toaster [position]="'top-center'" [theme]="'bootstrap'"></ng2-toaster>
     <nav id="nav-up">
       <span>
         <a [routerLink]="['/']">
           <img src="../../assets/images/logo.png" width="60px" height="45px">
-          <span>Dетегледачките</span>
-        </a>
+          <span>{{ nav.logo }}</span>
+      </a>
       </span>
       <ul class="nav nav-tabs right-object">
         <li role="presentation">
-          <a *ngIf="isLanguageEnglish" class="btn-link login usr-name" [routerLink]="['/profile']">
-            {{ userName }}
+          <a *ngIf="isLogged()" class="btn-link login usr-name" [routerLink]="['/profile']">
+            {{ getUserName() }}
           </a>
         </li>
         <li role="presentation">
-          <a *ngIf="isLanguageEnglish" class="btn-link login"  [routerLink]="['/']">
-            Изход
+          <a *ngIf="isLogged()" (click)="logOut()" class="btn-link login" [routerLink]="['/']">
+            {{ nav.signOut }}
           </a>
         </li>
         <li role="presentation">
-          <a *ngIf="!isLanguageEnglish" class="btn-link login" [routerLink]="['/sign-in']">
-            Вход
+          <a *ngIf="!isLogged()" class="btn-link login" [routerLink]="['/sign-in']">
+            {{ nav.signIn }}
           </a>
         </li>
         <li role="presentation">
-          <a *ngIf="!isLanguageEnglish" class="btn-link login" [routerLink]="['/sign-up']">
-            Регистрация
+          <a *ngIf="!isLogged()" class="btn-link login" [routerLink]="['/sign-up']">
+            {{ nav.signUp }}
           </a>
         </li>
         <a id="language-btn" class="btn btn-primary" (click)='changeLanguage()'>
@@ -34,59 +35,63 @@
       </ul>
     </nav>
     <nav id="home-nav">
-        <ul class="nav nav-tabs">
-          <li>
-            <a class="btn" [routerLink]="['/']">
-              <i class="glyphicon glyphicon-home"></i>
+      <ul class="nav nav-tabs">
+        <li>
+          <a *ngIf="!getHome()" class="btn" [routerLink]="['/']">
+              НАЧАЛО
             </a>
-          </li>
-          <li role="presentation">
-            <a class="btn" [routerLink]="['/childminders']">
-              Dетегледачки
+        </li>
+        <li>
+          <a *ngIf="getHome()" class="btn" [routerLink]="['/']">
+            <i class="glyphicon glyphicon-home"></i>
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/childminders']">
+              {{ nav.babisitters }}
             </a>
-          </li>
-          <li role="presentation">
-            <a class="btn" [routerLink]="['/listings']">
-              Обяви
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/listings']">
+              {{ nav.listungs }}
             </a>
-          </li>
-          <li role="presentation">
-            <a class="btn" [routerLink]="['/forum']">
-              Форум
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/forum']">
+              {{ nav.forum }}
             </a>
-          </li>
-          <li role="presentation">
-            <a class="btn" [routerLink]="['/info']">
-              Полезна информация
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/info']">
+              {{ nav.info }}
             </a>
-          </li>
-          <li role="presentation">
-            <a class="btn" [routerLink]="['/fun']">
-              Забавно
+        </li>
+        <li role="presentation">
+          <a class="btn" [routerLink]="['/fun']">
+              {{ nav.fun }}
             </a>
-          </li>
-          <li id="search-li">
-            <div id="search-base">
-              <form action="" class="search-form">
-                <div class="form-group has-feedback">
-                  <label for="search" class="sr-only"></label>
-                  <input type="text" class="form-control" name="search" id="search" placeholder="Търсене...">
-                  <span class="form-control-feedback"><i class="glyphicon glyphicon-search"></i></span>
-                </div>
-              </form>
-            </div>
-          </li>
-          <li>
-            <a class="btn" [routerLink]="['/']">
-              <i class="glyphicon glyphicon-home"></i>
-            </a>
-          </li>
-        </ul>
+        </li>
+        <li id="search-li">
+          <div id="search-base">
+            <form action="" class="search-form">
+              <div class="form-group has-feedback">
+                <label for="search" class="sr-only"></label>
+                <input type="text" class="form-control" name="search" id="search" [placeholder]="nav.search">
+                <span class="form-control-feedback"><i class="glyphicon glyphicon-search"></i></span>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
     </nav>
   </header>
 
   <main>
     <router-outlet></router-outlet>
+    <div class="aside">
+      <h2>Рекламирайте тук!</h2>
+      <h2>тел: 0035 567822</h2>
+    </div>
   </main>
 
   <footer>

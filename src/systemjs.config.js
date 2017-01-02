@@ -24,9 +24,10 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs':                      'npm:rxjs',
-      'ts-md5':                    'npm:ts-md5',
-      'angular-2-local-storage':   'npm:angular-2-local-storage',
+      'rxjs': 'npm:rxjs',
+      'ts-md5': 'npm:ts-md5',
+      'angular-2-local-storage': 'npm:angular-2-local-storage',
+      'angular2-toastr': 'npm:angular2-toastr',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
@@ -36,6 +37,10 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      'angular2-toastr': {
+        main: './index.js',
         defaultExtension: 'js'
       }
     }

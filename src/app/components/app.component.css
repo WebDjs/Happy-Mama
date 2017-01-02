@@ -1,15 +1,22 @@
 #wrapper {
   background-color: #c8b1df;
   font-weight: bold;
-  margin-right: 10%;
-  margin-left: 10%;
 }
 
+nav#home-nav ul li {
+  margin-left: 33px;;
+}
 
-/*
-.invisible {
-  display: none
-}*/
+.aside {
+    position: absolute;
+    top: 20%;
+    left: 79%;
+    width: 21%;
+    min-height: 520px;
+    background-color: indigo;
+    padding: 2px;
+    color: #c4bfc9;
+}
 
 form {
   margin-right: 10px
@@ -159,7 +166,7 @@ footer {
 }
 
 .search-form .form-group, .search-form .form-group.hover {
-  width: 103%;
+  width: 107%;
   border-radius: 4px 25px 25px 4px;
 }
 

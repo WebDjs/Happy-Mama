@@ -1,18 +1,42 @@
 <br>
-<div class="log-in-form log-form">
+<!--#listingItemForm="ngForm"-->
+<!--<form (ngSubmit)="addItemListing()" class="add-form">-->
+<form (submit)=" addListingItem()" class="add-form">
+    <h1>Нова Обява</h1>
     <br>
     <div class="form-group">
+        <label for="listing-item-title">Категория:</label>
         <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-            <input id="tb-username" type="text" class="form-control" name="title" placeholder="Заглавие">
+            <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-pencil"></span>
+            </span>
+            <!--#title="ngModel"-->
+            <select [(ngModel)]="listingItemForm.category" name="category" id="select-ategory" type="select" class="form-control" selected="Търси" required>
+                <option value="Търси">Търси</option>
+                <option value="Предлага">Предлага</option>
+                <option value="Други">Други</option>
+            </select>
         </div>
     </div>
     <div class="form-group">
+        <label for="listing-item-title">Заглавие на обявата:</label>
         <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-            <textarea type="text" class="form-control" placeholder="Текст" name="content"></textarea>
+            <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-pencil"></span>
+            </span>
+            <!--#title="ngModel"-->
+            <input [(ngModel)]="listingItemForm.title" name="title" id="listing-item-title" type="text" class="form-control" required>
         </div>
     </div>
-    <button class="btn btn-primary" id="btn-submit">Публикувй</button>
-    <a class="btn btn-success" id="btn-back" [routerLink]="['/listings']">Обратно</a>
-</div>
+    <div class="form-group">
+        <label for="listing-item-content">Съдържание на обявата:</label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+            <!--#content="ngModel"-->
+            <textarea [(ngModel)]="listingItemForm.content" id="listing-item-content" type="text" class="form-control" name="content">
+            </textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="btn-submit">Публикувй</button>
+    <pre>{{listingItemForm | json}}</pre>
+</form>

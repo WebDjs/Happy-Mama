@@ -1,13 +1,12 @@
 div img {
- width: 88%;
- display: block;
- margin: 0 auto;
+    width: 78%;
+    margin: 5px;
 }
 
 div.three {
     min-height: 150px;
     max-width: 100%;
-		margin-left: 1px;
+    margin-left: 1px;
 }
 
 .fieldset-container {
@@ -19,9 +18,12 @@ div.three {
 
 fieldset {
     border: 2px solid #c4bfc9;
+    background-color: #dbcee7;
     border-radius: 5px;
     min-height: 220px;
-    text-align: center;
+    box-shadow: -2px 2px #2f0053;
+    padding: 5px;
+    font-size: 18px;
 }
 
 #fieldset-front-end {
@@ -32,32 +34,42 @@ fieldset {
     margin-right: 5px;
 }
 
+ol {
+    color: #2f0053;
+    font-size: 22px;
+    max-width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
 legend {
+    text-align: center;
     text-decoration: none;
     border: 0;
     padding-top: 1%;
-		color: #283A51;
+    color: #2f0053;
+    text-shadow: -1px 1px;
 }
 
 #registration-free {
-	margin-left: 20%;
-	margin-top: -75px;
+    margin-left: 20%;
+    margin-top: -75px;
 }
 
 #registration-home {
-	color: #6559ea;
+    color: #6559ea;
 }
 
 h4#sto {
-	color: #2f0053;
-	font-size: 18px;
-	margin-left: -3px
+    color: #2f0053;
+    font-size: 18px;
+    margin-left: -3px
 }
 
 .a-leg {
-	color: #5c4a9c;
+    color: #5c4a9c;
 }
 
 .a-leg:hover {
-	color: #2f0053;
+    color: #2f0053;
 }

@@ -1,66 +1,88 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { DataService } from '../../services/data.service';
-import { ForumPost } from '../forum/forum-elements/forum.post';
-import { AddFormComponent } from '../add-form/add-form.component';
-import{ListingItemComponent}from'../listing-item/listing-item.component';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-// import { Category } from '../../models/category.model';
-// import { ItemListing } from '../../models/item-listing.model';
+import { DataService } from '../../services/data.service';
+import { AddFormComponent } from '../add-form/add-form.component';
+import { ListingItemComponent } from '../listing-item/listing-item.component';
+import { ItemListing } from '../../models/item.listing.model'
 
 @Component({
   moduleId: module.id,
-  selector: 'ad',
+  selector: 'listings',
   styleUrls: ['./listings.component.css'],
   templateUrl: './listings.component.html'
 })
 
-export class ListingsComponent {
-  // categories: Category[]
-  // let sampleCategories:Category [] =[{}]
-  ads: any[];
+export class ListingsComponent implements OnInit {
+  listingItem: ItemListing;
+  listings: ItemListing[] = []
+  title: string;
+  category: string;
+  content: string;
+  username: string ;
+  date: string;
+  isDeleted: boolean;
+  id: string;
+
 
   constructor(private dataService: DataService) {
+   this.dataService.getListings().subscribe(listings => { this.listings = listings });
+    
+    this.listingItem = {
+      title: '',
+      category: '',
+      content: '',
+      username: '',
+      date: '',
+      isDeleted: false
+    }
+  }
 
-    this.ads = [
-      {
-        title: 'Спешно za 5 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        username: 'Anonim1',
-        date: '123',
-      },
-
-      {
-        title: 'Спешно za 2 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-        username: 'Anonim2',
-        date: '1234',
-      },
-
-      {
-        title: 'Спешно za 12 god.  dete',
-        content: `Агенция за детегледачи/чки "АБЕЦЕ Комюникейшън" търси за свои клиенти, 
-        живеещи в гр. София, кв. Слатина, Детегледач/ка / домашен/на помощник/ца - почасови грижи 
-        за дете на 1 г. и 4 месеца и помощ в домакинството.`,
-
-        username: 'Anonim3',
-        date: '27/0302'
-      }];
+  ngOnInit() {
 
   }
+
   isSubmenuVisible: boolean = false;
 
   toggleSubmenu() {
     this.isSubmenuVisible = !this.isSubmenuVisible;
   }
 
-@Output() adRemoved = new EventEmitter ();
-  // showInputForm() {
-  //   console.log('Done');
-  // }
+  isFormVisible: boolean = false;
+
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+  }
 
 
+  addListingItem(item:any): void {
+    let newItemListing = {
+      title: item.title,
+      category: item.category,
+      content: item.content,
+      username: localStorage.getItem('username'),
+      date: new Date().toLocaleTimeString(),
+      isDeleted: false
+    }
+   
+    console.log('I am here')
+    console.log(JSON.stringify(newItemListing));
+
+    this.dataService.addListingItem(newItemListing).subscribe(listingItem=> {
+      this.listings.push(listingItem);
+      console.log(newItemListing);
+      console.log('After pushing');
+      console.log(this.listings);
+
+        this.title = '',
+        this.category = '',
+        this.content = '',
+        this.username = localStorage.getItem('username'),
+        this.date = new Date().toLocaleTimeString(),
+        this.isDeleted = false
+        this.dataService.getListings().subscribe(listings => { this.listings = listings; })
+    });
+
+     console.log('I finished!')
+  }
 }

@@ -50,12 +50,13 @@ export class DataService {
   }
   // listings
 
-getAds(ads: any): Observable<any> {
+getListings(): Observable<any> {
     return this.http.get('/listings').map(res => (res.json()));
+
   }
 
-  addAd(ad: any): Observable<any> {
-    return this.http.post('/listings', JSON.stringify(ad), this.options);
+  addListingItem(listingItem: any): Observable<any> {
+    return this.http.post('/listings', JSON.stringify(listingItem), this.options);
 
   }
 }
