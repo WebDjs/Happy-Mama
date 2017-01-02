@@ -40,7 +40,7 @@ export class DataService {
   getForumPosts(): Observable<any> {
     return this.http.get('/forumposts').map(res => (res.json()));
   }
-
+ 
   addForumPost(forumpost: any): Observable<any> {
     return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
   }
@@ -50,7 +50,7 @@ export class DataService {
   }
   // listings
 
-getListings(): Observable<any> {
+ getListings(): Observable<any> {
     return this.http.get('/listings').map(res => (res.json()));
 
   }
@@ -60,6 +60,6 @@ getListings(): Observable<any> {
   }
 
    deleteListingItem(listinItem: any): Observable<any> {
-    return this.http.delete(`/forumposts/${listinItem._id}`, this.options);
+    return this.http.delete(`/listings/${listinItem._id}`, this.options);
   }
 }
