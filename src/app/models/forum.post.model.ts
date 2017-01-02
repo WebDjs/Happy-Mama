@@ -5,5 +5,6 @@ export class ForumPost {
   postContent: string;
   user: string;
   date: string;
+  _isDeleted: boolean;
   comments: ForumComment [];
 }

@@ -46,7 +46,7 @@ export class DataService {
   }
 
   deleteForumPost(forumpost: any): Observable<any> {
-    return this.http.delete(`/forumposts/${forumpost._id}`, this.options);
+    return this.http.put(`/forumposts/${forumpost._id}`, JSON.stringify(forumpost), this.options);
   }
   // listings
 
@@ -57,6 +57,9 @@ getListings(): Observable<any> {
 
   addListingItem(listingItem: any): Observable<any> {
     return this.http.post('/listings', JSON.stringify(listingItem), this.options);
+  }
 
+   deleteListingItem(listinItem: any): Observable<any> {
+    return this.http.delete(`/forumposts/${listinItem._id}`, this.options);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { DataService } from '../../services/data.service';
-import { ForumPost } from '../forum/forum-elements/forum.post';
 import { AddFormComponent } from '../add-form/add-form.component';
 import { ListingItemComponent } from '../listing-item/listing-item.component';
 import { ItemListing } from '../../models/item.listing.model'
@@ -14,14 +15,7 @@ import { ItemListing } from '../../models/item.listing.model'
 
 export class ListingsComponent implements OnInit {
   listingItem: ItemListing;
-  listings: ItemListing[] = [{
-    title: '',
-    category: 'Търси',
-    content: 'Alalalal',
-    username: 'Анонимен',
-    date: '',
-    isDeleted: false
-  }];
+  listings: ItemListing[] = []
   title: string;
   category: string;
   content: string;
@@ -33,12 +27,12 @@ export class ListingsComponent implements OnInit {
 
   constructor(private dataService: DataService) {
     this.dataService.getListings().subscribe(listings => { this.listings = listings });
-    // todo same with user
+
     this.listingItem = {
       title: '',
-      category: 'Търси',
+      category: '',
       content: '',
-      username: 'Анонимен',
+      username: '',
       date: '',
       isDeleted: false
     }
@@ -60,28 +54,33 @@ export class ListingsComponent implements OnInit {
     this.isFormVisible = !this.isFormVisible;
   }
 
-  addItemListing(): void {
+  addListingItem(item: any): void {
     let newItemListing = {
-      title: this.listingItem.title,
-      category: this.listingItem.category,
-      content: this.listingItem.content,
-      username: this.listingItem.username,
+      title: item.title,
+      category: item.category,
+      content: item.content,
+      username: localStorage.getItem('username'),
       date: new Date().toLocaleTimeString(),
       isDeleted: false
     }
-    console.log('addingItem');
+
     console.log(JSON.stringify(newItemListing));
 
     this.dataService.addListingItem(newItemListing).subscribe(listingItem => {
       this.listings.push(listingItem);
       this.title = '',
-        this.category = 'Търси',
-        this.content = '',
-        this.username = 'Анонимен',
-        this.date = '',
-        this.isDeleted = false
+      this.category = '',
+      this.content = '',
+      this.username = localStorage.getItem('username'),
+      this.date = new Date().toLocaleTimeString(),
+      this.isDeleted = false
+      this.dataService.getListings().subscribe(listings => { this.listings = listings; })
+    });
+  }
 
-    })
-
+  removeListingItem(listingItem: any): void {
+    //let index = this.posts.findIndex(localPost => localPost.date === post.date);
+    this.dataService.deleteForumPost(listingItem).subscribe((ok) => {console.log(ok); });
+    //this.posts.splice(index, 1);
   }
 }
