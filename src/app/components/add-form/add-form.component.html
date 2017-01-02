@@ -1,6 +1,4 @@
 <br>
-<!--#listingItemForm="ngForm"-->
-<!--<form (ngSubmit)="addItemListing()" class="add-form">-->
 <form (submit)=" addListingItem()" class="add-form">
     <h1>Нова Обява</h1>
     <br>
@@ -10,7 +8,6 @@
             <span class="input-group-addon">
                     <span class="glyphicon glyphicon-pencil"></span>
             </span>
-            <!--#title="ngModel"-->
             <select [(ngModel)]="listingItemForm.category" name="category" id="select-ategory" type="select" class="form-control" selected="Търси" required>
                 <option value="Търси">Търси</option>
                 <option value="Предлага">Предлага</option>
@@ -24,7 +21,6 @@
             <span class="input-group-addon">
                     <span class="glyphicon glyphicon-pencil"></span>
             </span>
-            <!--#title="ngModel"-->
             <input [(ngModel)]="listingItemForm.title" name="title" id="listing-item-title" type="text" class="form-control" required>
         </div>
     </div>
@@ -32,7 +28,6 @@
         <label for="listing-item-content">Съдържание на обявата:</label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-            <!--#content="ngModel"-->
             <textarea [(ngModel)]="listingItemForm.content" id="listing-item-content" type="text" class="form-control" name="content">
             </textarea>
         </div>

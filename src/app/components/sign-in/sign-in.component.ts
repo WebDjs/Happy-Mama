@@ -24,7 +24,9 @@ export class SigninComponent {
     private localStorage: LocalStorageService,
     private notifier: ToasterService,
     private appRouter: Router) {
-    this.dataService.getUsers().subscribe(users => { this.users = users; });
+    this.dataService.getUsers().subscribe(users => {
+      this.users = users;
+    });
   }
 
   loginUser(): void {
@@ -32,12 +34,22 @@ export class SigninComponent {
     this.newUser.username = this.username;
     this.newUser.password = this.hashService.generateHash(this.password);
 
+    if (!(this.users.find(usr =>
+      (usr.username === this.newUser.username) &&
+      (usr.password === this.newUser.password)
+    ))) {
+      this.notifier.error('Грешка', 'Потребителското име или паролата не са правилни!', false, 3000);
+      this.password = '';
+      return;
+    };
+
     localStorage.clear();
     localStorage.setItem('username', this.newUser.username);
     localStorage.setItem('password', this.newUser.password);
     localStorage.setItem('isLogged', 'true');
 
     this.appRouter.navigateByUrl('/');
+
     this.notifier.info('Добре дошли!', ' ', false, 1500);
   }
 }
