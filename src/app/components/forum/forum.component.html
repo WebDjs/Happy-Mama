@@ -1,5 +1,5 @@
 <div id="main-container">
-    <div class="nav-tashak"><h4 [hidden]="isCommentMode" class="navigation-link"><span class="nav-link">Гледачки</span>
+    <div class="nav-tashak"><h4 class="navigation-link"><span class="nav-link">Категория</span>
         <a href="#" class="category">Категории</a>
         <a href="#" class="category">Неотговорени</a>
         <a href="#" class="category">Най-нови</a>
@@ -7,8 +7,8 @@
     </div>
     <div id="forum-main">
       <div id="forum-menu">
-            <div [hidden]="isCommentMode"><div [hidden]="!isvisible"><h3 >Най-нови</h3></div></div>
-              <div [hidden]="isCommentMode"><h5 (click)="clicked() ; forumPostForm.reset()">+нова тема</h5></div>
+            <div><div><h3 >Най-нови</h3></div></div>
+              <div><h5 *ngIf="isUsable()" (click)="clicked() ; forumPostForm.reset()">+нова тема</h5></div>
          </div>
        <div [hidden]="isvisible" id="main-container" class="white">
        <div id="forum-menu">
@@ -24,7 +24,7 @@
           </form>
         </div>
       </div>
-        <forum-post [postData]="post" *ngFor="let post of posts" (deletePost)="removePost(post)" (climbPost)="commentPost(post)"></forum-post>
+        <forum-post [postData]="post" *ngFor="let post of posts" (climbPost)="getPost(post)" (deletePost)="removePost(post)"></forum-post>
     </div>
     <div id="aside">
         <h2>Рекламите са тук!</h2>

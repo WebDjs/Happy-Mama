@@ -12,7 +12,6 @@ export class ForumPost {
     postContent: '',
     user: '',
     date: '',
-    width: ''
   };
 
   @Output() deletePost = new EventEmitter();
@@ -23,7 +22,11 @@ export class ForumPost {
   }
 
   transferPost() {
-    console.log('mngsdfdswfgd');
+    console.log('climbing!');
     this.climbPost.next();
+  }
+
+  isUsable(): boolean {
+    return localStorage.getItem('isLogged') === 'true';
   }
 }

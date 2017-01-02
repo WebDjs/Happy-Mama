@@ -1,23 +1,29 @@
 .forum-post{
   padding: 15px;
-  margin-bottom:2%;
-  margin-top: 0;
+  width: 72%;
+  margin: 1% 0 1% 5%;
+}
+
+.forum-pos{
+  height: 25px;
+  width: 72%;
+  margin: 1% 0 1% 5%;
 }
 
 .forum-question{
   display: inline-block;
   position: relative;
-  left: 3%;
+  left: 1%;
   width: 95%;
-  height: 40px;
+  height: auto;
   font-size: 13px;
 }
 
 .under-question{
   display: inline-block;
   position: relative;
-  width: 85%;
-  margin: 15px 0 0 0;
+  width: 65%;
+  margin: 2% 0 0 0;
 }
 
 .user, .date{
@@ -38,10 +44,6 @@
 }
 
 .user::before{
-  background: url(../../../../assets/images/logo.png);
-}
-
-.user::before{
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -51,6 +53,11 @@
   margin-right: 4px;
 }
 
+.user::before{
+  background: url(../../../../assets/images/logo.png);
+}
+
+
 .date{
   margin-left: 25px;
 }
@@ -58,7 +65,7 @@
 h2{
   display: inline-block;
   position: relative;
-  font-size: 18px;
+  font-size: 20px;
   width: 80%;
   margin: 0 0 15px 0;
 }
@@ -75,4 +82,10 @@ h2{
 
 .h2white:hover{
   color: #496BFF;
+}
+
+.delete{
+  width: 12%;
+  position: relative;
+  float: right;
 }

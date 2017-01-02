@@ -5,6 +5,7 @@ import { SigninComponent } from './components/sign-in/sign-in.component';
 import { SignupComponent } from './components/sign-up/sign-up.component';
 import { ChildmindersComponent } from './components/childminders/childminders.component';
 import { ForumComponent } from './components/forum/forum.component';
+import { ForumCommentsComponent } from './components/forum/forum-elements/forum-comments.component';
 import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';
@@ -21,6 +22,7 @@ export const rootRouterConfig: Routes = [
   { path: 'childminders', component: ChildmindersComponent },
   { path: 'new-babysitter', component: BabysitterRegistrationComponent },
   { path: 'forum', component: ForumComponent },
+  { path: 'comments', component: ForumCommentsComponent },
   { path: 'fun', component: FunComponent },
   { path: 'info', component: InfoComponent },
   { path: 'listings', component: ListingsComponent },

@@ -23,7 +23,9 @@ import { ListingItemComponent } from './components/listing-item/listing-item.com
 import { AddFormComponent } from './components/add-form/add-form.component';
 
 import { ForumComponent } from './components/forum/forum.component';
+import { ForumCommentsComponent } from './components/forum/forum-elements/forum-comments.component';
 import { ForumPost } from './components/forum/forum-elements/forum.post';
+import { ForumComment } from './components/forum/forum-elements/forum.comment';
 
 import { FunComponent } from './components/fun/fun.component';
 import { InfoComponent } from './components/info/info.component';
@@ -45,7 +47,9 @@ import { ToasterComponent, ToastComponent, ToasterService } from 'angular2-toast
     BabysitterRegistrationComponent,
     ProfileComponent,
     ForumComponent,
+    ForumCommentsComponent,
     FunComponent,
+    ForumComment,
     InfoComponent,
     ListingsComponent,
     ForumPost,
