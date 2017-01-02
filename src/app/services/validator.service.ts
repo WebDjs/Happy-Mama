@@ -21,11 +21,11 @@ export class ValidatorService {
 		return true;
 	}
 
-	stringSame(p: string, pC: string): boolean {
+	stringsNotSame(p: string, pC: string): boolean {
 		if (p !== pC) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	stringExistsInCollection(collection: string[], value: string) {

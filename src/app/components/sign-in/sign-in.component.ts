@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { DataService } from '../../services/data.service';
@@ -13,7 +13,7 @@ import { ToasterService } from 'angular2-toastr/index';
   templateUrl: './sign-in.component.html',
   providers: [LocalStorageService]
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
   users: User[];
   newUser: User;
   username: string;
@@ -24,7 +24,13 @@ export class SigninComponent {
     private localStorage: LocalStorageService,
     private notifier: ToasterService,
     private appRouter: Router) {
-    this.dataService.getUsers().subscribe(users => { this.users = users; });
+    this.dataService.getUsers().subscribe(users => {
+      this.users = users;
+    });
+  }
+
+  ngOnInit() {
+
   }
 
   loginUser(): void {
@@ -32,12 +38,22 @@ export class SigninComponent {
     this.newUser.username = this.username;
     this.newUser.password = this.hashService.generateHash(this.password);
 
+    if (!(this.users.find(usr =>
+      (usr.username === this.newUser.username) &&
+      (usr.password === this.newUser.password)
+    ))) {
+      this.notifier.error('Грешка', 'Потребителското име или паролата не съвпадат!', false, 3000);
+      this.password = '';
+      return;
+    };
+
     localStorage.clear();
     localStorage.setItem('username', this.newUser.username);
     localStorage.setItem('password', this.newUser.password);
     localStorage.setItem('isLogged', 'true');
 
     this.appRouter.navigateByUrl('/');
+
     this.notifier.info('Добре дошли!', ' ', false, 1500);
   }
 }

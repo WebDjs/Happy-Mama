@@ -46,16 +46,20 @@ export class SignupComponent {
 
     if (this.validator.stringNotInRange(this.username, 3, 13)) {
       this.notifier.error('Грешка!', 'Потребителското име трябва да е между 3 и 13 символа!', false, 3000);
+      return;
     }
 
     if (this.validator.stringNotInRange(this.password, 6, 36)) {
       this.notifier.error('Грешка!', 'Паролата трябва да е между 6 и 36 символа!', false, 3000);
       this.password = '';
       this.passwordConfirm = '';
+      return;
     }
 
-    if (this.validator.stringSame(this.password, this.passwordConfirm)) {
-
+    if (this.password.length !== this.passwordConfirm.length) {
+      this.notifier.error('Грешка', 'Паролите не съвпадат!', true, 2000);
+      return;
+    } else {
       this.newUser.password = this.hashService.generateHash(this.password);
 
       this.dataService.addUser(this.newUser).subscribe(newUser => {
@@ -78,8 +82,6 @@ export class SignupComponent {
         this.appRouter.navigateByUrl('home');
         this.notifier.info('Добре дошли!', ' ', false, 1500);
       });
-    } else {
-      this.notifier.error('Грешка', 'Паролите не съвпадат!', true, 2000);
     }
   }
 }
