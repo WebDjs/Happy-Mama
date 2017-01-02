@@ -38,6 +38,7 @@
     text-decoration: none;
 }
 
+
 .user::before {
     display: inline-block;
     width: 16px;
