@@ -113,7 +113,7 @@ app
 // routes Listings
 app
     .get('/listings', function(req, res, next) {
-        db['listings'].find({ _isDeleted: false }, function(err, listings) {
+        db['listings'].find({ isDeleted: false }, function(err, listings) {
             if (err) {
                 res.send(err);
             }
@@ -121,14 +121,14 @@ app
         })
     })
 
-.getFromCategory('/listings', category, function(req, res, next) {
-    db['listings'].find({ category: category }, function(err, listings) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(listings);
-    })
-})
+// .getFromCategory('/listings', category, function(req, res, next) {
+//     db['listings'].find({ category: category }, function(err, listings) {
+//         if (err) {
+//             res.send(err);
+//         }
+//         res.json(listings);
+//     })
+// })
 
 
 .get('/listings/:id', function(req, res, next) {
