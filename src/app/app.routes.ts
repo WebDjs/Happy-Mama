@@ -5,6 +5,7 @@ import { SigninComponent } from './components/sign-in/sign-in.component';
 import { SignupComponent } from './components/sign-up/sign-up.component';
 import { ChildmindersComponent } from './components/childminders/childminders.component';
 import { ForumComponent } from './components/forum/forum.component';
+import { ForumThemeComponent } from './components/forum/forum-elements/forum.theme';
 import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import { ListingsComponent } from './components/listings/listings.component';

@@ -1,9 +1,9 @@
 <div class="forum-post white">
-    <a href="content/forum-thema.html">
+    <a class="white" (click)="transferPost()">
         <h2 class="h2white">{{postData.title}}</h2>
     </a>
     <p class="forum-question">{{postData.postContent}}</p>
-    <p class="under-question"><a href="#" class="user">{{postData.user}}</a>
+    <p class="under-question"><a class="user" [routerLink]="['/profile']">{{postData.user}}</a>
         <span class="date">{{postData.date}}</span></p>
     <button class="btn btn-danger" (click)="deleteForumPost()">Изтрий</button>
 </div>
