@@ -1,6 +1,7 @@
 <br>
 <!--#listingItemForm="ngForm"-->
-<form (ngSubmit)="addItemListing()" class="add-form">
+<!--<form (ngSubmit)="addItemListing()" class="add-form">-->
+<form (submit)="createListingItem()" class="add-form">
     <h1>Нова Обява</h1>
     <br>
     <div class="form-group">
@@ -22,6 +23,7 @@
             </textarea>
         </div>
     </div>
-    <button class="btn btn-primary" id="btn-submit">Публикувй</button>
+    <button type="submit" class="btn btn-primary"  id="btn-submit">Публикувй</button>
+    <pre>{{listingItemForm | json}}</pre>
 </form>
-{{spy}}
+<!--{{spy}}-->
