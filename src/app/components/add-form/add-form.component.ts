@@ -29,12 +29,12 @@ export class AddFormComponent {
     const {title, category, content, username, date, isDeleted} = this.listingItemForm;
     if (title && category && content && username && date && !isDeleted) {
       this.listingItemCreated.next({ title, category, content, username, date, isDeleted });
-      this.listingItemForm.title = '',
-        this.listingItemForm.category = '',
-        this.listingItemForm.content = '',
-        this.listingItemForm.username =
-        this.listingItemForm.date = new Date().toLocaleTimeString(),
-        this.listingItemForm.isDeleted = false;
+      this.listingItemForm.title = '';
+        this.listingItemForm.category = '';
+        this.listingItemForm.content = '';
+        // this.listingItemForm.username =localStorage.getItem('username'),
+        // this.listingItemForm.date = new Date().toLocaleTimeString(),
+        // this.listingItemForm.isDeleted = false;
     }
   }
 
