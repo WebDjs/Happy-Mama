@@ -81,7 +81,7 @@ export class SignupComponent {
         this.dataService.getUsers().subscribe(users => { this.users = users; });
 
         this.appRouter.navigateByUrl('home');
-        
+
         this.notifier.info('Добре дошли!', ' ', false, 1500);
       });
     }
