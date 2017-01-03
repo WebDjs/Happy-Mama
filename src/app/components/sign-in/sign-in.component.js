@@ -45,7 +45,7 @@ var SigninComponent = (function () {
         localStorage.setItem('username', this.newUser.username);
         localStorage.setItem('password', this.newUser.password);
         localStorage.setItem('isLogged', 'true');
-        this.appRouter.navigateByUrl('/');
+        this.appRouter.navigateByUrl('home');
         this.notifier.info('Добре дошли!', ' ', false, 1500);
     };
     SigninComponent = __decorate([

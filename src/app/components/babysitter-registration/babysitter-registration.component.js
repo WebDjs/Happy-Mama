@@ -39,6 +39,7 @@ var BabysitterRegistrationComponent = (function () {
             _this.image = '';
             _this.email = '';
             _this.dataService.getBabysitters().subscribe(function (babysitters) { _this.babysitters = babysitters; });
+            _this.appRouter.navigateByUrl('childminders');
         });
     };
     BabysitterRegistrationComponent = __decorate([

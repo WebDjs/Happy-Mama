@@ -48,7 +48,7 @@ export class SigninComponent {
     localStorage.setItem('password', this.newUser.password);
     localStorage.setItem('isLogged', 'true');
 
-    this.appRouter.navigateByUrl('/');
+    this.appRouter.navigateByUrl('home');
 
     this.notifier.info('Добре дошли!', ' ', false, 1500);
   }

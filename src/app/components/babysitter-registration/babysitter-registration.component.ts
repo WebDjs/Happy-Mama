@@ -44,6 +44,8 @@ export class BabysitterRegistrationComponent {
       this.image = '';
       this.email = '';
       this.dataService.getBabysitters().subscribe(babysitters => { this.babysitters = babysitters; });
+
+      this.appRouter.navigateByUrl('childminders');
     });
   }
 }
