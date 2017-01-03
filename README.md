@@ -1,6 +1,6 @@
 # Детегледачките (The Babysitters)
 
-![home page](./src/assets/images/homePage.png "Home page")
+![home page](./src/assets/images/home.png "Home page")
 
 ## MEAN Stack Single-page Аpplication with Angular 2
 
