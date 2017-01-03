@@ -18,6 +18,7 @@ export class BabysitterRegistrationComponent {
   name: string;
   age: string;
   image: string;
+  town: string;
   email: string;
   constructor(
     private dataService: DataService,
@@ -34,6 +35,7 @@ export class BabysitterRegistrationComponent {
       name: this.name,
       age: this.age,
       image: this.image,
+      town: this.town,
       email: this.email
     };
 
@@ -42,6 +44,7 @@ export class BabysitterRegistrationComponent {
       this.name = '';
       this.age = '';
       this.image = '';
+      this.town = '';
       this.email = '';
       this.dataService.getBabysitters().subscribe(babysitters => { this.babysitters = babysitters; });
 

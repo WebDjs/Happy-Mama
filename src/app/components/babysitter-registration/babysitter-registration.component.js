@@ -30,6 +30,7 @@ var BabysitterRegistrationComponent = (function () {
             name: this.name,
             age: this.age,
             image: this.image,
+            town: this.town,
             email: this.email
         };
         this.dataService.addBabysitter(newBabysitter).subscribe(function (babysitter) {
@@ -37,6 +38,7 @@ var BabysitterRegistrationComponent = (function () {
             _this.name = '';
             _this.age = '';
             _this.image = '';
+            _this.town = '';
             _this.email = '';
             _this.dataService.getBabysitters().subscribe(function (babysitters) { _this.babysitters = babysitters; });
             _this.appRouter.navigateByUrl('childminders');
