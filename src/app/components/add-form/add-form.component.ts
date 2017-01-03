@@ -14,12 +14,13 @@ export class AddFormComponent {
   listingItemForm: ItemListing;
 
   constructor() {
+    
     this.listingItemForm = {
       title: '',
       category: '',
       content: '',
       username: localStorage.getItem('username'),
-      date: new Date().toLocaleTimeString(),
+      date: new Date(),
       isDeleted: false
     };
   }
@@ -32,9 +33,6 @@ export class AddFormComponent {
       this.listingItemForm.title = '';
         this.listingItemForm.category = '';
         this.listingItemForm.content = '';
-        // this.listingItemForm.username =localStorage.getItem('username'),
-        // this.listingItemForm.date = new Date().toLocaleTimeString(),
-        // this.listingItemForm.isDeleted = false;
     }
   }
 

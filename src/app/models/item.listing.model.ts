@@ -3,6 +3,6 @@ export interface ItemListing {
     category: string,
     content: string,
     username: string,
-    date: string,
+    date: Date,
     isDeleted: boolean 
 }

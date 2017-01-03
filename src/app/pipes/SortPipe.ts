@@ -1,27 +1,39 @@
 import { Pipe, PipeTransform } from '@angular/core';
+
+function sortAsc(x: string, y: string) {
+    return x.localeCompare(y);
+}
+
+function sortDesc(x: string, y: string) {
+    return y.localeCompare(x);
+}
+
 @Pipe({
     name: 'sort'
 })
+
 export class SortPipe implements PipeTransform {
-    transform(items: any[], sortBy?: string) {
+    transform(items: any[], isDesc:boolean = false, sortBy?: string) {
+                console.log('sorting');
+        console.log(items);
+        console.log(sortBy);
         if (sortBy) {
-            if (sortBy.startsWith('-')) {
-                sortBy = sortBy.substr(1);
-                return items.sort(
-                    (x, y) =>
-                        y[sortBy].toString()
-                            .localeCompare(x[sortBy].toString()));
+                console.log(sortBy);
+            if (isDesc) {
+                    console.log(isDesc);
+                return items.sort((x, y) => {
+                    return sortDesc(x[sortBy].toString(), y[sortBy].toString(), )
+                });
             } else {
-                sortBy = sortBy.startsWith('+')
-                    ? sortBy.substr(1)
-                    : sortBy;
-                return items.sort(
-                    (x, y) =>
-                        x[sortBy].toString()
-                            .localeCompare(y[sortBy].toString()));
+                return items.sort((x, y) => {
+                    return sortAsc(x[sortBy].toString(), y[sortBy].toString(), )
+                });
+
             }
-        } else {
-            return items.sort();
+
         }
+        
+        let compareFunc = isDesc ? sortDesc : sortAsc;
+        return items.sort(compareFunc);
     }
 };

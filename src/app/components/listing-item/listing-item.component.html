@@ -5,7 +5,7 @@
         </a>
         <p class="forum-question">{{itemData.content}}</p>
         <p class="under-question"><a href="#" class="user">{{itemData.username}}</a>
-            <span class="date">{{itemData.date}}</span></p>
+            <span class="date">{{itemData.date | date:'HH:mm:ss, dd/MMM/yyyy'}}</span></p>
         <button class="btn btn-danger" (click)="removeListingItem()">Изтрий</button>
 
     </div>

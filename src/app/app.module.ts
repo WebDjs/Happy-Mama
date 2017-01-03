@@ -7,6 +7,10 @@ import { rootRouterConfig } from './app.routes';
 import { LocationStrategy, Location, HashLocationStrategy } from '@angular/common';
 import { LocalStorageModule } from './local-storage/index.js';
 
+// Pipes
+import { SortPipe } from './pipes/SortPipe';
+import {LatestPipe } from './pipes/LatestPipe';
+
 // App components
 import { AppComponent } from './components/app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,7 +20,7 @@ import { SignupComponent } from './components/sign-up/sign-up.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { ChildmindersComponent } from './components/childminders/childminders.component';
-import { BabysitterRegistrationComponent } from'./components/babysitter-registration/babysitter-registration.component';
+import { BabysitterRegistrationComponent } from './components/babysitter-registration/babysitter-registration.component';
 
 import { ListingsComponent } from './components/listings/listings.component';
 import { ListingItemComponent } from './components/listing-item/listing-item.component';
@@ -56,7 +60,10 @@ import { ToasterComponent, ToastComponent, ToasterService } from 'angular2-toast
     AddFormComponent,
     ListingItemComponent,
     ToasterComponent,
-    ToastComponent
+    ToastComponent,
+
+    SortPipe,
+    LatestPipe
   ],
   imports: [
     BrowserModule,
