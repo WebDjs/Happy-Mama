@@ -1,0 +1,21 @@
+#profile-container {
+	margin: 5px;
+}
+
+#babisitter-registration {
+	font-size: 16px;
+	color: steelblue;
+}
+
+edit-profile {
+	margin-left: 10px;
+}
+
+img {
+	width: 220px;
+	height: 200px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #DBCEE5;
+	border-radius: 50%;
+}

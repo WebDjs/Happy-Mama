@@ -10,6 +10,7 @@ div div.overflowed h3 {
 }
 
 div.babysitter-container {
+	background-color: #dbcee7;
 	border: 2px solid #5c4a9c;
 	border-radius: 5px;
 }

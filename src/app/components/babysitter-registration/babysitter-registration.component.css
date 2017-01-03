@@ -1,0 +1,27 @@
+button {
+	background-color: #7139ea;
+	display: block;
+	margin: 0 auto
+}
+
+button:hover {
+	background-color: #dbcee5;
+	color: #5c4a9c;
+}
+
+h1 {
+	text-align: center
+}
+
+form.register-form.log-form{
+	margin-left: 15%;
+}
+
+.log-form {
+	margin: 2%;
+	padding: 1%;
+	max-width: 50%;
+	border: 2px solid indigo;
+	color: indigo;
+	border-radius: 5px;
+}

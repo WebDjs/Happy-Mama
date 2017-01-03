@@ -1,4 +1,56 @@
-<div>
+<br>
+<form (ngSubmit)="addBabysitter()" class="register-form log-form">
+    <h1>Регистрация на детегледачка</h1>
+    <br>
+    <div class="form-group">
+        <label for="tb-username glyphicon glyphicon-user">Собствено име: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input [(ngModel)]="firstname" name="firstname" type="text" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tb-username glyphicon glyphicon-user">Фамилно име: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input [(ngModel)]="lastname" name="lastname" type="text" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tb-username glyphicon glyphicon-user">Потребителско име: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input [(ngModel)]="username" name="username" type="text" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tb-password">E-mail: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+            <input [(ngModel)]="email" name="email" type="email" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tb-passworn">Парола: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input [(ngModel)]="password" name="password" type="password" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tb-passworn-confirm">Повтори паролата: </label>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input [(ngModel)]="passwordConfirm" name="passwordConfirm" type="password" class="form-control" required>
+        </div>
+    </div>
+    <button class="btn btn-primary" id="btn-register">РЕГИСТРАЦИЯ</button>
+</form>
+
+
+
+
+<!--<div>
     <div>
       <form (ngSubmit)="addBabysitter()">
         <label for="name-input">name: </label>
@@ -10,4 +62,4 @@
         <button type="submit">Add Babysitter</button>
       </form>
     </div>
-</div>
+</div>-->

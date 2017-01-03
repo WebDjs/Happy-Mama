@@ -11,7 +11,7 @@
 <div class="row three">
 	<div class="col-md-4 fieldset-container">
 		<fieldset>
-			<legend><a href="" class="a-leg">Топ обяви</a></legend>
+			<legend><a [routerLink]="['/listings']" class="a-leg">Топ обяви</a></legend>
 			<dl class="legend-info">
 				<a href="">Търся.....</a><br>
 				<a href="">Предлагам.....</a><br>
@@ -23,19 +23,19 @@
 	</div>
 	<div class="col-md-4 fieldset-container">
 		<fieldset>
-			<legend><a class="a-leg" href="">Топ детегледачки</a></legend>
+			<legend><a class="a-leg" [routerLink]="['/childminders']">Топ детегледачки</a></legend>
 			<ol class="legend-info">
-				<li><a href="">Мая</a></li>
-				<li><a href="">Мими</a></li>
-				<li><a href="">Дивна</a></li>
-				<li><a href="">Траяна</a></li>
-				<li><a href="">Петя</a></li>
+				<li><a [routerLink]="['/profile']">Мая</a></li>
+				<li><a [routerLink]="['/profile']">Мими</a></li>
+				<li><a [routerLink]="['/profile']">Дивна</a></li>
+				<li><a [routerLink]="['/profile']">Траяна</a></li>
+				<li><a [routerLink]="['/profile']">Петя</a></li>
 			</ol>
 		</fieldset>
 	</div>
 	<div class="col-md-4 fieldset-container">
 		<fieldset id="fieldset-mobile">
-			<legend><a class="a-leg" href="">Форум публикации</a></legend>
+			<legend><a class="a-leg" [routerLink]="['/forum']">Форум публикации</a></legend>
 			<dl class="legend-info">
 				<a href="">Интересно.....</a><br>
 				<a href="">Интересно.....</a><br>

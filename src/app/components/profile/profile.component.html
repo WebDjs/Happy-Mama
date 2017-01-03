@@ -1,6 +1,30 @@
-<div>
-  Profile
-  <br>
-  <a [routerLink]="['/new-babysitter']">нова детегледачка</a>
-  <a [routerLink]="['/new-babysitter']">редактирай профила</a>
+<div id="profile-container">
+  <div>
+    <div class="row">
+      <img class="col-md-4" src="{{ Image() }}" alt="User image" width="30px" height="50px">
+      <div class="col-md-3 overflowed">
+        <a href="/">
+          <h3>Mimata (Мария Петрова)</h3>
+        </a>
+        <br>
+        <h4><a>гр. Перник</a></h4>
+        <h4 class="age">22 години</h4>
+        <!-- ngFor -->
+        <h4>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+          <span class="star glyphicon glyphicon-star"></span>
+        </h4>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-3">
+        <a id="edit-profile" [routerLink]="['/profile']" class="btn btn-primary">РЕДАКТИРАЙ ПРОФИЛА</a>
+        <br><br>
+        <a id="babisitter-registration" [routerLink]="['/new-babysitter']">Регистрирай се като детегледачка</a>
+      </div>
+    </div>
+  </div>
 </div>
