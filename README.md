@@ -1,8 +1,8 @@
+## MEAN Stack Single-page Аpplication with Angular 2
+
 # Детегледачките (The Babysitters)
 
 ![home page](./src/assets/images/home.png "Home page")
-
-## MEAN Stack Single-page Аpplication with Angular 2
 
 ## It use:
 - MongoDB + mongojs
