@@ -5,6 +5,8 @@
                 <li>
                     <a href=" # " class="category ">Търси</a>
 
+                    <listing-item [itemData]="listingItem" *ngFor="let listingItem of (listings|category:'Търси' )" (deleteItemListing)="removeListingItem(listingItem)"></listing-item>
+
                 </li>
                 <li>
                     <a href="# " class="category ">Предлага</a>

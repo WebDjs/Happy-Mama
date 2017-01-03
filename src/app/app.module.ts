@@ -10,6 +10,7 @@ import { LocalStorageModule } from './local-storage/index.js';
 // Pipes
 import { SortPipe } from './pipes/SortPipe';
 import {LatestPipe } from './pipes/LatestPipe';
+import{CategoryPipe} from './pipes/CategoryPipe'
 
 // App components
 import { AppComponent } from './components/app.component';
@@ -63,7 +64,8 @@ import { ToasterComponent, ToastComponent, ToasterService } from 'angular2-toast
     ToastComponent,
 
     SortPipe,
-    LatestPipe
+    LatestPipe,
+    CategoryPipe
   ],
   imports: [
     BrowserModule,
