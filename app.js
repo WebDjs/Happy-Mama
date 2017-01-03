@@ -186,19 +186,24 @@ app
         })
     })
     .put('/forumposts/:id', function (req, res, next) {
-        let forumPost = req.body;
-        let updatedPost = { $set: { _isDeleted: true } };
+		let forumPost = req.body;
+		let updatedPost;
 
-        // validations
+		if(forumPost._isDeleted){
+			updatedPost = { $set: { _isDeleted: true } };
+		}else{
+			updatedPost = { $push: { comments: forumPost} };							
 
-        db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedPost, {},
-            function (err, forumPost) {
-                if (err) {
-                    res.send(err);
-                }
-                res.json(forumPost);
-            })
-    });
+		}
+
+		db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedPost, {},
+			function (err, forumPost) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(forumPost);
+			})
+	});
 
 // connection on port
 const port = process.env.PORT || 3003;
