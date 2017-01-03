@@ -28,7 +28,7 @@
 
         <div id="forum-menu ">
 
-            <listing-item [itemData]="listingItem" *ngFor="let listingItem of (listings|sort:true:'date' )" (deleteItemListing)="removeListingItem(listingItem)"></listing-item>
+            <listing-item [itemData]="listingItem" *ngFor="let listingItem of (listings|sort:true:'date'|last )" (deleteItemListing)="removeListingItem(listingItem)"></listing-item>
         </div>
     </div>
     <div id="aside ">

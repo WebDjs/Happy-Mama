@@ -16,9 +16,6 @@ export class ListingsComponent implements OnInit {
   listingItem: ItemListing;
   listings: ItemListing[] = [];
 
-
-
-     
   title: string;
   category: string;
   content: string;
