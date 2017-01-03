@@ -13,7 +13,7 @@ import { ItemListing } from '../../models/item.listing.model'
 })
 
 export class ListingsComponent implements OnInit {
-  listingItem: ItemListing;
+  listingItem: any;
   listings: ItemListing[] = [];
 
   title: string;

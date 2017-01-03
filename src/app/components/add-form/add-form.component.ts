@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 
 export class AddFormComponent {
 
-  listingItemForm: ItemListing;
+  listingItemForm: any;
 
   constructor() {
     

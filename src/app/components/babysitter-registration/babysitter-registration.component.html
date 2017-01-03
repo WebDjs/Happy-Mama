@@ -3,63 +3,32 @@
     <h1>Регистрация на детегледачка</h1>
     <br>
     <div class="form-group">
-        <label for="tb-username glyphicon glyphicon-user">Собствено име: </label>
+        <label for="tb-name">Потребителско име: </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-        <input [(ngModel)]="firstname" name="firstname" type="text" class="form-control" required>
+            <input id="tb-name" [(ngModel)]="name" name="name" type="text" class="form-control" required>
         </div>
     </div>
     <div class="form-group">
-        <label for="tb-username glyphicon glyphicon-user">Фамилно име: </label>
+        <label for="tb-age">Години: </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-        <input [(ngModel)]="lastname" name="lastname" type="text" class="form-control" required>
+            <input [(ngModel)]="age" name="age" type="text" class="form-control" required>
         </div>
     </div>
     <div class="form-group">
-        <label for="tb-username glyphicon glyphicon-user">Потребителско име: </label>
+        <label for="image-input">Снимка (url): </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-        <input [(ngModel)]="username" name="username" type="text" class="form-control" required>
+            <input [(ngModel)]="image" id="image-input" type="url" class="form-control" name="image" required>
         </div>
     </div>
     <div class="form-group">
-        <label for="tb-password">E-mail: </label>
+        <label for="tb-email">E-mail: </label>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-            <input [(ngModel)]="email" name="email" type="email" class="form-control" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="tb-passworn">Парола: </label>
-        <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-            <input [(ngModel)]="password" name="password" type="password" class="form-control" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="tb-passworn-confirm">Повтори паролата: </label>
-        <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-            <input [(ngModel)]="passwordConfirm" name="passwordConfirm" type="password" class="form-control" required>
+            <input id="tb-email" [(ngModel)]="email" name="email" type="email" class="form-control" required>
         </div>
     </div>
     <button class="btn btn-primary" id="btn-register">РЕГИСТРАЦИЯ</button>
 </form>
-
-
-
-
-<!--<div>
-    <div>
-      <form (ngSubmit)="addBabysitter()">
-        <label for="name-input">name: </label>
-        <input [(ngModel)]="name" id="name-input" type="text" name="name" value=""><br>
-        <label for="age-input">age: </label>
-        <input [(ngModel)]="age" id="age-input" type="number" name="age" value=""><br>
-        <label for="image-input">image url: </label>
-        <input [(ngModel)]="image" id="image-input" type="url" name="image" value=""><br>
-        <button type="submit">Add Babysitter</button>
-      </form>
-    </div>
-</div>-->

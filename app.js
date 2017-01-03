@@ -82,18 +82,14 @@ app
     .post('/babysitters', function (req, res, next) {
         let babysitter = req.body;
 
-        //validations
-        if (!babysitter.name || !babysitter.age) {
-            res.status(400);
-            res.json({ "error": "Bad babysitter!" });
-        } else {
-            db['babysitters'].save(babysitter, function (err, babysitter) {
-                if (err) {
-                    res.send(err);
-                }
-                res.json(babysitter);
-            })
-        }
+        // validations
+
+        db['babysitters'].save(babysitter, function (err, babysitter) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(babysitter);
+        })
     })
     .put('/babysitters/:id', function (req, res, next) {
         let babysitter = req.body;

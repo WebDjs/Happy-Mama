@@ -16,23 +16,6 @@ var ChildmindersComponent = (function () {
         this.dataService = dataService;
         this.dataService.getBabysitters().subscribe(function (babysitters) { _this.babysitters = babysitters; });
     }
-    ChildmindersComponent.prototype.ngOnInit = function () {
-    };
-    ChildmindersComponent.prototype.addBabysitter = function () {
-        var _this = this;
-        var newBabysitter = {
-            name: this.name,
-            age: this.age,
-            image: this.image
-        };
-        this.dataService.addBabysitter(newBabysitter).subscribe(function (babysitter) {
-            _this.babysitters.push(babysitter);
-            _this.name = '';
-            _this.age = '';
-            _this.image = '';
-            _this.dataService.getBabysitters().subscribe(function (babysitters) { _this.babysitters = babysitters; });
-        });
-    };
     ChildmindersComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

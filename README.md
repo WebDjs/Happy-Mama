@@ -1,5 +1,14 @@
-# The Babysitters
+# Детегледачките (The Babysitters)
+
+![home page](./src/assets/images/homePage.png "Home page")
+
 ## MEAN Stack Single-page Аpplication with Angular 2
+
+## It use:
+- MongoDB + mongojs
+- Express + body-parser + ejs
+- Angular2 + systemjs
+- Node.js
 
 ### To run this app:
 - install [Node.js](https://nodejs.org/en/)

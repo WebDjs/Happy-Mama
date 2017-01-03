@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Babysitter } from '../../models/babysitter.model';
 import { DataService } from '../../services/data.service';
 import { CreatorService } from '../../services/creator.service';
 import { ValidatorService } from '../../services/validator.service';
@@ -14,11 +13,12 @@ import { ToasterService } from 'angular2-toastr/index';
   templateUrl: './babysitter-registration.component.html'
 })
 export class BabysitterRegistrationComponent {
-  babysitters: Babysitter[];
-  babysitter: Babysitter;
+  babysitters: any;
+  babysitter: any;
   name: string;
   age: string;
   image: string;
+  email: string;
   constructor(
     private dataService: DataService,
     private creatorService: CreatorService,
@@ -29,12 +29,12 @@ export class BabysitterRegistrationComponent {
   }
 
   addBabysitter(): void {
-    this.babysitter = new Babysitter();
 
     let newBabysitter = {
       name: this.name,
       age: this.age,
-      image: this.image
+      image: this.image,
+      email: this.email
     };
 
     this.dataService.addBabysitter(newBabysitter).subscribe(babysitter => {
@@ -42,6 +42,7 @@ export class BabysitterRegistrationComponent {
       this.name = '';
       this.age = '';
       this.image = '';
+      this.email = '';
       this.dataService.getBabysitters().subscribe(babysitters => { this.babysitters = babysitters; });
     });
   }

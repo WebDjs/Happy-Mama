@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var babysitter_model_1 = require('../../models/babysitter.model');
 var data_service_1 = require('../../services/data.service');
 var creator_service_1 = require('../../services/creator.service');
 var validator_service_1 = require('../../services/validator.service');
@@ -27,17 +26,18 @@ var BabysitterRegistrationComponent = (function () {
     }
     BabysitterRegistrationComponent.prototype.addBabysitter = function () {
         var _this = this;
-        this.babysitter = new babysitter_model_1.Babysitter();
         var newBabysitter = {
             name: this.name,
             age: this.age,
-            image: this.image
+            image: this.image,
+            email: this.email
         };
         this.dataService.addBabysitter(newBabysitter).subscribe(function (babysitter) {
             _this.babysitters.push(babysitter);
             _this.name = '';
             _this.age = '';
             _this.image = '';
+            _this.email = '';
             _this.dataService.getBabysitters().subscribe(function (babysitters) { _this.babysitters = babysitters; });
         });
     };

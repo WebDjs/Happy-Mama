@@ -7,7 +7,6 @@ export class User {
   username: string;
   password: string;
   email: string;
-  age: number;
   gender: string;
   image: string;
   isLogged: boolean;

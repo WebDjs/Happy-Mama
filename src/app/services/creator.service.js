@@ -10,12 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var user_model_1 = require('./../models/user.model');
+var babysitter_model_1 = require('./../models/babysitter.model');
+var babysitter_details_model_1 = require('./../models/babysitter.details.model');
+var like_model_1 = require('./../models/like.model');
 var nav_model_1 = require('./../models/nav.model');
 var CreatorService = (function () {
     function CreatorService() {
     }
     CreatorService.prototype.createNav = function () {
         return new nav_model_1.Nav();
+    };
+    CreatorService.prototype.createBabysitter = function () {
+        var babysitter = new babysitter_model_1.Babysitter();
+        var babysitterDeatails = new babysitter_details_model_1.BabysitterDetails();
+        var like = new like_model_1.Like();
+        like.number = 0;
+        like.value = 1;
+        like.valueMean = like.number / like.value;
+        babysitter.babysitterDetails = babysitterDeatails;
+        babysitter.likes = like;
+        return babysitter;
     };
     CreatorService.prototype.createUser = function () {
         var newUser = new user_model_1.User();

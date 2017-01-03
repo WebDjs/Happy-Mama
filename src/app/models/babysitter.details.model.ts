@@ -1,6 +1,4 @@
-export interface BabysitterDetails {
-    firstName: string;
-    lastName: string;
+export class BabysitterDetails {
     abilities: string[];
     habbits: string[];
     aboutMe: string;
