@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { DataService } from '../../services/data.service';
-import { AddFormComponent } from '../add-form/add-form.component';
 import { ListingItemComponent } from '../listing-item/listing-item.component';
 import { ItemListing } from '../../models/item.listing.model'
 
@@ -16,31 +15,36 @@ import { ItemListing } from '../../models/item.listing.model'
 export class ListingsComponent implements OnInit {
   listingItem: ItemListing;
   listings: ItemListing[] = [];
+
+
+
+     
   title: string;
   category: string;
   content: string;
   username: string;
-  date: string;
+  date: Date;
   isDeleted: boolean;
   id: string;
 
 
   constructor(private dataService: DataService) {
     this.dataService.getListings().subscribe(listings => { this.listings = listings });
-    console.log('From constructor')
-console.log(this.listings)
+
     this.listingItem = {
       title: '',
       category: '',
       content: '',
       username: '',
-      date: '',
+      date: new Date(),
       isDeleted: false
-    }
+    };
+
+    this.listings;
   }
 
   ngOnInit() {
-    console.log(this.listings)
+
   }
 
   isSubmenuVisible: boolean = false;
@@ -63,7 +67,7 @@ console.log(this.listings)
       category: item.category,
       content: item.content,
       username: localStorage.getItem('username'),
-      date: new Date().toLocaleTimeString(),
+      date: new Date(),
       isDeleted: false
     }
 
@@ -76,9 +80,10 @@ console.log(this.listings)
         this.category = '',
         this.content = '',
         this.username = localStorage.getItem('username'),
-        this.date = new Date().toLocaleTimeString(),
+        this.date = new Date(),
         this.isDeleted = false
       this.dataService.getListings().subscribe(listings => { this.listings = listings; })
+      this.listings;
     });
   }
 
@@ -89,7 +94,6 @@ console.log(this.listings)
     console.log(index);
     this.dataService.deleteListingItem(listingItem).subscribe((ok) => { console.log(ok); });
     this.listings.splice(index, 1);
+    this.listings;
   }
-
-
 }
