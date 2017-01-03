@@ -40,12 +40,12 @@ export class DataService {
   getForumPosts(): Observable<any> {
     return this.http.get('/forumposts').map(res => (res.json()));
   }
- 
+
   addForumPost(forumpost: any): Observable<any> {
     return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
   }
 
-  deleteForumPost(forumpost: any): Observable<any> {
+  modifyForumPost(forumpost: any): Observable<any> {
     return this.http.put(`/forumposts/${forumpost._id}`, JSON.stringify(forumpost), this.options);
   }
   // listings
