@@ -1,12 +1,15 @@
-<div class="container">
-    <div class="forum-post col-xs-9 ">
-        <a href="content/forum-thema.html">
-            <h2 class="h2white">{{itemData.title}}</h2>
-        </a>
-        <p class="forum-question">{{itemData.content}}</p>
-        <p>{{itemData.category}}</p>
-        <p class="under-question"><a href="#" class="user">{{itemData.username}}</a>
-            <span class="date">{{itemData.date | date:'HH:mm:ss, dd/MMM/yyyy'}}</span></p>
-        <button class="btn btn-danger" (click)="removeListingItem()">Изтрий</button>
+<div class="container col-xs-8 adv">
+
+    <a href="">
+        <h5 class="adv-title">{{itemData.title}}</h5>
+    </a>
+    <div class=" col-xs-12 ">
+        <p><small>Категория: {{itemData.category}}</small></p>
+        <p class="adv-content">{{itemData.content}}</p>
+        <div class="adv-footer">
+            <p class="col-xs-7"><a href="#" class="user">Автор: {{itemData.username}}</a></p>
+            <p class="date col-xs-4">Публикувана на: {{itemData.date | date:'HH:mm:ss, dd/MMM/yyyy'}}</p>
+            <button class="btn btn-adv " (click)="removeListingItem()">Изтрий</button>
+        </div>
 
     </div>

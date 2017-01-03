@@ -1,38 +1,34 @@
-<div id="main-container">
-    <h4 class="navigation-link">
-        <div>
-            <ul class="ads">
-                <li>
-                    <a href=" # " class="category ">Търси</a>
-
-                    <listing-item [itemData]="listingItem" *ngFor="let listingItem of (listings|category:'Търси' )" (deleteItemListing)="removeListingItem(listingItem)"></listing-item>
-
-                </li>
-                <li>
-                    <a href="# " class="category ">Предлага</a>
-
-                </li>
-
-                <li>
-                    <a href="# " class="category ">Други</a>
-                </li>
-            </ul>
-        </div>
-    </h4>
-    <div>
-        <a class="btn btn-primary" (click)="toggleForm()">Добави обява</a>
-        <add-form *ngIf="isFormVisible" (listingItemCreated)=" addListingItem($event) "></add-form>
+<div class="col-xs-12">
+    <div class="col-xs-8 ads">
+        <ul class="nav nav-tabs nav-justified">
+            <li>
+                <a href=" # " class="category ">Търси</a>
+            </li>
+            <li>
+                <a href="# " class="category ">Предлага</a>
+            </li>
+            <li>
+                <a href="# " class="category ">Други</a>
+            </li>
+            <li>
+                <a class="btn" (click)="toggleForm()">+Добави обява</a>
+            </li>
+        </ul>
     </div>
-    <br>
-    <h3 id="info-tab ">Най-нови обяви</h3>
-    <br>
-    <div id="forum-main ">
+</div>
+<div>
 
-        <div id="forum-menu ">
+    <add-form *ngIf="isFormVisible" (listingItemCreated)=" addListingItem($event) "></add-form>
+</div>
 
-            <listing-item [itemData]="listingItem" *ngFor="let listingItem of (listings|sort:true:'date'|last )" (deleteItemListing)="removeListingItem(listingItem)"></listing-item>
-        </div>
+<h3 id="last-ads" class="col-xs-8 ads">Най-нови обяви</h3>
+
+<div id=" ">
+
+    <div id="">
+
+        <listing-item [itemData]="listingItem" *ngFor="let listingItem of (listings|sort:true:'date'|last:3)" (deleteItemListing)="removeListingItem(listingItem)"></listing-item>
     </div>
-    <div id="aside ">
-    </div>
+</div>
+<div id="aside ">
 </div>
