@@ -1,0 +1,21 @@
+<div class="forum-pos"><h2 class="h2white">Форум / Коментари</h2></div>
+<div class="forum-post white">
+  <h2 class="h2white">Тема: {{forumPost.title}}</h2>
+    <p class="forum-question">{{forumPost.postContent}}</p>
+    <p class="under-question"><a class="user" [routerLink]="['/profile']">{{forumPost.user}}</a>
+        <span class="date">{{forumPost.date}}</span></p>
+    <button *ngIf="isUsable()" (click)="clicked(); forumPostForm.reset()" class="btn btn-danger">Добави коментар</button>
+</div>
+<div [hidden]="isvisible" id="main-container" class="white">
+       <div id="forum-menu">
+          <form (ngSubmit)="addComment()" #forumPostForm="ngForm">
+           <label for="theme-content">Съдържание на коментара:</label>
+            <textarea id="theme-content" name="content" class="theme-content input" [(ngModel)]="postComment.commentContent" required
+                pattern="[().,!?%@' '0-9a-zA-Zа-яА-Я]*" #content="ngModel">
+           </textarea>
+           <button class="submit" type="submit" (click)="clicked()" [disabled]="!forumPostForm.form.valid">Добави</button>
+          </form>
+        </div>
+      </div>
+<div class="forum-pos"><h2 class="h2white">Коментари:</h2></div>
+<forum-comment [commentData]="comment" *ngFor="let comment of comments" (deleteComment)="removeComment(comment)"></forum-comment>

@@ -7,4 +7,5 @@ export class ForumPost {
   date: string;
   _isDeleted: boolean;
   comments: ForumComment [];
+  _id: string;
 }

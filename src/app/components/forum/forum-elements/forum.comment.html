@@ -1,0 +1,6 @@
+<div class="forum-post white">
+    <p class="forum-question">{{commentData.commentContent}}</p>
+    <p class="under-question"><a class="user" [routerLink]="['/profile']">{{commentData.user}}</a>
+        <span class="date">{{commentData.date}}</span></p>
+    <div class="delete"><button *ngIf="isUsable()" class="btn btn-danger" (click)="deleteCommentNow()">Изтрий</button></div>
+</div>

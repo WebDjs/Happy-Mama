@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "6.9.x",
+    "npm": "3.10.x"
+  },
   "scripts": {
     "postinstall": "cd src && npm install",
     "start": "node app.js"
@@ -11,15 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "crypto": "0.0.3",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
-    "express-session": "^1.14.2",
     "mongodb": "^2.2.16",
-    "mongojs": "^2.4.0",
-    "mongoose": "^4.7.5",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "mongojs": "^2.4.0"
   },
   "devDependencies": {
     "openurl": "^1.1.1"
