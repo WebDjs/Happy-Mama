@@ -41,6 +41,10 @@ export class DataService {
     return this.http.get('/forumposts').map(res => (res.json()));
   }
 
+  getForumPost(forumpostId: string): Observable<any> {
+    return this.http.get(`/forumposts/${forumpostId}`).map(res => (res.json()));
+  }
+
   addForumPost(forumpost: any): Observable<any> {
     return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
   }
