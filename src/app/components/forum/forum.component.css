@@ -215,7 +215,9 @@ label{
 }
 
 .theme-content{
-
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   height: 170px;
   resize: none;
 }

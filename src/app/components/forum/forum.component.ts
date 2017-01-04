@@ -14,15 +14,7 @@ import { Router } from '@angular/router';
 export class ForumComponent implements OnInit {
 
   forumPost: ForumPost;
-  posts: ForumPost[] = [{
-    title: 'hfsjhgsdkjf',
-    postContent: 'hgdivmifduchriuiodruh',
-    user: 'Hasan',
-    date: 'Ivan',
-    _isDeleted: false,
-    comments: [],
-    _id: ''
-  }];
+  posts: ForumPost[];
   title: string;
   postContent: string;
   user: string;
@@ -58,7 +50,7 @@ export class ForumComponent implements OnInit {
   }
 
   getPost(post: any): void {
-    localStorage.setItem('postToComment', JSON.stringify(post));
+    localStorage.setItem('postToComment', post._id);
     this.router.navigateByUrl('/comments');
   }
 
@@ -73,7 +65,7 @@ export class ForumComponent implements OnInit {
       title: this.forumPost.title,
       postContent: this.forumPost.postContent,
       user: this.forumPost.user,
-      date: new Date().toLocaleTimeString(),
+      date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
       _isDeleted: false,
       comments: this.forumPost.comments
     };
@@ -85,7 +77,7 @@ export class ForumComponent implements OnInit {
       this.title = '';
       this.postContent = '';
       this.user = '';
-      this.date = new Date().toLocaleTimeString();
+      this.date = new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
       this._isDeleted = false;
       this.dataService.getForumPosts().subscribe(posts => { this.posts = posts; });
     });

@@ -17,15 +17,6 @@ var ForumComponent = (function () {
         var _this = this;
         this.router = router;
         this.dataService = dataService;
-        this.posts = [{
-                title: 'hfsjhgsdkjf',
-                postContent: 'hgdivmifduchriuiodruh',
-                user: 'Hasan',
-                date: 'Ivan',
-                _isDeleted: false,
-                comments: [],
-                _id: ''
-            }];
         this.isvisible = true;
         this.dataService.getForumPosts().subscribe(function (posts) { _this.posts = posts; });
         this.forumPost = {
@@ -47,7 +38,7 @@ var ForumComponent = (function () {
         this.isvisible = !this.isvisible;
     };
     ForumComponent.prototype.getPost = function (post) {
-        localStorage.setItem('postToComment', JSON.stringify(post));
+        localStorage.setItem('postToComment', post._id);
         this.router.navigateByUrl('/comments');
     };
     ForumComponent.prototype.removePost = function (post) {
@@ -62,7 +53,7 @@ var ForumComponent = (function () {
             title: this.forumPost.title,
             postContent: this.forumPost.postContent,
             user: this.forumPost.user,
-            date: new Date().toLocaleTimeString(),
+            date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
             _isDeleted: false,
             comments: this.forumPost.comments
         };
@@ -73,7 +64,7 @@ var ForumComponent = (function () {
             _this.title = '';
             _this.postContent = '';
             _this.user = '';
-            _this.date = new Date().toLocaleTimeString();
+            _this.date = new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
             _this._isDeleted = false;
             _this.dataService.getForumPosts().subscribe(function (posts) { _this.posts = posts; });
         });
