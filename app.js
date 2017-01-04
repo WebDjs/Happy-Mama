@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 
 // set static folder
-app.use('/', express.static(path.join(__dirname + '/src')));
+app.use('/', express.static(path.join(__dirname, 'src')));
 
 // body-parser MW
 app.use(bodyParser.json());
@@ -82,14 +82,18 @@ app
     .post('/babysitters', function (req, res, next) {
         let babysitter = req.body;
 
-        // validations
-
-        db['babysitters'].save(babysitter, function (err, babysitter) {
-            if (err) {
-                res.send(err);
-            }
-            res.json(babysitter);
-        })
+        //validations
+        if (!babysitter.name || !babysitter.age) {
+            res.status(400);
+            res.json({ "error": "Bad babysitter!" });
+        } else {
+            db['babysitters'].save(babysitter, function (err, babysitter) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(babysitter);
+            })
+        }
     })
     .put('/babysitters/:id', function (req, res, next) {
         let babysitter = req.body;
@@ -182,19 +186,24 @@ app
         })
     })
     .put('/forumposts/:id', function (req, res, next) {
-        let forumPost = req.body;
-        let updatedPost = { $set: { _isDeleted: true } };
-
-        // validations
-
-        db['forum-posts'].update({ _id: mongojs.ObjectId(req.params.id) }, updatedPost, {},
-            function (err, forumPost) {
-                if (err) {
-                    res.send(err);
-                }
-                res.json(forumPost);
-            })
-    });
+		let forumPost = req.body;
+		let updatedPost;
+        		
+		if(forumPost._Deleted){
+            updatedPost = { $pull: { comments: { commentContent: forumPost.commentContent  } } };
+		}else if(forumPost._isDeleted){          
+            updatedPost = { $set: { _isDeleted: true } };
+		}else{
+            updatedPost = { $push: { comments: forumPost} };
+        }
+		db['forum-posts'].update({_id: mongojs.ObjectId(req.params.id)}, updatedPost, {},
+			function (err, forumPost) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(forumPost);
+			})
+	});
 
 // connection on port
 const port = process.env.PORT || 3003;
