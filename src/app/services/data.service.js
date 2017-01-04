@@ -41,6 +41,9 @@ var DataService = (function () {
     DataService.prototype.getForumPosts = function () {
         return this.http.get('/forumposts').map(function (res) { return (res.json()); });
     };
+    DataService.prototype.getForumPost = function (forumpostId) {
+        return this.http.get("/forumposts/" + forumpostId).map(function (res) { return (res.json()); });
+    };
     DataService.prototype.addForumPost = function (forumpost) {
         return this.http.post('/forumposts', JSON.stringify(forumpost), this.options);
     };
