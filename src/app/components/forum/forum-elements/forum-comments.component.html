@@ -11,7 +11,7 @@
           <form (ngSubmit)="addComment()" #forumPostForm="ngForm">
            <label for="theme-content">Съдържание на коментара:</label>
             <textarea id="theme-content" name="content" class="theme-content input" [(ngModel)]="postComment.commentContent" required
-                pattern="[().,!?%@' '0-9a-zA-Zа-яА-Я]*" #content="ngModel">
+                pattern="['-'\n'().,!?%@' '0-9a-zA-Zа-яА-Я]*" #content="ngModel">
            </textarea>
            <button class="submit" type="submit" (click)="clicked()" [disabled]="!forumPostForm.form.valid">Добави</button>
           </form>

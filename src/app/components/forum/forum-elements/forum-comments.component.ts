@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { LocalStorageService } from '../../../local-storage/index.js';
-import { ForumComponent } from './../forum.component';
+import { ForumPost } from './../../../models/forum.post.model';
 import { ForumComment } from './../../../models/forum.comment.model';
 
 
@@ -14,24 +14,35 @@ import { ForumComment } from './../../../models/forum.comment.model';
 
 export class ForumCommentsComponent implements OnInit {
 
-  forumPost: ForumComponent;
+  forumPost: ForumPost;
   postComment: ForumComment;
   comments: ForumComment[];
 
+  ngOnInit() {
+
+  }
+
   constructor(private dataService: DataService, storageService: LocalStorageService) {
 
-    this.forumPost = JSON.parse(localStorage.getItem('postToComment'));
-    localStorage.setItem('postToComment', null);
+    this.forumPost = {
+      title: '',
+      postContent: '',
+      user: '',
+      date: '',
+      _isDeleted: false,
+      comments: [],
+      _id: ''
+    };
     this.comments = this.forumPost.comments;
+
+    let postId = localStorage.getItem('postToComment');
+    this.dataService.getForumPost(postId).subscribe(post => { this.forumPost = post;
+      this.forumPost.comments.forEach(c => this.comments.push(c)); } );
     this.postComment = {
       commentContent: '',
       user: '',
       date: ''
-    };
-  }
-
-  ngOnInit() {
-
+   };
   }
 
   isUsable(): boolean {
@@ -43,25 +54,28 @@ export class ForumCommentsComponent implements OnInit {
     this.isvisible = !this.isvisible;
   }
 
-  removeComment(comment: any): void {
-    let index = this.forumPost.comments.findIndex(
-      localComment => localComment.date === comment.date &&
-       localComment.user === comment.user);
-    this.forumPost.comments.splice(index, 1);
-  }
-
   addComment() {
     let newComment = {
       commentContent: this.postComment.commentContent,
       user: localStorage.getItem('username'),
-      date: new Date().toLocaleTimeString(),
+      date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
       _id: this.forumPost._id
     };
 
-    this.forumPost.comments.push(newComment);
+    this.dataService.modifyForumPost(newComment).subscribe((ok) => this.comments.push(newComment));
+  }
 
-    this.dataService.modifyForumPost(newComment).subscribe((ok) => console.log('ok'));
-    console.log('addingComment');
-    console.log(JSON.stringify(newComment));
+  removeComment(comment: any) {
+    let commentToRemove = {
+      commentContent: comment.commentContent,
+      _id: this.forumPost._id,
+      _Deleted: true
+    };
+    this.dataService.modifyForumPost(commentToRemove).subscribe((ok) => {
+      let index = this.comments.findIndex(
+      localComment => localComment.date === comment.date &&
+      localComment.user === comment.user);
+      this.comments.splice(index, 1);
+    });
   }
 }

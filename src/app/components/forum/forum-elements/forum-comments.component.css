@@ -17,6 +17,9 @@
   width: 95%;
   height: auto;
   font-size: 13px;
+  -webkit-hyphens: auto!important;
+  -ms-hyphens: auto!important;
+  hyphens: auto!important;
 }
 
 .under-question{
@@ -44,7 +47,7 @@
 }
 
 .user::before{
-  background: url(../../../../images/logo.png);
+  background: url(../../../../assets/images/logo.png);
 }
 
 .user::before{
@@ -108,7 +111,9 @@ label{
 }
 
 .theme-content{
-
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   height: 170px;
   resize: none;
 }

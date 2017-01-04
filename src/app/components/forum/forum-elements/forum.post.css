@@ -4,14 +4,19 @@
   margin-top: 0;
 }
 
-.forum-question{
+p.forum-question{
   display: inline-block;
   position: relative;
+  overflow: hidden;
   left: 3%;
   width: 95%;
-  height: 40px;
+  height: 60px;
   font-size: 13px;
+  -webkit-hyphens: auto!important;
+  -ms-hyphens: auto!important;
+  hyphens: auto!important;
 }
+
 
 .under-question{
   display: inline-block;

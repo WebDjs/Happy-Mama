@@ -10,14 +10,18 @@
   margin: 1% 0 1% 5%;
 }
 
-.forum-question{
+p.forum-question{
   display: inline-block;
   position: relative;
   left: 1%;
-  width: 95%;
+  width: 95%x;
   height: auto;
   font-size: 13px;
+  -webkit-hyphens: auto!important;
+  -ms-hyphens: auto!important;
+  hyphens: auto!important;
 }
+
 
 .under-question{
   display: inline-block;
@@ -44,6 +48,10 @@
 }
 
 .user::before{
+  background: url(../../../../assets/images/logo.png);
+}
+
+.user::before{
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -52,11 +60,6 @@
   margin-bottom: -3px;
   margin-right: 4px;
 }
-
-.user::before{
-  background: url(../../../../assets/images/logo.png);
-}
-
 
 .date{
   margin-left: 25px;

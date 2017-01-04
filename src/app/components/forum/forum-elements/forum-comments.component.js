@@ -13,11 +13,24 @@ var data_service_1 = require('../../../services/data.service');
 var index_js_1 = require('../../../local-storage/index.js');
 var ForumCommentsComponent = (function () {
     function ForumCommentsComponent(dataService, storageService) {
+        var _this = this;
         this.dataService = dataService;
         this.isvisible = true;
-        this.forumPost = JSON.parse(localStorage.getItem('postToComment'));
-        localStorage.setItem('postToComment', null);
+        this.forumPost = {
+            title: '',
+            postContent: '',
+            user: '',
+            date: '',
+            _isDeleted: false,
+            comments: [],
+            _id: ''
+        };
         this.comments = this.forumPost.comments;
+        var postId = localStorage.getItem('postToComment');
+        this.dataService.getForumPost(postId).subscribe(function (post) {
+            _this.forumPost = post;
+            _this.forumPost.comments.forEach(function (c) { return _this.comments.push(c); });
+        });
         this.postComment = {
             commentContent: '',
             user: '',
@@ -32,22 +45,28 @@ var ForumCommentsComponent = (function () {
     ForumCommentsComponent.prototype.clicked = function () {
         this.isvisible = !this.isvisible;
     };
-    ForumCommentsComponent.prototype.removeComment = function (comment) {
-        var index = this.forumPost.comments.findIndex(function (localComment) { return localComment.date === comment.date &&
-            localComment.user === comment.user; });
-        this.forumPost.comments.splice(index, 1);
-    };
     ForumCommentsComponent.prototype.addComment = function () {
+        var _this = this;
         var newComment = {
             commentContent: this.postComment.commentContent,
             user: localStorage.getItem('username'),
-            date: new Date().toLocaleTimeString(),
+            date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
             _id: this.forumPost._id
         };
-        this.forumPost.comments.push(newComment);
-        this.dataService.modifyForumPost(newComment).subscribe(function (ok) { return console.log('ok'); });
-        console.log('addingComment');
-        console.log(JSON.stringify(newComment));
+        this.dataService.modifyForumPost(newComment).subscribe(function (ok) { return _this.comments.push(newComment); });
+    };
+    ForumCommentsComponent.prototype.removeComment = function (comment) {
+        var _this = this;
+        var commentToRemove = {
+            commentContent: comment.commentContent,
+            _id: this.forumPost._id,
+            _Deleted: true
+        };
+        this.dataService.modifyForumPost(commentToRemove).subscribe(function (ok) {
+            var index = _this.comments.findIndex(function (localComment) { return localComment.date === comment.date &&
+                localComment.user === comment.user; });
+            _this.comments.splice(index, 1);
+        });
     };
     ForumCommentsComponent = __decorate([
         core_1.Component({
